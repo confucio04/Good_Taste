@@ -1,9 +1,9 @@
-<div class="center-menu" x-data="{ mobileMenuOpen: false }">
+<div class="center-menu large-screen-menu" x-data="{ mobileMenuOpen: false }">
     <div class="title">
         <h1>{{ shop.name }}</h1>
     </div>
 
-    <div class="-mr-2 -my-2 ml-3 md:hidden">
+    <div class="mobile-menu">
         <button x-on:click="mobileMenuOpen = true" type="button" class=" link-menu btn">
             {% render 'icon-menu' %}
         </button>

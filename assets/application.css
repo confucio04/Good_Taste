@@ -27,13 +27,20 @@
 {
 outline: none;
 }
-
+.link-child
+{
+    background: white;
+    text-decoration: none;
+}
 /* Icon */
 .icon
 {
     width: 24px;
 }
-
+.icon-arrow
+{
+    width: 18px;
+}
 /* H1.. */
 .title h1
 {

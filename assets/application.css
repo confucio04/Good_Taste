@@ -47,14 +47,14 @@ outline: none;
     }
 
     .large-screen-menu {
-      display: block;
+      display: flex; 
     }
   }
 
   /* Estilos para pantallas pequeñas */
   @media (max-width: 767px) {
     .mobile-menu {
-      display: block;
+      display: flex; 
     }
 
     .large-screen-menu {

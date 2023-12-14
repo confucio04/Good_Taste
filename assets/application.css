@@ -10,18 +10,3 @@
     display: flex;
     gap: 40px;
 }
-img,
-video {
-  max-width: 100%;
-  height: auto;
-}
-
-@media (min-width: 640px) {
-  .sm\:gap-8 {
-    gap: 2rem;
-  }
-
-  .sm\:p-8 {
-    padding: 2rem;
-  }
-}

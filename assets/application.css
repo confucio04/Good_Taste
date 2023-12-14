@@ -57,7 +57,7 @@ outline: none;
   /* Estilos para pantallas grandes (mayores a 768px) */
 @media (min-width: 769px) {
     .navigation {
-      display: block;
+      display: flex;
     }
   }
   

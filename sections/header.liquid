@@ -1,16 +1,16 @@
-<div class="center-menu " x-data="{ mobileMenuOpen: false }">
+<div class="center-menu" x-data="{ mobileMenuOpen: false }">
     <div class="title">
         <h1>{{ shop.name }}</h1>
     </div>
 
     <div class="mobile-menu">
-        <button x-on:click="mobileMenuOpen = true" type="button" class=" link-menu btn">
+        <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="link-menu btn">
             {% render 'icon-menu' %}
         </button>
     </div>
 
-    <nav class="navigation">
-        {%liquid 
+    <nav class="navigation" :class="{ 'show': mobileMenuOpen }">
+        {% liquid 
             if section.settings.menu.links == blank 
                 assign main_menu_linklist = linklists[section.settings.menu].links
             else
@@ -21,7 +21,7 @@
             {% if link.links != blank %}
                 {% assign link_handle = link.handle | replace: '-', '_' %}
                 <div class="relative" x-data="{ {{ link_handle }}: false }">
-                    <button type="button" x-on:click="{{ link_handle }} = ! {{ link_handle }}" class="arrow">
+                    <button type="button" x-on:click="{{ link_handle }} = !{{ link_handle }}" class="arrow">
                         {{ link.title }}
                         {% render 'icon-dropdown' %}
                     </button>
@@ -55,7 +55,7 @@
         <a href="{{ routes.login_url }}" > 
             {% render 'icon-user' %}
         </a>
-         <a href="{{ routes.cart_url }}" >
+        <a href="{{ routes.cart_url }}" >
             {% render 'icon-shopping-bag' %}
         </a>
 
@@ -70,6 +70,7 @@
         {% endif %}
     </div>
 </div>     
+    
 {% schema %}
 {
   "name": "Header",

@@ -41,7 +41,7 @@ outline: none;
     color: #000000;
 }
 /* Menu_Desplegable */
-   
+   /* mobile */
 @media (min-width: 769px) {
     .mobile-menu {
       display: none;
@@ -53,8 +53,8 @@ outline: none;
       display: block;
     }
   }
-  
-  /* Estilos para pantallas grandes (mayores a 768px) */
+
+    /* Deskpto  */
 @media (min-width: 769px) {
     .navigation {
       display: flex;
@@ -62,13 +62,32 @@ outline: none;
     }
   }
   
-  /* Estilos para pantallas pequeñas (hasta 768px) */
+  
   @media (max-width: 768px) {
     .navigation {
       display: none;
     }
   }
   
+  @media (max-width: 768px) {
+    .navigation.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+    }
+
+    .navigation.show a {
+        color: white; /* Cambia el color de texto según tus necesidades */
+    }
+
+    .navigation.show .relative {
+        margin-bottom: 10px; /* Ajusta el espacio entre elementos según tus necesidades */
+    }
+}
 
 /* Icon */
 .icon

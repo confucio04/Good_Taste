@@ -5,10 +5,12 @@
 }
 .title{
     padding-left: 40px;
+    font-size: 29px;
 }
 .navigation{
     display: flex;
     gap: 40px;
+    font-size: 15px;
 }
 .icon{
     width: 24px;

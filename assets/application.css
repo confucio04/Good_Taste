@@ -40,6 +40,27 @@ outline: none;
     text-decoration: none;
     color: #000000;
 }
+/* Menu_Desplegable */
+@media (min-width: 768px) {
+    .mobile-menu {
+      display: none;
+    }
+
+    .large-screen-menu {
+      display: block;
+    }
+  }
+
+  /* Estilos para pantallas pequeñas */
+  @media (max-width: 767px) {
+    .mobile-menu {
+      display: block;
+    }
+
+    .large-screen-menu {
+      display: none;
+    }
+  }
 /* Icon */
 .icon
 {

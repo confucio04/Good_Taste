@@ -15,7 +15,11 @@
     gap: 40px;
     font-size: 15px;
 }
-
+.arrow{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
 .link-menu{
     background: white;
      padding:2px; 

@@ -21,7 +21,7 @@
             {% if link.links != blank %}
                 {% assign link_handle = link.handle | replace: '-', '_' %}
                 <div class="relative" x-data="{ {{ link_handle }}: false }">
-                    <button type="button" x-on:click="{{ link_handle }} = ! {{ link_handle }}" class="inline-flex items-center">
+                    <button type="button" x-on:click="{{ link_handle }} = ! {{ link_handle }}" class="arrow">
                         {{ link.title }}
                         {% render 'icon-dropdown' %}
                     </button>

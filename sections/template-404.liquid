@@ -1,0 +1,12 @@
+<div class="max-w-md">
+    <div class="heading-text">{{ section.settings.title }}</div>
+    <div class="my-4"><p class="subtext-text">{{ section.settings.subtext_title }}</p></div>
+    <div class="my-4">
+        {% if section.settings.button_url == blank %}
+            {% assign shop_url = shop.secure_url %}
+        {% else %}
+            {% assign shop_url = section.settings.button_url %}
+        {% endif %}
+        <a href="{{ shop_url }}" class="button-style">{{ section.settings.button_label }}</a>
+    </div>
+</div>

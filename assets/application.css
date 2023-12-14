@@ -10,3 +10,6 @@
     display: flex;
     gap: 40px;
 }
+.icon{
+    width: 24px;
+}

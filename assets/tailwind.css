@@ -1,0 +1,181 @@
+.center-menu{
+    display: flex;
+    align-items: center;
+    gap: 96px;
+}
+.title{
+    padding-left: 40px;
+}
+
+
+/* Menu */
+.navigation
+{
+    display: flex;
+    gap: 40px;
+    font-size: 15px;
+}
+.arrow{
+    font-size: 14px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    border: none;
+    background: white;
+}
+.link-menu{
+    background: white;
+     padding:2px; 
+     align-items:center;
+     justify-content:center; 
+     border-width: 0;
+}
+.link-menu:focus
+{
+outline: none;
+}
+.link-child
+{
+    background: white;
+    text-decoration: none;
+    color: #000000;
+}
+/* Menu_Desplegable */
+   /* mobile */
+@media (min-width: 769px) {
+    .mobile-menu {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .mobile-menu {
+      display: block;
+    }
+  }
+
+    /* Deskpto  */
+@media (min-width: 769px) {
+    .navigation {
+      display: flex;
+      padding-left: 36px;
+    }
+  }
+  
+  
+  @media (max-width: 768px) {
+    .navigation {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .navigation.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+    }
+
+    .navigation.show a {
+        color: black; /* Cambia el color de texto según tus necesidades */
+    }
+
+    .navigation.show .relative {
+        margin-bottom: 10px; /* Ajusta el espacio entre elementos según tus necesidades */
+    }
+}
+
+/* Estilos para pantallas pequeñas (hasta 768px) */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* Evitar el desplazamiento horizontal en dispositivos móviles */
+    }
+
+    .center-menu {
+        overflow: hidden; /* Evitar el desbordamiento de elementos hijos */
+    }
+
+    .navigation.show {
+        margin: 0;
+        padding: 10px; /* Ajusta según sea necesario para evitar márgenes blancos o negros */
+    }
+}
+
+
+/* Icon */
+.icon
+{
+    width: 24px;
+    color:#4d2323;
+}
+.icon-arrow
+{
+    width: 14px;
+}
+/* H1.. */
+.title h1
+{
+    font-size: 29px;
+}
+
+/* btns */
+.btn{
+    cursor: pointer;
+}
+.button-style 
+{
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: medium;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    background-color: #34d399;
+    border: 1px solid #34d399;
+    color: #ffffff;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+.button-style:hover 
+{
+    background-color: #10b981;
+}
+/* cosas */
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 7rem 0;
+    height: 100vh;
+}
+
+.max-w-md {
+    max-width: 28rem;
+}
+
+.heading-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.subtext-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+}
+
+/* plataforma */
+.platform
+{
+ display: flex;
+ gap: 22px;
+}
+/* error-404 */
+.error
+{
+    display: flex;
+    justify-content: center;
+}

@@ -54,6 +54,21 @@ outline: none;
     }
   }
   
+  /* Estilos para pantallas grandes (mayores a 768px) */
+@media (min-width: 769px) {
+    .navigation {
+      display: block;
+    }
+  }
+  
+  /* Estilos para pantallas pequeñas (hasta 768px) */
+  @media (max-width: 768px) {
+    .navigation {
+      display: none;
+    }
+  }
+  
+
 /* Icon */
 .icon
 {

@@ -89,6 +89,23 @@ outline: none;
     }
 }
 
+/* Estilos para pantallas pequeñas (hasta 768px) */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* Evitar el desplazamiento horizontal en dispositivos móviles */
+    }
+
+    .center-menu {
+        overflow: hidden; /* Evitar el desbordamiento de elementos hijos */
+    }
+
+    .navigation.show {
+        margin: 0;
+        padding: 10px; /* Ajusta según sea necesario para evitar márgenes blancos o negros */
+    }
+}
+
+
 /* Icon */
 .icon
 {

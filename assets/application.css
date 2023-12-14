@@ -27,40 +27,11 @@
 {
 outline: none;
 }
-/* .link-child
+.link-child
 {
     background: white;
     text-decoration: none;
-} */
-
-/* Margin y Padding */
-.margin-negative-3 {
-    margin: -0.75rem;
-  }
-  
-  .padding-3 {
-    padding: 0.75rem;
-  }
-  
-  /* Flex y Alineación de Ítems */
-  .flex {
-    display: flex;
-  }
-  
-  .items-start {
-    align-items: flex-start;
-  }
-  
-  /* Bordes Redondeados */
-  .rounded-lg {
-    border-radius: 0.5rem;
-  }
-  
-  /* Efecto Hover */
-  .hover\:bg-gray-100:hover {
-    background-color: #f3f4f6; /* Puedes ajustar el color según tu preferencia */
-  }  
-
+}
 /* Icon */
 .icon
 {

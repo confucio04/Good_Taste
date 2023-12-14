@@ -9,7 +9,6 @@
         <link rel="canonical" href="{{ canonical_url }}">
         <title>{{ page_title }}</title>
         {{ content_for_header }}
-        {{ 'application.css' | asset_url | stylesheet_tag }}
         {{ 'tailwind.css' | asset_url | stylesheet_tag }}
         <script src="{{ 'alpine.min.js' | asset_url }}" defer></script>
       </head>

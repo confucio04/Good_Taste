@@ -1,6 +1,12 @@
-<div class="center-menu">
+<div class="center-menu" x-data="{ mobileMenuOpen: false }">
     <div class="title">
         <h1>{{ shop.name }}</h1>
+    </div>
+
+    <div class="-mr-2 -my-2 ml-3 md:hidden">
+        <button x-on:click="mobileMenuOpen = true" type="button" class="bg-white p-2 inline-flex items-center justify-center focus:outline-none">
+            {% render 'icon-menu' %}
+        </button>
     </div>
 
     <nav class="navigation">
@@ -20,7 +26,7 @@
                         {% render 'icon-dropdown' %}
                     </button>
 
-                    <div>
+                    <div x-show="{{ link_handle }}" @click.away="{{ link_handle }} = false">
                         <div class="shadow-lg border ring-black ring-opacity-5 overflow-hidden rounded-lg">
                             <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                                 {% for childlink in link.links %}

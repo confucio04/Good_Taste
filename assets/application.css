@@ -77,11 +77,10 @@ outline: none;
         top: 60px;
         left: 0;
         width: 100%;
-        background-color: #333;
     }
 
     .navigation.show a {
-        color: white; /* Cambia el color de texto según tus necesidades */
+        color: black; /* Cambia el color de texto según tus necesidades */
     }
 
     .navigation.show .relative {

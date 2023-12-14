@@ -41,26 +41,19 @@ outline: none;
     color: #000000;
 }
 /* Menu_Desplegable */
-@media (min-width: 768px) {
+   
+@media (min-width: 769px) {
     .mobile-menu {
       display: none;
     }
-
-    .large-screen-menu {
-      display: flex; 
-    }
   }
-
-  /* Estilos para pantallas pequeñas */
-  @media (max-width: 767px) {
+  
+  @media (max-width: 768px) {
     .mobile-menu {
-      display: flex; 
-    }
-
-    .large-screen-menu {
-      display: none;
+      display: block;
     }
   }
+  
 /* Icon */
 .icon
 {

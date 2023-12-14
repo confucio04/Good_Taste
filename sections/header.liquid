@@ -49,14 +49,14 @@
     </nav>
    
     <div>
-        <a href="{{ routes.cart_url }}" >
-            {% render 'icon-shopping-bag' %}
+        <a href="{{ routes.search_url }}">
+            {% render 'icon-search' %}
         </a>
         <a href="{{ routes.login_url }}" > 
             {% render 'icon-user' %}
         </a>
-        <a href="{{ routes.search_url }}">
-            {% render 'icon-search' %}
+         <a href="{{ routes.cart_url }}" >
+            {% render 'icon-shopping-bag' %}
         </a>
 
         {% if shop.customer_accounts_enabled %}

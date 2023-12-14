@@ -173,3 +173,9 @@ outline: none;
  display: flex;
  gap: 22px;
 }
+/* error-404 */
+.error
+{
+    display: flex;
+    justify-content: center;
+}

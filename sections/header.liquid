@@ -1,75 +1,77 @@
-<div class="center-menu large-screen-menu" x-data="{ mobileMenuOpen: false }">
-    <div class="title">
-        <h1>{{ shop.name }}</h1>
-    </div>
+<div class="center-menu " x-data="{ mobileMenuOpen: false }">
+    <div class="large-screen-menu">
+        <div class="title">
+            <h1>{{ shop.name }}</h1>
+        </div>
 
-    <div class="mobile-menu">
-        <button x-on:click="mobileMenuOpen = true" type="button" class=" link-menu btn">
-            {% render 'icon-menu' %}
-        </button>
-    </div>
+        <div class="mobile-menu">
+            <button x-on:click="mobileMenuOpen = true" type="button" class=" link-menu btn">
+                {% render 'icon-menu' %}
+            </button>
+        </div>
 
-    <nav class="navigation">
-        {%liquid 
-            if section.settings.menu.links == blank 
-                assign main_menu_linklist = linklists[section.settings.menu].links
-            else
-                assign main_menu_linklist = section.settings.menu.links 
-            endif 
-        %}
-        {% for link in main_menu_linklist %}
-            {% if link.links != blank %}
-                {% assign link_handle = link.handle | replace: '-', '_' %}
-                <div class="relative" x-data="{ {{ link_handle }}: false }">
-                    <button type="button" x-on:click="{{ link_handle }} = ! {{ link_handle }}" class="arrow">
-                        {{ link.title }}
-                        {% render 'icon-dropdown' %}
-                    </button>
+        <nav class="navigation">
+            {%liquid 
+                if section.settings.menu.links == blank 
+                    assign main_menu_linklist = linklists[section.settings.menu].links
+                else
+                    assign main_menu_linklist = section.settings.menu.links 
+                endif 
+            %}
+            {% for link in main_menu_linklist %}
+                {% if link.links != blank %}
+                    {% assign link_handle = link.handle | replace: '-', '_' %}
+                    <div class="relative" x-data="{ {{ link_handle }}: false }">
+                        <button type="button" x-on:click="{{ link_handle }} = ! {{ link_handle }}" class="arrow">
+                            {{ link.title }}
+                            {% render 'icon-dropdown' %}
+                        </button>
 
-                    <div x-show="{{ link_handle }}" @click.away="{{ link_handle }} = false">
-                        <div class="shadow-lg border ring-black ring-opacity-5 overflow-hidden rounded-lg">
-                            <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                                {% for childlink in link.links %}
-                                    <a href="{{ childlink.url }}" class="link-child">
-                                        <div class="ml-4">
-                                            <p class="link-child">
-                                                {{ childlink.title }}
-                                            </p>
-                                        </div>
-                                    </a>
-                                {% endfor %}
+                        <div x-show="{{ link_handle }}" @click.away="{{ link_handle }} = false">
+                            <div class="shadow-lg border ring-black ring-opacity-5 overflow-hidden rounded-lg">
+                                <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                                    {% for childlink in link.links %}
+                                        <a href="{{ childlink.url }}" class="link-child">
+                                            <div class="ml-4">
+                                                <p class="link-child">
+                                                    {{ childlink.title }}
+                                                </p>
+                                            </div>
+                                        </a>
+                                    {% endfor %}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            {% else %}
-                <a href="{{ link.url }}" class="link-child">{{ link.title }}</a>
-            {% endif %}
-        {% endfor %}
-    </nav>
-   
-    <div>
-        <a href="{{ routes.search_url }}">
-            {% render 'icon-search' %}
-        </a>
-        <a href="{{ routes.login_url }}" > 
-            {% render 'icon-user' %}
-        </a>
-         <a href="{{ routes.cart_url }}" >
-            {% render 'icon-shopping-bag' %}
-        </a>
+                {% else %}
+                    <a href="{{ link.url }}" class="link-child">{{ link.title }}</a>
+                {% endif %}
+            {% endfor %}
+        </nav>
+    
+        <div>
+            <a href="{{ routes.search_url }}">
+                {% render 'icon-search' %}
+            </a>
+            <a href="{{ routes.login_url }}" > 
+                {% render 'icon-user' %}
+            </a>
+            <a href="{{ routes.cart_url }}" >
+                {% render 'icon-shopping-bag' %}
+            </a>
 
-        {% if shop.customer_accounts_enabled %}
-            {% if customer %}
-                <a href="{{ routes.account_url }}" >account</a>
-                {{ 'Log out' | customer_logout_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
-            {% else %}
-                {{ 'Log in ' | customer_login_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
-                {{ 'Register' | customer_register_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
+            {% if shop.customer_accounts_enabled %}
+                {% if customer %}
+                    <a href="{{ routes.account_url }}" >account</a>
+                    {{ 'Log out' | customer_logout_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
+                {% else %}
+                    {{ 'Log in ' | customer_login_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
+                    {{ 'Register' | customer_register_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
+                {% endif %}
             {% endif %}
-        {% endif %}
-    </div>
-</div>     
+        </div>
+    </div>     
+</div>
 {% schema %}
 {
   "name": "Header",

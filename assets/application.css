@@ -1,0 +1,13 @@
+.center-menu{
+    display: flex;
+    align-items: center;
+    gap: 140px;
+}
+.title{
+    padding-left: 37px;
+    display: flex;
+}
+.navigation{
+    display: flex;
+    gap: 27px;
+}

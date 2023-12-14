@@ -1,7 +1,7 @@
 .center-menu{
     display: flex;
     align-items: center;
-    gap: 140px;
+    gap: 70px;
 }
 .title{
     padding-left: 40px;

@@ -375,3 +375,15 @@ outline: none;
     background-color: #193C46;
     color: #fff;
 }
+
+/* about-us */
+.about
+{
+   background:  #fef1e4;
+}
+.about img 
+{
+    width: 100%;
+    object-fit: contain;
+    min-height: 255px;
+}

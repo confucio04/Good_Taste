@@ -341,8 +341,24 @@ outline: none;
     color: #fff;
 }
 
-.collections-center
-{
+.collections-center {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.collections {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 600px; /* Puedes ajustar el ancho máximo según tus necesidades */
+}
+
+.card {
+    width: 30%; /* Ajusta el ancho de cada tarjeta según tus necesidades */
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    text-align: center;
 }

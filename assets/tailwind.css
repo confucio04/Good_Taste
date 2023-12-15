@@ -420,6 +420,7 @@ outline: none;
 
 .about-info strong 
 {
+    font-weight: bold;
     padding-left: 29%;
     font-size: 40px;
     font-weight: 600;

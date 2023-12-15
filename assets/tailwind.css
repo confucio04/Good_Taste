@@ -297,3 +297,28 @@ outline: none;
 {
     color: red;
 }
+.position-column
+{
+    display: flex;
+    flex-direction: column;
+}
+.cart {
+    line-height: 1.25em;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    padding: 18px 26px;
+    border: 2px solid #193C46;
+    color: #193c46;
+    background-color: transparent;
+    overflow: hidden;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.cart:hover {
+    background-color: #193C46;
+    color: #fff;
+}

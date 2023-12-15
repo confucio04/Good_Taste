@@ -387,3 +387,16 @@ outline: none;
     object-fit: contain;
     min-height: 255px;
 }
+.about-info u::after
+{
+    content: "";
+    display: block;
+    position: absolute;
+    left: -1px;
+    bottom: -4px;
+    height: 4px;
+    width: calc(100% + 2px);
+    background-image: url('https://cdn.shopify.com/s/files/1/0683/0007/9353/files/after.svg?v=1702670905');
+    background-size: auto 4px;
+    background-position: center;
+}

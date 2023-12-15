@@ -261,6 +261,20 @@ outline: none;
     height: auto;
   }
   
+  .card-img img {
+    width: 300px; /* Establece el ancho deseado para todas las imágenes */
+    height: auto; /* Mantén la proporción original */
+  }
+
+  .card-info p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Muestra solo 3 líneas de texto */
+    -webkit-box-orient: vertical;
+    margin-bottom: 10px; /* Añade espacio entre las líneas de texto */
+  }
+
   .card-info {
     text-align: center;
     padding: 16px;

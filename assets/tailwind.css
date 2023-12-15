@@ -469,3 +469,20 @@ outline: none;
     background-size: auto 4px;
     background-position: 0% 0%;
 }
+
+.field__input
+{
+    background: transparent;
+    border: transparent;
+    color: #193c46;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1em;
+    letter-spacing: -.01em;
+    border-bottom: 1px solid;
+    outline: unset;
+    box-shadow: unset;
+    padding: 12px 0;
+    height: unset;
+    min-height: unset;
+}

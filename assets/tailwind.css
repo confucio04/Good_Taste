@@ -470,6 +470,12 @@ outline: none;
     background-position: 0% 0%;
 }
 
+.field
+{
+    display: flex;
+    border-bottom: thin solid;
+}
+
 .field__input
 {
     background: transparent;
@@ -479,10 +485,18 @@ outline: none;
     font-size: 16px;
     line-height: 1em;
     letter-spacing: -.01em;
-    border-bottom: 1px solid;
     outline: unset;
     box-shadow: unset;
     padding: 12px 0;
     height: unset;
     min-height: unset;
+}
+.newsletter-form__button .field__button
+{
+    position: absolute;
+    height: 2.5rem;
+    right: 0;
+    width: 2.5rem;
+    border: transparent;
+    background: transparent;
 }

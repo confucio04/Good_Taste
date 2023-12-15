@@ -236,6 +236,11 @@ outline: none;
 }
 /* collections */
 
+.template-collections
+{
+    padding-top: 20px;
+}
+
 .center-card {
     display: flex;
     flex-wrap: wrap;

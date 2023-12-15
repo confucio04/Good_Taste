@@ -317,7 +317,8 @@ outline: none;
 }
 .space
 {
-    padding-top: 31px;
+    display: block;
+    padding-top: 24.5px;
 }
 .product-container {
     display: flex;

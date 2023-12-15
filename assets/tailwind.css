@@ -315,7 +315,10 @@ outline: none;
 .color {
     color: red;
 }
-
+.space
+{
+    padding-top: 31px;
+}
 .product-container {
     display: flex;
     flex-direction: column;

@@ -261,11 +261,6 @@ outline: none;
     height: auto;
   }
   
-  .card-img img {
-    width: 300px; /* Ancho deseado para todas las imágenes */
-    height: auto; /* Mantén la proporción original */
-  }
-
   .card-info p {
     max-height: 90px; /* Altura máxima para mostrar antes de hacer clic */
     overflow: hidden;
@@ -343,22 +338,30 @@ outline: none;
 
 .collections-center {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .collections {
     display: flex;
     flex-wrap: wrap;
-    max-width: 600px; /* Puedes ajustar el ancho máximo según tus necesidades */
+    justify-content: space-evenly;
+    max-width: 800px; /* Puedes ajustar el ancho máximo según tus necesidades */
 }
 
 .card {
-    width: 30%; /* Ajusta el ancho de cada tarjeta según tus necesidades */
+    flex: 0 0 calc(30% - 20px); /* Ajusta el ancho de cada tarjeta según tus necesidades */
     margin: 10px;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-sizing: border-box;
     text-align: center;
+}
+
+.card-img img {
+    max-width: 100%; /* Asegura que la imagen no sobresalga del contenedor de la tarjeta */
+    height: auto;
 }

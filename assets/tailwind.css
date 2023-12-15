@@ -297,6 +297,7 @@ outline: none;
     padding-top: 10px;
     font-size: 16px;
     line-height: 1.625em;
+    padding-bottom: 10px;
 }
 
 .style {
@@ -311,7 +312,10 @@ outline: none;
     color: #193c46;
     background-color: pink;
 }
-
+.style-ligth
+{
+   color: #fcefca;
+}
 .color {
     color: red;
 }

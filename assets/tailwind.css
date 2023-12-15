@@ -249,7 +249,10 @@ outline: none;
     text-align: center;
     padding: 16px;
   }
-
+  .card-info p 
+  {
+    padding-top: 10px;
+  }
   .style 
   {
     padding: 6.5px 15px;

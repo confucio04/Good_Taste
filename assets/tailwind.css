@@ -472,6 +472,7 @@ outline: none;
 
 .field
 {
+    position: relative;
     display: flex;
     border-bottom: thin solid;
 }
@@ -491,7 +492,7 @@ outline: none;
     height: unset;
     min-height: unset;
 }
-.newsletter-form__button svg
+.newsletter-form__button 
 {
     position: absolute;
     height: 2.5rem;

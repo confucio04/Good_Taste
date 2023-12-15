@@ -127,6 +127,20 @@ outline: none;
 {
     width: 14px;
 }
+.star-container {
+    font-size: 14px;
+  }
+
+  .star {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 8px solid #e44a3e;
+    margin: 0 2px;
+  }
+
 /* H1.. */
 .title h1
 {

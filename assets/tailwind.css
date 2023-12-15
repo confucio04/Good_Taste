@@ -139,8 +139,8 @@ outline: none;
     border-right: 10px solid transparent;
     border-bottom: 20px solid #e44a3e;
     background-color: #e44a3e; /* Fondo amarillo */
-    clip-path: polygon(50% 0%, 56% 34%, 90% 34%, 61% 56%, 68% 90%, 50% 70%, 32% 90%, 39% 56%, 10% 34%, 44% 34%);
-    margin: 0 -5px; /* Reducí el margen */
+    clip-path: polygon(50% 0%, 61% 35%, 100% 35%, 70% 50%, 80% 90%, 50% 70%, 20% 90%, 30% 50%, 0% 35%, 39% 35%);
+      margin: 0 -5px; /* Reducí el margen */
   }
 
 /* H1.. */

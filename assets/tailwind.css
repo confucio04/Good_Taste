@@ -262,17 +262,19 @@ outline: none;
   }
   
   .card-img img {
-    width: 300px; /* Establece el ancho deseado para todas las imágenes */
+    width: 300px; /* Ancho deseado para todas las imágenes */
     height: auto; /* Mantén la proporción original */
   }
 
   .card-info p {
+    max-height: 90px; /* Altura máxima para mostrar antes de hacer clic */
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3; /* Muestra solo 3 líneas de texto */
     -webkit-box-orient: vertical;
     margin-bottom: 10px; /* Añade espacio entre las líneas de texto */
+    transition: max-height 0.3s ease; /* Agrega transición suave para cambiar la altura */
   }
 
   .card-info {

@@ -297,11 +297,13 @@ outline: none;
 {
     color: red;
 }
-.position-column
-{
+.product-container {
     display: flex;
     flex-direction: column;
-}
+    align-items: center; 
+    margin-bottom: 10px; 
+    gap: 8px;
+  }
 .cart {
     line-height: 1.25em;
     letter-spacing: .15em;

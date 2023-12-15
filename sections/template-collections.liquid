@@ -93,6 +93,29 @@
   </div>
 </div>
 
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cardInfos = document.querySelectorAll('.card-info');
+  
+      cardInfos.forEach(cardInfo => {
+        const showMoreButton = document.createElement('button');
+        showMoreButton.textContent = 'Show More';
+        showMoreButton.classList.add('show-more-button');
+  
+        const fullText = cardInfo.querySelector('p').textContent;
+  
+        showMoreButton.addEventListener('click', function() {
+          cardInfo.querySelector('p').textContent = fullText;
+          showMoreButton.style.display = 'none';
+        });
+  
+        cardInfo.appendChild(showMoreButton);
+      });
+    });
+  </script>
+  
+
 {% schema %}
 {
     "name": "Template Collection",

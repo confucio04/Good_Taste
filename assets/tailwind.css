@@ -337,24 +337,29 @@ outline: none;
 }
 
 
-.card-container {
+.center-card {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    max-width: 800px;
+    justify-content: space-around;
+}
+
+.collections {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px; /* Espacio entre las filas */
 }
 
 .card {
-    width: calc(33.33% - 20px);
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    width: 300px; /* Ancho de cada tarjeta */
+    margin: 10px; /* Espacio entre las tarjetas */
+    border: 1px solid #ddd; /* Borde de la tarjeta */
+    padding: 15px;
     box-sizing: border-box;
-    text-align: center;
 }
 
-.card img {
+/* Agrega estilos adicionales según sea necesario */
+.card-img img {
     max-width: 100%;
     height: auto;
 }
+

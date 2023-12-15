@@ -451,6 +451,7 @@ outline: none;
 {
     display: grid;
     grid-template-columns: 1.5fr repeat(4, 1fr);
+    align-items: baseline;
 }
 .good 
 {
@@ -510,4 +511,8 @@ outline: none;
     border: transparent;
     background: transparent;
     cursor: pointer;
+}
+.position
+{
+    padding-left: 41px ;
 }

@@ -182,6 +182,10 @@ outline: none;
 /* img */
 
 /* principal */
+.content
+{
+    background: #fef1e4;
+}
 .content h3
 {
     padding-top: 37px;

@@ -377,9 +377,16 @@ outline: none;
 }
 
 /* about-us */
+.template-about
+{
+    padding-top: 10%;
+}
 .about
 {
+
    background:  #fef1e4;
+   padding-top: 80px;
+   padding-bottom: 70px;
 }
 .about img 
 {

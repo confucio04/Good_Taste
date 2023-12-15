@@ -128,7 +128,7 @@ outline: none;
     width: 14px;
 }
 .star-container {
-    font-size: 24px;
+    font-size: 10px;
   }
 
   .star {
@@ -140,7 +140,7 @@ outline: none;
     border-bottom: 20px solid #e44a3e;
     background-color: #e44a3e; /* Fondo amarillo */
     clip-path: polygon(50% 0%, 61% 35%, 100% 35%, 70% 50%, 80% 90%, 50% 70%, 20% 90%, 30% 50%, 0% 35%, 39% 35%);
-      margin: 0 -5px; /* Reducí el margen */
+      margin: 0 -1px; /* Reducí el margen */
   }
 
 /* H1.. */

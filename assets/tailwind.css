@@ -182,9 +182,12 @@ outline: none;
 /* img */
 
 /* principal */
-.content
+.homepage
 {
-    background: #fef1e4;
+ background: #fef1e4;
+ width: 100%;
+ object-fit: cover;
+ height: 600px;
 }
 .content h3
 {

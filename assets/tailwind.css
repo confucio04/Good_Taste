@@ -270,7 +270,7 @@ outline: none;
 }
 .card img {
     width: 84%;
-    object-fit: cover;
+    object-fit: contain;
     min-height: 255px;
 }
 

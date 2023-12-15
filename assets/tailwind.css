@@ -180,3 +180,13 @@ outline: none;
     justify-content: center;
 }
 /* img */
+
+/* principal */
+.content
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: #fef1e4;
+}

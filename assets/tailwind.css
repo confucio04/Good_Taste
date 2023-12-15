@@ -128,18 +128,19 @@ outline: none;
     width: 14px;
 }
 .star-container {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .star {
     display: inline-block;
     width: 0;
     height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 16px solid yellow;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    margin: 0 5px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #e44a3e;
+    background-color: #e44a3e; /* Fondo amarillo */
+    clip-path: polygon(50% 0%, 56% 34%, 90% 34%, 61% 56%, 68% 90%, 50% 70%, 32% 90%, 39% 56%, 10% 34%, 44% 34%);
+    margin: 0 -5px; /* Reducí el margen */
   }
 
 /* H1.. */

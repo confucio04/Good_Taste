@@ -435,6 +435,10 @@ outline: none;
 }
 
 /* footer */
+.template-footer
+{
+    padding: 6% 0 0 8%;
+}
 .end
 {
     display: grid;

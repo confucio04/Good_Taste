@@ -338,23 +338,19 @@ outline: none;
 
 
 .center-card {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; /* Distribuye las filas uniformemente */
-}
-
-.collections {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px; /* Espacio entre las filas */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de tamaño igual */
+    gap: 20px; /* Espacio entre las tarjetas */
 }
 
 .card {
     width: 300px;
-    margin: 10px;
     border: 1px solid #ddd;
     padding: 15px;
     box-sizing: border-box;
 }
+
+/* Otros estilos según sea necesario */
+
 
 

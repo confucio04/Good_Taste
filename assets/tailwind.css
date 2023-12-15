@@ -340,3 +340,9 @@ outline: none;
     background-color: #193C46;
     color: #fff;
 }
+
+.collections-center
+{
+    display: flex;
+    flex-direction: column;
+}

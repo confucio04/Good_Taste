@@ -516,8 +516,11 @@ outline: none;
 {
     padding-left: 41px ;
 }
-.footer-menu
+.footer-menu 
 {
     padding-left: 0;
+}
+.footer-menu a
+{
     color: #193c46;
 }

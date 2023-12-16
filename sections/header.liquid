@@ -8,8 +8,9 @@
             {% render 'icon-menu' %}
         </button>
     </div>
+    
 
-    <div class="mobile-navigation" :class="{ 'show': mobileMenuOpen }">
+    <nav class="navigation" :class="{ 'show': mobileMenuOpen }">
         {% liquid 
             if section.settings.menu.links == blank 
                 assign main_menu_linklist = linklists[section.settings.menu].links
@@ -46,7 +47,7 @@
                 <a href="{{ link.url }}" class="link-child">{{ link.title }}</a>
             {% endif %}
         {% endfor %}
-    </div>
+    </nav>
    
     <div class="platform">
         <a href="{{ routes.search_url }}">
@@ -69,8 +70,7 @@
             {% endif %}
         {% endif %}
     </div>
-</div>
-
+</div>     
     
 {% schema %}
 {

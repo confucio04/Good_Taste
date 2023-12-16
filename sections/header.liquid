@@ -5,9 +5,10 @@
             <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="link-menu btn">
                 {% render 'icon-menu' %}
             </button>
-        </div>    
+        </div>  
+        <h1>{{ shop.name }}</h1>  
     </div> 
-    <h1>{{ shop.name }}</h1>
+   
     
 
     <nav class="navigation" :class="{ 'show': mobileMenuOpen }">

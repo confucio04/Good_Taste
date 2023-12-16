@@ -5,6 +5,14 @@
     text-decoration: none;
 }
 
+.mobile-navigation {
+    transition: transform 0.3s ease-in-out;
+}
+
+.show {
+    transform: translateY(0);
+}
+
 
 .center-menu {
     display: flex;

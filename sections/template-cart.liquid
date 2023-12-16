@@ -8,8 +8,7 @@
       {% for item in cart.items %}
         <div class="cart-item">
           <div class="cart-item-img">
-            <img src="{{ item.product.featured_image | image_url: width: 300 }}
-                " 
+            <img src="{{ item.product.featured_image | image_url: width: 300 }}" 
                 alt="{{ item.title }}" 
                 width="300"
                 height="150"
@@ -34,52 +33,7 @@
     </div>
   </section>
   
-  <style>
-    /* Estilos para la Sección del Carrito */
-    .template-cart {
-        padding-top: 12%;
-    }
   
-    .center-cart {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-  
-    .cart-item {
-      display: flex;
-      border: 1px solid #ddd;
-      margin-bottom: 10px;
-      padding: 10px;
-    }
-  
-    .cart-item-img img {
-      width: 80px;
-      height: auto;
-      margin-right: 10px;
-    }
-  
-    .cart-item-info {
-      flex: 1;
-    }
-  
-    .cart-total {
-      margin-top: 20px;
-      text-align: center;
-    }
-  
-    .checkout-button {
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      padding: 10px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 10px 0;
-      cursor: pointer;
-    }
-  </style>
 
 {% schema %}
 {

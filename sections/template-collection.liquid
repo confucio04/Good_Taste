@@ -3,7 +3,7 @@
 <div class="product-container">
     {% for product in collection.products %}
       <div class="product">
-        <img src="{{ product.featured_image.src | img_url: width: 300  }}" 
+        <img src="{{ product.featured_image.src | image_url: width: 300, height: 150  }}" 
             alt="{{ product.title }}"
             loading="eager"
             width="300"

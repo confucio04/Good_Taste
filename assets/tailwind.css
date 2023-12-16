@@ -281,29 +281,31 @@ outline: none;
 /* img */
 
 /* principal */
-.homepage
-{
- background: #fef1e4;
+.homepage {
+    background: #fef1e4;
+    padding: 20px; /* Añadido para mejorar la legibilidad en dispositivos más pequeños */
+    text-align: center;
 }
-.homepage img
-{
- width: 100%;
- object-fit: cover;
- height: 600px;
+
+.homepage img {
+    width: 100%;
+    max-height: 600px; /* Cambiado a max-height para que la imagen sea responsive en altura también */
+    object-fit: cover;
 }
-.content h3
-{
-    padding-top: 37px;
+
+.content h3 {
+    padding-top: 20px; /* Ajustado para mantener un espacio uniforme */
     text-align: center;
     font-weight: 400;
-    font-size: 45px;
+    font-size: 2rem; /* Cambiado a 2rem para dispositivos más pequeños */
 }
-.content p
-{
+
+.content p {
     text-align: center;
     padding-bottom: 15px;
-    font-size: 19px;
+    font-size: 1rem; /* Cambiado a 1rem para dispositivos más pequeños */
 }
+
 /* collections */
 
 .template-collections
@@ -601,21 +603,6 @@ outline: none;
 }
 
 
-/* responsive-mobile */
-@media screen and (max-width: 600px) {
-    .homepage {
-        padding: 20px;
-    }
-
-    h3 {
-        font-size: 1.5rem;
-    }
-
-    p {
-        font-size: 0.9rem;
-    }
-}
-
 /* card */
 /* Contenedor principal */
 .w-full {
@@ -725,3 +712,15 @@ a {
 }
 
 /* cart */
+
+/* responsive-mobile */
+/* .homepage */
+@media screen and (max-width: 600px) {
+    .content h3 {
+        font-size: 1.5rem; /* Tamaño de fuente reducido para dispositivos más pequeños */
+    }
+
+    .content p {
+        font-size: 0.9rem; /* Tamaño de fuente reducido para dispositivos más pequeños */
+    }
+}

@@ -333,6 +333,12 @@
     background-color: #fcefca;
 }
 
+.space
+{
+    display: block;
+    padding-top: 40px;
+}
+
 .space-bottom {
     display: block;
     padding-top: 10px;
@@ -388,8 +394,8 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    margin-bottom: 10px;
     transition: max-height 0.3s ease;
+    padding-top: 15px;
 }
 
 /* cart */

@@ -536,3 +536,116 @@ outline: none;
     padding-left: 0;
     padding-top: 44px;
 }
+
+
+
+
+/* card */
+/* Contenedor principal */
+.w-full {
+    width: 100%;
+}
+
+.py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+/* Tarjeta */
+.border {
+    border-width: 1px;
+}
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.shadow-lg {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+/* Imagen */
+.h-80 {
+    height: 20rem;
+}
+
+.transition {
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+
+.duration-1000 {
+    transition-duration: 1s;
+}
+
+.ease-in-out {
+    transition-timing-function: ease-in-out;
+}
+
+.hover\:scale-105:hover {
+    transform: scale(1.05);
+}
+
+.transform {
+    transform: none;
+}
+
+/* Enlace */
+a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+/* Contenido flexible */
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+/* Texto */
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.text-gray-400 {
+    color: #718096;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.text-gray-700 {
+    color: #4a5568;
+}
+
+.text-gray-500 {
+    color: #a0aec0;
+}
+
+/* cart */

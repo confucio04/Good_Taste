@@ -5,15 +5,16 @@
     text-decoration: none;
 }
 
+
 .center-menu {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 20px; /* Reducido el espacio entre elementos para dispositivos más pequeños */
     position: fixed;
     z-index: 0;
     background: white;
     width: 100%;
-    padding: 20px;
+    padding: 10px; /* Añadido relleno para mejorar la legibilidad */
 }
 
 .title {
@@ -21,14 +22,17 @@
 }
 
 .title h1 {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Reducido el tamaño de fuente para dispositivos más pequeños */
 }
 
-/* Menú */
 .navigation {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
+    display: flex;
+    gap: 20px;
+    font-size: 15px;
+}
+
+.arrow, .link-menu, .link-child {
+    background: white;
 }
 
 .arrow {
@@ -37,16 +41,14 @@
     gap: 6px;
     align-items: center;
     border: none;
-    background: white;
 }
 
 .link-menu {
-    background: white;
-    padding: 10px;
+    padding: 2px;
     align-items: center;
     justify-content: center;
     border-width: 0;
-    cursor: pointer;
+    cursor: pointer; /* Añadido cursor para indicar que es interactivo */
 }
 
 .link-menu:focus {
@@ -54,79 +56,10 @@
 }
 
 .link-child {
-    background: white;
     text-decoration: none;
     color: #000000;
     font-size: 13px;
-    display: block;
-    padding: 10px;
 }
-
-
-/* Menu_Desplegable */
-   /* mobile */
-@media (min-width: 769px) {
-    .mobile-menu {
-      display: none;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .mobile-menu {
-      display: block;
-    }
-  }
-
-    /* Deskpto  */
-@media (min-width: 769px) {
-    .navigation {
-      display: flex;
-      padding-left: 36px;
-    }
-  }
-  
-  
-  @media (max-width: 768px) {
-    .navigation {
-      display: none;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .navigation.show {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-    }
-
-    .navigation.show a {
-        color: black; /* Cambia el color de texto según tus necesidades */
-    }
-
-    .navigation.show .relative {
-        margin-bottom: 10px; /* Ajusta el espacio entre elementos según tus necesidades */
-    }
-}
-
-/* Estilos para pantallas pequeñas (hasta 768px) */
-@media (max-width: 768px) {
-    body {
-        overflow-x: hidden; /* Evitar el desplazamiento horizontal en dispositivos móviles */
-    }
-
-    .center-menu {
-        overflow: hidden; /* Evitar el desbordamiento de elementos hijos */
-    }
-
-    .navigation.show {
-        margin: 0;
-        padding: 10px; /* Ajusta según sea necesario para evitar márgenes blancos o negros */
-    }
-}
-
 
 /* Icon */
 .icon
@@ -731,13 +664,40 @@ a {
         font-size: 0.9rem; /* Tamaño de fuente reducido para dispositivos más pequeños */
     }
 }
-@media screen and (max-width: 768px) {
-    /* menu */
+/* Estilos para pantallas pequeñas (hasta 768px) */
+/* menu */
+@media (max-width: 768px) {
     .navigation {
-        display: flex;
+        display: none;
     }
 
-    .link-menu {
-        display: none;
+    .navigation.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .navigation.show a {
+        color: black;
+    }
+
+    .navigation.show .relative {
+        margin-bottom: 10px;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .center-menu {
+        overflow: hidden;
+    }
+
+    .center-menu {
+        gap: 10px; /* Ajustado el espacio para dispositivos más pequeños */
     }
 }

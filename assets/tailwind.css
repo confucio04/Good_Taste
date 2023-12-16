@@ -304,7 +304,7 @@
     align-items: center;
     gap: 8px;
     margin-bottom: 10px;
-    align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura */
+    align-items: center; /* Asegura que todas las tarjetas tengan la misma altura */
 }
 
 .style {
@@ -348,7 +348,7 @@
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;
-    padding: 18px 26px;
+    padding: 18px 22px 18px 22px;
     border: 2px solid #193C46;
     color: #193c46;
     background-color: transparent;

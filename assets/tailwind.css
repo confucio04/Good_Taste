@@ -531,6 +531,8 @@ outline: none;
 }
 .redes-social
 {
+    display: flex;
+    gap: 14px;
     padding-left: 0;
     padding-top: 44px;
 }

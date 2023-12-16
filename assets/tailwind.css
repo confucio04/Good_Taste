@@ -700,4 +700,22 @@ a {
     .center-menu {
         gap: 10px; /* Ajustado el espacio para dispositivos más pequeños */
     }
+
+    .mobile-menu {
+        display: block; /* Mostrar el botón de menú en pantallas pequeñas */
+    }
+
+    .navigation {
+        display: none; /* Ocultar el menú en pantallas pequeñas */
+    }
+
+    .navigation.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+    }
 }

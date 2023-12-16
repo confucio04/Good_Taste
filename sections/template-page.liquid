@@ -1,4 +1,38 @@
-<div class="flex flex-col items-center my-8">
-    <h1 class="text-3xl font-medium my-8 md:my-16">{{ page.title }}</h1>
-    <div class="max-w-6xl mx-auto px-4">{{ page.content }}</div>
-</div>
+<section class="template-collections">
+    <div class="center-card">
+        <div class="collections grid grid-cols-1 md:grid-cols-3 gap-4">
+            {% comment %} row num 1 {% endcomment %}
+            {% for product in collection.products %}
+                <div class="card">
+                    <div class="card-img">
+                        <img
+                            src="{{ product.featured_image.src | image_url: width: 300 }}"
+                            alt="{{ product.title }}"
+                            loading="eager"
+                            width="300"
+                            height="auto"
+                        >
+                    </div>
+                    <div class="card-info">
+                        <div class="star-container">
+                            {% for _ in (1..5) %}
+                                <span class="star"></span>
+                            {% endfor %}
+                        </div>
+                        <h4>{{ product.title }}</h4>
+                        <span class="style">{{ product.product_type }}</span>
+                        <p>{{ product.description }}</p>
+                        <div class="product-container">
+                            <div class="position-column"></div>
+                            <span>${{ product.price | money }}</span>
+                            <button class="cart" onclick="redirectToCart()">
+                                <span>Add to Cart</span>
+                            </button>
+                        </div>
+                        <span class="color space"></span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

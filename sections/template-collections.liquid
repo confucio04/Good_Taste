@@ -243,7 +243,11 @@
                     <div class="product-container">
                         <div class="position-column"></div>
                         <span>$65.00</span>
-                        <button class="cart-btn" onclick="redirectToCart()">
+                        <button class="cart-btn" onclick="addToCart
+                            ('{{ product.title }}', 
+                            '{{ product.description }}', 
+                            {{ product.price | divided_by: 100.0 }}, 
+                            '{{ product.image }}')">
                             <span>Add to cart</span>
                         </button>
                     </div>

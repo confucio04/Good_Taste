@@ -283,7 +283,7 @@
     font-size: 1rem; /* Cambiado a 1rem para dispositivos más pequeños */
 }
 
-/* collections y cart */
+
 
 
 /* collections */
@@ -302,8 +302,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px; /* Añade espacio entre los elementos hijos */
+    gap: 8px;
     margin-bottom: 10px;
+    align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura */
 }
 
 .style {
@@ -362,9 +363,8 @@
     color: #fff;
 }
 
-.card 
-{
-    width: 100%;
+.card {
+    /* width: 100%; */ /* Elimina el ancho fijo para permitir que se ajuste automáticamente */
     border: 1px solid #ddd;
     padding: 15px;
     box-sizing: border-box;

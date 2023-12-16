@@ -1,21 +1,31 @@
-<div class="px-4 py-8">
-    {% paginate collection.products by section.settings.number_of_products_per_page %}
-        <h1 class="text-3xl text-center">{{ collection.title }}</h1>
+<!-- sections/template-collection.liquid -->
 
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {% for product in collection.products %}
-                    {% render 'product-card', product_product: product %}
-                {% else %}
-                    <p>There are no products inside of this collection</p>
-                {% endfor %}
-            </div>
-        </div>
-        
-
-        {% render 'pagination', pagination: paginate %}
-    {% endpaginate %}
-</div>
+<div class="product-container">
+    {% for product in collection.products %}
+      <div class="product">
+        <img src="{{ product.featured_image.src | img_url: width: 300  }}" 
+            alt="{{ product.title }}"
+            loading="eager"
+            width="300"
+            height="auto"
+                >
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.description }}</p>
+        <p>Price: ${{ product.price | money }}</p>
+        <button class="cart" onclick="addToCart({{ product.id }})">Add to Cart</button>
+      </div>
+    {% endfor %}
+  </div>
+  
+  <!-- JavaScript para manejar la adición al carrito -->
+  <script>
+    function addToCart(productId) {
+      // Lógica para agregar el producto al carrito, puedes usar Shopify Buy SDK u otras opciones.
+      // Por ejemplo, puedes redirigir al usuario a la página de checkout con el producto seleccionado.
+      window.location.href = "/cart/add?id=" + productId + "&quantity=1";
+    }
+  </script>
+  
 
 {% schema %}
 {

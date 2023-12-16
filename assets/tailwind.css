@@ -211,7 +211,7 @@ outline: none;
  padding-left: 60PX;
 }
 /* error-404 */
-.flex-center {
+.shopify-section {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -230,11 +230,11 @@ outline: none;
 }
 
 .text-base {
-    font-size: 1.25rem; /* ajusta el tamaño de fuente según tus necesidades */
+    font-size: 1rem; /* ajusta el tamaño de fuente según tus necesidades */
 }
 
 .md-text-xl {
-    font-size: 1.5rem; /* ajusta el tamaño de fuente según tus necesidades */
+    font-size: 1.25rem; /* ajusta el tamaño de fuente según tus necesidades */
 }
 
 .my-4 {

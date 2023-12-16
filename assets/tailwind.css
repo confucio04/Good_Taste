@@ -389,6 +389,11 @@
     min-height: 255px;
 }
 
+.padding
+{
+    padding-top: 17px;
+}
+
 .card-info p {
     max-height: 90px;
     overflow: hidden;

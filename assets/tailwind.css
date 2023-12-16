@@ -5,6 +5,10 @@
     text-decoration: none;
 }
 
+.mobile-menu {
+    display: none;
+}
+
 .mobile-navigation {
     display: none;
 }

@@ -285,31 +285,6 @@
 
 /* collections y cart */
 
-.center-card {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.cart, .cart:hover {
-    line-height: 1.25em;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-    text-decoration: none;
-    text-align: center;
-    padding: 18px 26px;
-    border: 2px solid #193C46;
-    color: #193c46;
-    background-color: transparent;
-    overflow: hidden;
-    transition: all .2s ease-in-out;
-    cursor: pointer;
-}
-
-.cart:hover {
-    background-color: #193C46;
-    color: #fff;
-}
 
 /* collections */
 
@@ -331,6 +306,41 @@
     margin-bottom: 10px;
 }
 
+.style {
+    padding: 6.5px 15px;
+    font-size: 8px;
+    font-weight: 700;
+    line-height: 1em;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin: 0 0 15px;
+    border-radius: 10px;
+    color: #193c46;
+    background-color: pink;
+}
+
+.style-ligth {
+    padding: 6.5px 15px;
+    font-size: 8px;
+    font-weight: 700;
+    line-height: 1em;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin: 0 0 15px;
+    border-radius: 10px;
+    color: #193c46;
+    background-color: #fcefca;
+}
+
+.space-bottom {
+    display: block;
+    padding-top: 10px;
+}
+
+.color {
+    color: red;
+}
+
 .cart {
     line-height: 1.25em;
     letter-spacing: .15em;
@@ -342,14 +352,27 @@
     color: #193c46;
     background-color: transparent;
     overflow: hidden;
+    -webkit-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
     cursor: pointer;
-    width: 100%; /* Asegura que el botón ocupa el ancho completo */
 }
 
 .cart:hover {
     background-color: #193C46;
     color: #fff;
+}
+
+.card 
+{
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #0000001a;
+    overflow: hidden;
+    transition: transform .3s ease-in-out;
 }
 
 .card img {

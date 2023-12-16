@@ -211,33 +211,35 @@ outline: none;
  padding-left: 60PX;
 }
 /* error-404 */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+}
+
 .max-w-md {
     max-width: 28rem; /* ajusta el ancho máximo según tus necesidades */
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .text-5xl {
-    font-size: 3rem; /* ajusta el tamaño de fuente según tus necesidades */
+    font-size: 4rem; /* ajusta el tamaño de fuente según tus necesidades */
     font-weight: bold;
     margin-bottom: 1rem;
+}
+
+.text-base {
+    font-size: 1.25rem; /* ajusta el tamaño de fuente según tus necesidades */
+}
+
+.md-text-xl {
+    font-size: 1.5rem; /* ajusta el tamaño de fuente según tus necesidades */
 }
 
 .my-4 {
     margin-top: 1rem;
     margin-bottom: 1rem;
-}
-
-.text-base {
-    font-size: 1rem; /* ajusta el tamaño de fuente según tus necesidades */
-}
-
-.md-text-xl {
-    font-size: 1.25rem; /* ajusta el tamaño de fuente según tus necesidades */
-}
-
-.leading-normal {
-    line-height: 1.5; /* ajusta la altura de línea según tus necesidades */
 }
 
 .px-4 {
@@ -273,7 +275,6 @@ outline: none;
 .font-medium {
     font-weight: 500; /* ajusta el grosor de la fuente según tus necesidades */
 }
-
 /* img */
 
 /* principal */

@@ -352,7 +352,7 @@
     color: red;
 }
 
-.cart {
+.cart-btn {
     line-height: 1.25em;
     letter-spacing: .15em;
     text-transform: uppercase;
@@ -368,7 +368,7 @@
     cursor: pointer;
 }
 
-.cart:hover {
+.cart-btn:hover {
     background-color: #193C46;
     color: #fff;
 }

@@ -5,32 +5,33 @@
     text-decoration: none;
 }
 
-
-.center-menu{
+.center-menu {
     display: flex;
     align-items: center;
-    gap: 96px;
+    justify-content: space-between;
     position: fixed;
     z-index: 0;
     background: white;
     width: 100%;
-}
-.title{
-    padding-left: 40px;
-}
-.title h1
-{
-    font-size: 2.0rem;
+    padding: 20px;
 }
 
-/* Menu */
-.navigation
-{
-    display: flex;
-    gap: 40px;
-    font-size: 15px;
+.title {
+    padding-left: 10px;
 }
-.arrow{
+
+.title h1 {
+    font-size: 1.5rem;
+}
+
+/* Menú */
+.navigation {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.arrow {
     font-size: 13px;
     display: flex;
     gap: 6px;
@@ -38,24 +39,30 @@
     border: none;
     background: white;
 }
-.link-menu{
+
+.link-menu {
     background: white;
-     padding:2px; 
-     align-items:center;
-     justify-content:center; 
-     border-width: 0;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    border-width: 0;
+    cursor: pointer;
 }
-.link-menu:focus
-{
-outline: none;
+
+.link-menu:focus {
+    outline: none;
 }
-.link-child
-{
+
+.link-child {
     background: white;
     text-decoration: none;
     color: #000000;
     font-size: 13px;
+    display: block;
+    padding: 10px;
 }
+
+
 /* Menu_Desplegable */
    /* mobile */
 @media (min-width: 769px) {
@@ -722,5 +729,15 @@ a {
 
     .content p {
         font-size: 0.9rem; /* Tamaño de fuente reducido para dispositivos más pequeños */
+    }
+}
+@media screen and (max-width: 768px) {
+    /* menu */
+    .navigation {
+        display: flex;
+    }
+
+    .link-menu {
+        display: none;
     }
 }

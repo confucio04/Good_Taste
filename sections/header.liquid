@@ -1,13 +1,13 @@
 <div class="center-menu" x-data="{ mobileMenuOpen: false }">
-    <div class="title">
-        <h1>{{ shop.name }}</h1>
-    </div>
 
-    <div class="mobile-menu">
-        <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="link-menu btn">
-            {% render 'icon-menu' %}
-        </button>
-    </div>
+    <div class="title">
+        <div class="mobile-menu">
+            <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="link-menu btn">
+                {% render 'icon-menu' %}
+            </button>
+        </div>    
+    </div> 
+    <h1>{{ shop.name }}</h1>
     
 
     <nav class="navigation" :class="{ 'show': mobileMenuOpen }">

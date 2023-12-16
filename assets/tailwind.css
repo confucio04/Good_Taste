@@ -39,7 +39,6 @@
     padding: 10px;
 }
 
-
 .title h1 {
     font-size: 1.5rem; /* Reducido el tamaño de fuente para dispositivos más pequeños */
 }
@@ -737,11 +736,21 @@ a {
     }
 
     .center-menu {
-        gap: 10px; /* Ajustado el espacio para dispositivos más pequeños */
+       gap: 311px;
+       justify-content: start;
+       padding-left: 126px; /* Ajustado el espacio para dispositivos más pequeños */
     }
 
+    .title
+    {
+     display: flex;
+     align-items: center;
+    }
+    
     .mobile-menu {
         display: block; /* Mostrar el botón de menú en pantallas pequeñas */
+        padding-right: 14px;
+        padding-top: 5px;
     }
 
     .navigation {

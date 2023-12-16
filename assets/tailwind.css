@@ -216,64 +216,64 @@ outline: none;
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* height: 100vh; */ /* Comentado para que no ocupe toda la altura de la pantalla */
+    margin: 0 auto; /* Centra el contenido horizontalmente */
+    max-width: 100%; /* Ajusta el ancho máximo según tus necesidades */
 }
 
-.max-w-md {
+.shopify-section .max-w-md {
     max-width: 28rem; /* ajusta el ancho máximo según tus necesidades */
-    margin: auto; /* Centra el contenido horizontalmente */
 }
 
-.text-5xl {
+.shopify-section .text-5xl {
     font-size: 4rem; /* ajusta el tamaño de fuente según tus necesidades */
     font-weight: bold;
     margin-bottom: 1rem;
 }
 
-.text-base {
+.shopify-section .text-base {
     font-size: 1rem; /* ajusta el tamaño de fuente según tus necesidades */
 }
 
-.md-text-xl {
+.shopify-section .md-text-xl {
     font-size: 1.25rem; /* ajusta el tamaño de fuente según tus necesidades */
 }
 
-.my-4 {
+.shopify-section .my-4 {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
-.px-4 {
+.shopify-section .px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
-.inline {
+.shopify-section .inline {
     display: inline;
 }
 
-.py-2 {
+.shopify-section .py-2 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
 
-.text-white {
+.shopify-section .text-white {
     color: #fff; /* ajusta el color de texto según tus necesidades */
 }
 
-.shadow {
+.shopify-section .shadow {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ajusta la sombra según tus necesidades */
 }
 
-.bg-green-600 {
+.shopify-section .bg-green-600 {
     background-color: #38a169; /* ajusta el color de fondo según tus necesidades */
 }
 
-.hover-bg-green-800:hover {
+.shopify-section .hover-bg-green-800:hover {
     background-color: #276749; /* ajusta el color de fondo al pasar el ratón según tus necesidades */
 }
 
-.font-medium {
+.shopify-section .font-medium {
     font-weight: 500; /* ajusta el grosor de la fuente según tus necesidades */
 }
 

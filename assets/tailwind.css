@@ -213,7 +213,6 @@ outline: none;
 /* error-404 */
 .shopify-section {
     display: flex;
-    align-items: center;
     justify-content: center;
     text-align: center;
     margin: 0 auto; /* Centra el contenido horizontalmente */
@@ -222,6 +221,7 @@ outline: none;
 
 .shopify-section .max-w-md {
     max-width: 28rem; /* ajusta el ancho máximo según tus necesidades */
+    padding-top: 18%;
 }
 
 .shopify-section .text-5xl {
@@ -231,16 +231,17 @@ outline: none;
 }
 
 .shopify-section .text-base {
-    font-size: 1rem; /* ajusta el tamaño de fuente según tus necesidades */
+    font-size: 1.5rem; /* ajusta el tamaño de fuente según tus necesidades */
 }
 
 .shopify-section .md-text-xl {
     font-size: 1.25rem; /* ajusta el tamaño de fuente según tus necesidades */
 }
 
-.shopify-section .my-4 {
+.shopify-section .my-4 a {
     margin-top: 1rem;
     margin-bottom: 1rem;
+    text-decoration: none;
 }
 
 .shopify-section .px-4 {

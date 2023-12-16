@@ -20,3 +20,24 @@
 {% section 'template-about' %}
 {% section 'template-footer' %}
 
+{% schema %}
+{
+  "name": "Index",
+  "settings": [
+    {
+      "type": "number",
+      "id": "number_of_products_per_page",
+      "default": 6,
+      "label": "Number of products per page",
+      "info": "Set the number of products to display per page on the index."
+    }
+    // Puedes agregar más opciones según tus necesidades
+  ],
+  "presets": [
+    {
+      "category": "Products",
+      "name": "Index"
+    }
+  ]
+}
+{% endschema %}

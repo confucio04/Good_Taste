@@ -301,6 +301,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Tres columnas de tamaño igual */
     gap: 20px; /* Espacio entre las tarjetas */
+    z-index: -1;
 }
 
 .card {

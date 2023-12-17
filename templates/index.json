@@ -1,8 +1,8 @@
 {
-    "name": "Homepage",
+    "name": "theme",
     "sections": {
         "template": {
-            "type": "index"
+            "type": "theme"
         }
     },
     "order": ["template"]

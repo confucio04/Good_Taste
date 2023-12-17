@@ -24,7 +24,6 @@
             {% endif %}
             
             <p class="expandable">{{ product.description }}</p>
-
             
             {% if product.available %}
                 <p>{{ product.price | money }}</p>
@@ -35,6 +34,20 @@
         </div>
     {% endfor %}
 </div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const productDescriptions = document.querySelectorAll('.expandable');
+
+        productDescriptions.forEach(description => {
+            description.addEventListener('click', function() {
+                const realHeight = description.scrollHeight + 'px';
+                description.style.maxHeight = description.style.maxHeight ? null : realHeight;
+            });
+        });
+    });
+</script>
 
 
 

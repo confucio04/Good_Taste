@@ -3,7 +3,7 @@
 
 {% if request.params.id %}
     <div class="cart-product">
-        <img src="{{ request.params.image | image_url: width: 250, scale: 2 }}"
+        <img src="{{ request.params.image | image_url: width: 280, scale: 2 }}"
             alt="{{ request.params.title }}" 
             loading="eager"
             width="100" 
@@ -24,7 +24,45 @@
     <p>No products in the cart.</p>
 {% endif %}
 
-  
+  <!-- En tu plantilla de carrito -->
+<div class="cart-product" id="cartProductContainer">
+    <!-- Contenido del producto se insertará mediante JavaScript -->
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Recupera la información del producto almacenada en localStorage
+        var addedProduct = localStorage.getItem("addedProduct");
+
+        if (addedProduct) {
+            // Convierte la cadena JSON almacenada en un objeto JavaScript
+            addedProduct = JSON.parse(addedProduct);
+
+            // Muestra la información del producto en algún lugar de tu página del carrito
+            var cartProductContainer = document.getElementById("cartProductContainer");
+
+            if (cartProductContainer) {
+                cartProductContainer.innerHTML = `
+                    <img src="${addedProduct.image}" alt="${addedProduct.title}" />
+                    <h2>${addedProduct.title}</h2>
+                    <p>${addedProduct.description}</p>
+                    <p>Price: $${addedProduct.price}</p>
+                    <form action="/cart/update" method="post">
+                        <input type="hidden" name="id" value="${addedProduct.id}">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" name="quantity" id="quantity" value="${addedProduct.quantity}" min="1">
+                        <button type="submit">Update</button>
+                    </form>
+                    <a href="/cart/clear">Clear Cart</a>
+                `;
+            }
+
+            // Limpia la información del producto almacenada en localStorage después de mostrarla
+            localStorage.removeItem("addedProduct");
+        }
+    });
+</script>
+
 
 {% schema %}
 {

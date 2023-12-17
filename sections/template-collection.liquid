@@ -7,6 +7,15 @@
                 width="300"
                 height="auto"
             >
+            <div class="star-container">
+                {% for i in (1..5) %}
+                    {% if i <= product.rating %}
+                        <span class="star"></span>
+                    {% else %}
+                        <span class="star-empty"></span>
+                    {% endif %}
+                {% endfor %}
+            </div>
             <h2>{{ product.title }}</h2>
             <p>{{ product.description }}</p>
 
@@ -19,6 +28,7 @@
         </div>
     {% endfor %}
 </div>
+
 
 
   

@@ -1,4 +1,4 @@
-<section class= "template-collections">
+{% comment %} <section class= "template-collections">
     <div class="center-card">
         <div class="collections">
             {% comment %} row num 1 {% endcomment %}
@@ -454,19 +454,7 @@
         </div>
         
     </div>
-</section>
+</section> {% endcomment %}
 
 
-{% schema %}
-{
-  "name": "Template Collections",
-  "settings": [
-    {
-      "type": "number",
-      "id": "number_of_products_per_page",
-      "default": 6,
-      "label": "Number of products per page"
-    }
-  ]
-}
-{% endschema %}
+

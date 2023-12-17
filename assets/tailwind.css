@@ -314,11 +314,11 @@
     align-items: center;
     flex-direction: column;
     gap: 18px;
+    padding-top: 10%;
 }
 
 .product
 {
-    padding-top: 10%;
     width: 100%;
     border: 1px solid #ddd;
     padding: 15px;

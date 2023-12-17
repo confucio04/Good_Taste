@@ -1,0 +1,49 @@
+<!-- sections/template-product.liquid -->
+
+<div class="product-container">
+    <div class="product">
+        <img src="
+            {{ product.featured_image.src | image_url: width: 400 }}"
+            alt="{{ product.title }}" l
+            loading="lazy"
+            width="300"
+            height="auto"
+        >
+      <h2>{{ product.title }}</h2>
+      
+      {% if product.available %}
+        <p>{{ product.price | money }}</p>
+        <form action="/cart/add" method="post">
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+          <label for="quantity">Quantity:</label>
+          <input type="number" name="quantity" id="quantity" value="1" min="1">
+          <button type="submit">Add to Cart</button>
+        </form>
+      {% else %}
+        <p>Out of Stock</p>
+      {% endif %}
+  
+      <p>{{ product.description }}</p>
+    </div>
+  </div>
+
+  {% schema %}
+{
+  "name": "Template Product",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product",
+      "category": "Products"
+    }
+  ]
+}
+{% endschema %}
+
+  

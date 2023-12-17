@@ -1,32 +1,33 @@
-<!-- template-cart.liquid -->
+<!-- sections/template-cart.liquid -->
 
-<!-- template-cart -->
-<section class="template-cart">
-    <div class="center-card">
-        <div class="cart-items">
-            <div class="cart-item">
-                <div class="item-img">
-                    <img src="https://cdn.shopify.com/s/files/1/0683/0007/9353/files/product-11.webp?v=1702667245"
-                        alt="hero"
-                        loading="eager"
-                        width="300"
-                        height="auto"
-                    >    
-                </div>
-                <div class="item-info">
-                    <h4>Nombre del Producto</h4>
-                    <p>Descripción corta del producto.</p>
-                    <span class="price">$XX.XX</span>
-                    <button class="remove-item" onclick="removeFromCart()">Remove</button>
-                </div>
-            </div>
-
-            <!-- Repite la estructura para cada producto en el carrito -->
-            
+<div class="cart-container">
+    <h1>Shopping Cart</h1>
+  
+    <!-- Iterate over items in the cart -->
+    {% for item in cart.items %}
+      <div class="cart-item">
+        <img src="{{ item.image | image_url: width: 300 }}"
+             alt="{{ item.title }}" 
+             loading="eager"
+             width="300"
+             height="auto"
+            />
+        <div class="item-info">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.price | money }}</p>
+          <p>{{ item.quantity }}</p>
+          <p>{{ item.final_line_price | money }}</p>
         </div>
+      </div>
+    {% endfor %}
+  
+    <!-- Display cart summary -->
+    <div class="cart-summary">
+      <p>Cart Total: ${{ cart.total_price | money }}</p>
+      <a href="/checkout">Proceed to Checkout</a>
     </div>
-</section>
-
+  </div>
+  
 
 {% schema %}
 {

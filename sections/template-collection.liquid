@@ -26,8 +26,8 @@
             <p>{{ product.description }}</p>
             
             {% if product.available %}
-                <p>Price: ${{ product.price | money }}</p>
-                <button class="cart" onclick="addToCart({{ product.id }})">Add to Cart</button>
+                <p>{{ product.price | money }}</p>
+                <button class="cart-btn" onclick="addToCart({{ product.id }})">Add to Cart</button>
             {% else %}
                 <span class="color space">OUT OF STOCK</span>
             {% endif %}

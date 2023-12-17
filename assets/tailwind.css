@@ -300,14 +300,21 @@
     gap: 20px;
     z-index: -1;
 }
-.product-container {
+/* .product-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
     margin-bottom: 10px;
-    align-items: center; /* Asegura que todas las tarjetas tengan la misma altura */
+    align-items: center; 
+} */
+
+.product-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 
 .style {
     padding: 6.5px 15px;
@@ -353,28 +360,26 @@
 }
 
 .cart-btn {
-    line-height: 1.25em;
-    letter-spacing: .15em;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 700;
     text-transform: uppercase;
-    text-decoration: none;
-    text-align: center;
-    padding: 18px 22px 18px 22px;
-    border: 2px solid #193C46;
-    color: #193c46;
-    background-color: transparent;
-    overflow: hidden;
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
+    letter-spacing: 0.1em;
+    background-color: #193c46;
+    color: #fff;
+    border: 2px solid #193c46;
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 .cart-btn:hover {
-    background-color: #193C46;
-    color: #fff;
+    background-color: #fff;
+    color: #193c46;
 }
 
 .card {
-    /* width: 100%; */ /* Elimina el ancho fijo para permitir que se ajuste automáticamente */
+    width: 100%;
     border: 1px solid #ddd;
     padding: 15px;
     box-sizing: border-box;
@@ -386,14 +391,18 @@
 }
 
 .card img {
-    width: 84%;
+    width: 100%;
     object-fit: contain;
-    min-height: 255px;
+    min-height: 150px; /* Ajusta la altura según sea necesario */
+    border-radius: 4px;
 }
-
 .padding
 {
     padding-top: 17px;
+}
+
+.card-info {
+    padding: 15px;
 }
 
 .card-info p {

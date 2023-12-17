@@ -426,75 +426,36 @@
 }
 
 /* cart */
+/* styles.css o tu archivo CSS principal */
 
-.template-cart {
-    padding-top: 50px;
-}
-
-.center-card {
-    padding-top: 8%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.cart-items {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 20px;
-}
-
-.cart-item {
-    width: 100%;
+/* Contenedor principal del carrito */
+.cart-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Estilo para cada producto en el carrito */
+  .cart-product {
     border: 1px solid #ddd;
-    padding: 15px;
-    box-sizing: border-box;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px #0000001a;
-    overflow: hidden;
-    transition: transform .3s ease-in-out;
-}
-
-.item-img img {
-    width: 100%;
-    object-fit: contain;
-    min-height: 200px;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 15px;
-}
-
-.item-info h4 {
+    padding: 10px;
     margin-bottom: 10px;
-}
-
-.price {
-    font-size: 18px;
-    font-weight: bold;
-    color: #193c46;
-    margin-bottom: 15px;
-}
-
-.remove-item {
-    line-height: 1.25em;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-    text-decoration: none;
+  }
+  
+  .cart-product img {
+    max-width: 100px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  /* Estilos para la situación cuando no hay productos en el carrito */
+  .cart-empty {
     text-align: center;
-    padding: 10px 15px;
-    border: 2px solid #193C46;
-    color: #193c46;
-    background-color: transparent;
-    overflow: hidden;
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-    cursor: pointer;
-}
+    font-size: 16px;
+    color: #555;
+  }
+  
 
-.remove-item:hover {
-    background-color: #193C46;
-    color: #fff;
-}
 
 
 /* about-us */

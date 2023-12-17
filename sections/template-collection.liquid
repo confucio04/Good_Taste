@@ -27,7 +27,7 @@
             
             {% if product.available %}
                 <p>{{ product.price | money }}</p>
-                <button class="cart-btn" onclick="addToCart({{ product.id }})">Add to Cart</button>
+                <button class="cart-btn" onclick="addToCart('{{ product.id }}', '{{ product.title }}', '{{ product.description }}', {{ product.price | divided_by: 100.0 }}, '{{ product.featured_image.src | image_url: width: 300, height: 150 }}')">Add to Cart</button>
             {% else %}
                 <span class="color space">OUT OF STOCK</span>
             {% endif %}
@@ -35,15 +35,15 @@
     {% endfor %}
 </div>
 
-  
-  <!-- JavaScript para manejar la adición al carrito -->
-  <script>
-    function addToCart(productId) {
-      // Lógica para agregar el producto al carrito, puedes usar Shopify Buy SDK u otras opciones.
-      // Por ejemplo, puedes redirigir al usuario a la página de checkout con el producto seleccionado.
-      window.location.href = "/cart/add?id=" + productId + "&quantity=1";
+<!-- JavaScript para manejar la adición al carrito -->
+<script>
+    function addToCart(productId, title, description, price, image) {
+        // Lógica para agregar el producto al carrito, puedes usar Shopify Buy SDK u otras opciones.
+        // Por ejemplo, puedes redirigir al usuario a la página de checkout con el producto seleccionado.
+        window.location.href = "/cart/add?id=" + productId + "&quantity=1&title=" + encodeURIComponent(title) + "&description=" + encodeURIComponent(description) + "&price=" + price + "&image=" + encodeURIComponent(image);
     }
-  </script>
+</script>
+
   
 
 {% schema %}

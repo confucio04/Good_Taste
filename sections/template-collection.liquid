@@ -1,39 +1,25 @@
-<!-- sections/template-collection.liquid -->
-
 <div class="product-container">
     {% for product in collection.products %}
-        <div class="card">
-            <div class="card-img">
-                <img src="{{ product.featured_image.src | image_url: width: 300, height: 150 }}" 
-                    alt="{{ product.title }}" 
-                    loading="eager"
-                    width="300"
-                    height="auto"
-                >
-            </div>
-            <div class="card-info">
-                <div class="star-container">
-                    <!-- Agrega tus estilos para las estrellas aquí -->
-                </div>
-                <h4>{{ product.title }}</h4>
-                <span class="style">In Good Taste</span>
-                <p>{{ product.description }}</p>
+        <div class="product">
+            <img src="{{ product.featured_image.src | image_url: width: 300, height: 150 }}" 
+                alt="{{ product.title }}"
+                loading="eager"
+                width="300"
+                height="auto"
+            >
+            <h2>{{ product.title }}</h2>
+            <p>{{ product.description }}</p>
+
+            {% if product.available %}
                 <p>Price: ${{ product.price | money }}</p>
-                {% if product.available %}
-                    <div class="product-container">
-                        <div class="position-column"></div>
-                        <span>${{ product.price | money }}</span>
-                        <button class="cart-btn" onclick="addToCart('{{ product.title }}', '{{ product.description }}', {{ product.price | divided_by: 100.0 }}, '{{ product.featured_image.src }}')">
-                            <span>Add to cart</span>
-                        </button>
-                    </div>
-                {% else %}
-                    <span class="color space">OUT OF STOCK</span>
-                {% endif %}
-            </div>
+                <button class="cart" onclick="addToCart({{ product.id }})">Add to Cart</button>
+            {% else %}
+                <span class="color space">OUT OF STOCK</span>
+            {% endif %}
         </div>
     {% endfor %}
 </div>
+
 
   
   <!-- JavaScript para manejar la adición al carrito -->

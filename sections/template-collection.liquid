@@ -22,9 +22,9 @@
             {% else %}
                 <span class="style">Collection</span>
             {% endif %}
-
-            <p class="card-info">{{ product.description }}</p>
-            
+            <div class="card-info">
+                <p>{{ product.description }}</p>
+            </div>
             {% if product.available %}
                 <p>{{ product.price | money }}</p>
                 <button class="cart-btn" onclick="addToCart({{ product.id }})">Add to Cart</button>

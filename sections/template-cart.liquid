@@ -1,31 +1,23 @@
 <!-- sections/template-cart.liquid -->
 
+<!-- sections/template-cart.liquid -->
+
 <div class="cart-container">
-    <h1>Shopping Cart</h1>
-  
-    <!-- Iterate over items in the cart -->
     {% for item in cart.items %}
       <div class="cart-item">
         <img src="{{ item.image | image_url: width: 300 }}"
-             alt="{{ item.title }}" 
+             alt="{{ item.title }}"
              loading="eager"
              width="300"
              height="auto"
-            />
-        <div class="item-info">
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.price | money }}</p>
-          <p>{{ item.quantity }}</p>
-          <p>{{ item.final_line_price | money }}</p>
-        </div>
+            >
+        <h2>{{ item.title }}</h2>
+        <p>Price: ${{ item.price | money }}</p>
+        <p>Quantity: {{ item.quantity }}</p>
       </div>
     {% endfor %}
+  </div>
   
-    <!-- Display cart summary -->
-    <div class="cart-summary">
-      <p>Cart Total: ${{ cart.total_price | money }}</p>
-      <a href="/checkout">Proceed to Checkout</a>
-    </div>
   </div>
   
 

@@ -1,7 +1,7 @@
 
 <!-- sections/template-cart.liquid -->
 
-{% if request.params.id %}
+{% comment %} {% if request.params.id %}
     <div class="cart-product">
         <img src="{{ request.params.image | image_url: width: 280, scale: 2 }}"
             alt="{{ request.params.title }}" 
@@ -22,10 +22,10 @@
     </div>
 {% else %}
     <p>No products in the cart.</p>
-{% endif %}
+{% endif %} {% endcomment %}
 
-  <!-- En tu plantilla de carrito -->
-<div class="cart-product" id="cartProductContainer">
+ <!-- En tu plantilla de carrito -->
+<div id="cartProductContainer">
     <!-- Contenido del producto se insertará mediante JavaScript -->
 </div>
 
@@ -62,6 +62,7 @@
         }
     });
 </script>
+
 
 
 {% schema %}

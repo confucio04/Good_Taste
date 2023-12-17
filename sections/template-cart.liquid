@@ -9,14 +9,21 @@
             width="100" 
             height="auto"
         >
-      <h2>{{ request.params.title }}</h2>
-      <p>{{ request.params.description }}</p>
-      <p>Price: ${{ request.params.price | money }}</p>
+        <h2>{{ request.params.title }}</h2>
+        <p>{{ request.params.description }}</p>
+        <p>Price: ${{ request.params.price | money }}</p>
+        <form action="/cart/update" method="post">
+            <input type="hidden" name="id" value="{{ request.params.id }}">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity" value="1" min="1">
+            <button type="submit">Update</button>
+        </form>
+        <a href="/cart/clear">Clear Cart</a>
     </div>
-  {% else %}
+{% else %}
     <p>No products in the cart.</p>
-  {% endif %}
-  
+{% endif %}
+
   
 
 {% schema %}

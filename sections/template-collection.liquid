@@ -27,7 +27,7 @@
             
             {% if product.available %}
                 <p>{{ product.price | money }}</p>
-                <button id="addToCartBtn" class="cart-btn">
+                <button class="cart-btn" data-product-id="{{ product.id }}">
                     Add to Cart
                 </button>
                 

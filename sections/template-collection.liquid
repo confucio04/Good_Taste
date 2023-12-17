@@ -27,14 +27,10 @@
             
             {% if product.available %}
                 <p>{{ product.price | money }}</p>
-                <button class="cart-btn" onclick="addToCart(
-                    'Club Mini',
-                    'New wines, shipped directly to you every other month! Our December ' \ 'sipment\ features a delicious line-up of mini wines selected by winemaker Matt Smith, that pair perfectly with holiday gatherings. Sign up today to save up to 20% off on all online purchases+ free Ground Shipping on member shipments.',
-                    54.0,
-                    '//cdn.shopify.com/s/files/1/0683/0007/9353/files/product-3_e95e5aaa-270e-46d9-9474-b140d88006d3.webp?v=1702779465&width=300'
-                )">
+                <button id="addToCartBtn" class="cart-btn">
                     Add to Cart
                 </button>
+                
                 
             {% else %}
                 <span class="color space">OUT OF STOCK</span>

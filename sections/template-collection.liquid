@@ -31,7 +31,7 @@
                     '{{ product.title }}',
                     '{{ product.description | strip_html | escape }}',
                     {{ product.price | divided_by: 100.0 }},
-                    '{{ product.featured_image.src | image_url: width: 300, scale: 2 }}')">
+                    '{{ product.featured_image.src | image_url: width: 300 }}')">
                     Add to Cart
                 </button>
                 

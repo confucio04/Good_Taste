@@ -23,7 +23,7 @@
                 <span class="style">Collection</span>
             {% endif %}
             
-            <p class="expandable">{{ product.description }}</p>
+            <p class="expandable" style="-webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical;">{{ product.description }}</p>
             
             {% if product.available %}
                 <p>{{ product.price | money }}</p>
@@ -33,8 +33,9 @@
             {% else %}
                 <span class="color space">OUT OF STOCK</span>
             {% endif %}
-        </div> 
+        </div>
     {% endfor %}
+</div>
 </div>
   
 {% schema %}
@@ -44,14 +45,8 @@
         {
             "type": "number",
             "id": "number_of_products_per_page",
-            "default": 6,
+            "default": "Collections",
             "label": "Number of products per page"
-        },
-        {
-            "type": "collection",
-            "label": "Select Collection",
-            "id": "selected_collection",
-            "info": "Choose the collection to display"
         }
     ]
 }

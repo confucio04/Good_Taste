@@ -17,7 +17,7 @@
             </div>
             <h2>{{ product.title }}</h2> 
 
-            {% if forloop.index <= 1  %}
+            {% if forloop.index <= 3 %}
                 <span class="style">In Good Taste</span>
             {% else %}
                 <span class="style">Collection</span>
@@ -33,7 +33,7 @@
             {% else %}
                 <span class="color space">OUT OF STOCK</span>
             {% endif %}
-        </div>
+        </div> 
     {% endfor %}
 </div>
   

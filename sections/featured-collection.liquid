@@ -1,24 +1,29 @@
 <div class="featured-collection">
     <h2>{{ section.settings.title }}</h2>
   
-    {% assign featuredProducts = collections[section.settings.featured_collection].products %}
+    {% assign featuredCollectionHandle = section.settings.featured_collection %}
+    {% assign featuredCollection = collections[featuredCollectionHandle] %}
     {% assign numberOfProductsToShow = section.settings.number_of_products_to_show | default: 4 %}
   
-    <div class="featured-product-container">
-      {% for product in featuredProducts limit: numberOfProductsToShow %}
-        <div class="featured-product">
-          <!-- Aquí colocas el contenido de cada producto -->
-          <img src="{{ product.featured_image.src | image_url: width: 300, height: 150 }}
-            " alt="{{ product.title }}"
-            loading="eager"
-            width="300"
-            height="auto"
-        >
-          <h3>{{ product.title }}</h3>
-          <!-- Otros detalles del producto... -->
-        </div>
-      {% endfor %}
-    </div>
+    {% if featuredCollection %}
+      <div class="featured-product-container">
+        {% for product in featuredCollection.products limit: numberOfProductsToShow %}
+          <div class="featured-product">
+            <!-- Aquí colocas el contenido de cada producto -->
+            <img src="{{ product.featured_image.src | image_url: width: 300, height: 150 }}" 
+                alt="{{ product.title }}"
+                loading="eager"
+                width="300"
+                height="auto"
+            >    
+            <h3>{{ product.title }}</h3>
+            <!-- Otros detalles del producto... -->
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>La colección seleccionada no existe o no tiene productos.</p>
+    {% endif %}
   </div>
   
   {% schema %}

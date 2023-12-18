@@ -26,6 +26,12 @@
     {% endif %}
   </div>
   
+  <script>
+    console.log("Featured Collection Handle:", "{{ section.settings.featured_collection }}");
+    console.log("Featured Collection Products:", {{ collections[section.settings.featured_collection] | json }});
+  </script>
+  
+
   {% schema %}
   {
     "name": "Featured Collection",

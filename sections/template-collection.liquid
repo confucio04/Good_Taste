@@ -13,11 +13,11 @@
                 <span class="star"></span>
                 <span class="star"></span>
                 <span class="star"></span>
-                {{ product.rating | default: 0 }}
+                {% comment %} {{ product.rating | default: 0 }} {% endcomment %}
             </div>
             <h2>{{ product.title }}</h2> 
 
-            {% if forloop.index == 1 %}
+            {% if forloop.index == 3 %}
                 <span class="style">In Good Taste</span>
             {% else %}
                 <span class="style">Collection</span>

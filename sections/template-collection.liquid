@@ -1,4 +1,5 @@
 <div class="product-container">
+    <h1>pan.</h1>
     {% for product in collection.products %}
         <div class="product">
             <img src="{{ product.featured_image.src | image_url: width: 300, height: 150 }}" 

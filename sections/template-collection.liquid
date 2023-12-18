@@ -1,5 +1,5 @@
 <div class="product-container">
-    <h1>pan.</h1>
+    <h1>kass</h1>
     {% for product in collection.products %}
         <div class="product">
             <img src="{{ product.featured_image.src | image_url: width: 300, height: 150 }}" 
@@ -39,19 +39,21 @@
 </div>
 
 
+
 {% schema %}
 {
     "name": "Template Collection",
-    "settings": [
+    "settings": [],
+    "presets": [
         {
-            "type": "number",
-            "id": "number_of_products_per_page",
-            "default": "Collections",
-            "label": "Number of products per page"
+            "name": "Default",
+            "category": "Custom"
         }
     ]
 }
 {% endschema %}
+
+
 
 
   

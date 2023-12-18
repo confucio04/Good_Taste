@@ -11,6 +11,8 @@
         >
       <h2>{{ product.title }}</h2>
       
+      <p>{{ product.description }}</p>
+      
       {% if product.available %}
         <p>{{ product.price | money }}</p>
         <form action="/cart/add" method="post">
@@ -22,8 +24,6 @@
       {% else %}
         <p>Out of Stock</p>
       {% endif %}
-  
-      <p>{{ product.description }}</p>
     </div>
   </div>
 

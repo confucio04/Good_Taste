@@ -28,22 +28,54 @@
   </div>
 
   {% schema %}
-{
-  "name": "Product",
-  "settings": [],
-  "blocks": [
-    {
-      "type": "product",
-      "name": "Product"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Product",
-      "category": "Products"
-    }
-  ]
-}
-{% endschema %}
+  {
+    "name": "Product",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "vendor",
+        "name": "Vendor",
+        "limit": 1
+      },
+      {
+        "type": "title",
+        "name": "Title",
+        "limit": 1
+      },
+      {
+        "type": "price",
+        "name": "Price",
+        "limit": 1
+      },
+      {
+        "type": "variant_selector",
+        "name": "Variant Selector",
+        "limit": 1
+      },
+      {
+        "type": "quantity",
+        "name": "Quantity",
+        "limit": 1
+      },
+      {
+        "type": "description",
+        "name": "Description",
+        "limit": 1
+      },
+      {
+        "type": "checkout_buttons",
+        "name": "Checkout Buttons",
+        "limit": 1
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product",
+        "category": "Products"
+      }
+    ]
+  }
+  {% endschema %}
+  
 
   

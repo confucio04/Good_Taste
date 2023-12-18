@@ -7,60 +7,85 @@
   
     {% if featuredCollection %}
       <div class="featured-product-container">
-        {% for product in featuredCollection.products limit: numberOfProductsToShow %}
+        {% for featuredProduct in featuredCollection.products limit: numberOfProductsToShow %}
           <div class="featured-product">
-            <!-- Aquí colocas el contenido de cada producto -->
-            <img src="{{ product.featured_image.src | image_url: width: 300, height: 150 }}" 
-                alt="{{ product.title }}"
-                loading="eager"
-                width="300"
-                height="auto"
-            >    
-            <h3>{{ product.title }}</h3>
-            <!-- Otros detalles del producto... -->
+            <div class="product-container">
+              <div class="product">
+                <img src="{{ featuredProduct.featured_image.src | image_url: width: 300, height: 150 }}" 
+                    alt="{{ featuredProduct.title }}"
+                    loading="eager"
+                    width="300"
+                    height="auto"
+                >
+                <div class="star-container">
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    {% comment %} {{ featuredProduct.rating | default: 0 }} {% endcomment %}
+                </div>
+                <h2>{{ featuredProduct.title }}</h2> 
+    
+                {% if forloop.index <= 3 %}
+                    <span class="style">In Good Taste</span>
+                {% else %}
+                    <span class="style">Collection</span>
+                {% endif %}
+                
+                <p class="expandable" style="-webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical;">{{ featuredProduct.description }}</p>
+                
+                {% if featuredProduct.available %}
+                    <p>{{ featuredProduct.price | money }}</p>
+                    <button class="cart-btn" data-product-id="{{ featuredProduct.id }}" data-product-price="{{ featuredProduct.price }}">
+                        Add to Cart
+                    </button>
+                {% else %}
+                    <span class="color space">OUT OF STOCK</span>
+                {% endif %}
+              </div>
+            </div>
           </div>
         {% endfor %}
       </div>
     {% else %}
       <p>La colección seleccionada no existe o no tiene productos.</p>
     {% endif %}
-  </div>
-  
-  <script>
-    console.log("Featured Collection Handle:", "{{ section.settings.featured_collection }}");
-    console.log("Featured Collection Products:", {{ collections[section.settings.featured_collection] | json }});
-  </script>
-  
 
-  {% schema %}
-  {
-    "name": "Featured Collection",
-    "settings": [
-      {
-        "type": "text",
-        "id": "title",
-        "label": "Title",
-        "default": "Featured Collection"
-      },
-      {
-        "type": "collection",
-        "id": "featured_collection",
-        "label": "Collection"
-      },
-      {
-        "type": "range",
-        "id": "number_of_products_to_show",
-        "label": "Number of products to show",
-        "min": 4,
-        "max": 12,
-        "default": 4
-      }
-    ],
-    "presets": [
-      {
-        "name": "Featured Collection"
-      }
-    ]
-  }
-  {% endschema %}
-  
+    <script>
+      console.log("Featured Collection Handle:", "{{ section.settings.featured_collection }}");
+      console.log("Featured Collection Products:", {{ collections[section.settings.featured_collection] | json }});
+    </script>
+</div>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Featured Collection"
+    },
+    {
+      "type": "collection",
+      "id": "featured_collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "number_of_products_to_show",
+      "label": "Number of products to show",
+      "min": 4,
+      "max": 12,
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection"
+    }
+  ]
+}
+{% endschema %}

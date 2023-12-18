@@ -1,58 +1,84 @@
-<div class="flex flex-col items-center my-8">
-    <h1 class="text-center text-3xl">{{ section.settings.title }}</h1>
+<div class="featured-collection">
+    <h2>{{ section.settings.title }}</h2>
 
-    <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {%liquid 
-             assign featuredCollectionHandle = section.settings.featured_collection 
-             assign featuredCollection = collections[featuredCollectionHandle] 
-             assign numberOfProductsToShow = section.settings.number_of_products_to_show | default: 4 
-            %}
+    <div class="product-container">
+        {% assign featuredCollectionHandle = section.settings.featured_collection %}
+        {% assign featuredCollection = collections[featuredCollectionHandle] %}
+        {% assign numberOfProductsToShow = section.settings.number_of_products_to_show | default: 4 %}
 
-            {% liquid 
-                if featuredCollection 
-                    for product in featuredCollection.products limit: numberOfProductsToShow 
-                        render 'product-card', product_product: product 
-                    endfor 
-                else 
-                    for item in (1..4) 
-                         render 'product-card-placeholder' 
-                    endfor 
-                endif
-             %}
-        </div>
+        {% if featuredCollection %}
+            {% for product in featuredCollection.products limit: numberOfProductsToShow %}
+                <div class="product">
+                    <img src="{{ product.featured_image.src | image_url: width: 300, height: 150 }}" 
+                        alt="{{ product.title }}"
+                        loading="eager"
+                        width="300"
+                        height="auto"
+                    >
+                    <div class="star-container">
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        {% comment %} {{ product.rating | default: 0 }} {% endcomment %}
+                    </div>
+                    <h2>{{ product.title }}</h2> 
+
+                    {% if forloop.index <= 3 %}
+                        <span class="style">In Good Taste</span>
+                    {% else %}
+                        <span class="style">Collection</span>
+                    {% endif %}
+                    
+                    <p class="expandable" style="-webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical;">{{ product.description }}</p>
+                    
+                    {% if product.available %}
+                        <p>{{ product.price | money }}</p>
+                        <button class="cart-btn" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}">
+                            Add to Cart
+                        </button>
+                    {% else %}
+                        <span class="color space">OUT OF STOCK</span>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No products found in the featured collection.</p>
+        {% endif %}
     </div>
 </div>
 
 {% schema %}
 {
-  "name": "Featured Collection",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "Featured Collection"
-    },
-    {
-      "type": "collection",
-      "id": "featured_collection",
-      "label": "Collection"
-    },
-    {
-      "type": "range",
-      "id": "number_of_products_to_show",
-      "label": "Number of products to show",
-      "min": 4,
-      "max": 12,
-      "default": 4
-    }
-  ],
-  "presets": [
-    {
-      "name": "Featured Collection"
-    }
-  ]
+    "name": "Featured Collection",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Featured Collection"
+        },
+        {
+            "type": "collection",
+            "id": "featured_collection",
+            "label": "Featured Collection"
+        },
+        {
+            "type": "range",
+            "id": "number_of_products_to_show",
+            "label": "Number of products to show",
+            "min": 4,
+            "max": 12,
+            "default": 4
+        }
+    ],
+    "presets": [
+        {
+            "name": "Featured Collection"
+        }
+    ]
 }
 {% endschema %}
+
 

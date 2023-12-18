@@ -747,7 +747,61 @@ a {
     color: #a0aec0;
 }
 
-/* cart */
+/* list-collection */
+/* Estilo para la sección template-list-collection */
+.template-list-collection {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Estilo para el título de la sección */
+  .template-list-collection h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para las tarjetas de colecciones */
+  .template-list-collection .grid-cols-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .template-list-collection .border {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .template-list-collection .border:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Estilo para la imagen de la colección */
+  .template-list-collection img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  /* Estilo para el título de la colección */
+  .template-list-collection h1.text-xl {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  /* Estilo para el fondo de la tarjeta */
+  .template-list-collection .bg-gray-100 {
+    background-color: #f4f4f4;
+  }
+  
+  /* Estilo para el contenedor principal */
+  .template-list-collection .max-w-6xl {
+    margin: 0 auto;
+  }
+  
 
 /* responsive-mobile */
 /* .homepage */

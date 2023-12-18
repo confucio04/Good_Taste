@@ -3,19 +3,23 @@
 
     <div class="max-w-6xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {% assign featuredCollectionHandle = section.settings.featured_collection %}
-            {% assign featuredCollection = collections[featuredCollectionHandle] %}
-            {% assign numberOfProductsToShow = section.settings.number_of_products_to_show | default: 4 %}
+            {%liquid 
+             assign featuredCollectionHandle = section.settings.featured_collection 
+             assign featuredCollection = collections[featuredCollectionHandle] 
+             assign numberOfProductsToShow = section.settings.number_of_products_to_show | default: 4 
+            %}
 
-            {% if featuredCollection %}
-                {% for product in featuredCollection.products limit: numberOfProductsToShow %}
-                    {% render 'product-card', product_product: product %}
-                {% endfor %}
-            {% else %}
-                {% for item in (1..4) %}
-                    {% render 'product-card-placeholder' %}
-                {% endfor %}
-            {% endif %}
+            {% liquid 
+                if featuredCollection 
+                    for product in featuredCollection.products limit: numberOfProductsToShow 
+                        render 'product-card', product_product: product 
+                    endfor 
+                else 
+                    for item in (1..4) 
+                         render 'product-card-placeholder' 
+                    endfor 
+                endif
+             %}
         </div>
     </div>
 </div>

@@ -1,7 +1,8 @@
 <!-- sections/template-product.liquid -->
 
-<div class="product-container">
-    <div class="product">
+<div class="products-container">
+  <div class="products">
+    <div class="product-img">
         <img src="
             {{ product.featured_image.src | image_url: width: 400 }}"
             alt="{{ product.title }}" l
@@ -9,8 +10,10 @@
             width="300"
             height="auto"
         >
+    </div>
+    <div class="product-content">
+      <span class="text-xs text-gray-500">{{ product.vendor }}</span>
       <h2>{{ product.title }}</h2>
-      
       <p>{{ product.description }}</p>
       
       {% if product.available %}
@@ -24,8 +27,9 @@
       {% else %}
         <p>Out of Stock</p>
       {% endif %}
-    </div>
+    </div>  
   </div>
+</div>
 
   {% schema %}
   {

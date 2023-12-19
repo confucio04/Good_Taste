@@ -422,6 +422,42 @@
     transition: max-height 0.3s ease;
     padding-top: 15px;
 }
+/* product */
+.products-container {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
+    gap: 2rem;
+    place-content: center;
+}
+
+.products {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #0000001a;
+    overflow: hidden;
+    transition: transform .3s ease-in-out;
+    display: grid;
+    grid-template-columns: 1fr; /* Ajusta la distribución según tus necesidades */
+    gap: 1rem;
+}
+
+.product-img {
+    aspect-ratio: 3/2;
+    object-fit: cover;
+}
+
+.product-content {
+    display: grid;
+    gap: 1rem;
+}
+
+/* Estilos adicionales según sea necesario */
 
 /* cart */
 #cartProductContainer {

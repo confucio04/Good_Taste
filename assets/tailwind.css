@@ -455,7 +455,12 @@
     width: 90%;
 }
 
-
+.price
+{
+    display: grid;
+    place-content: center;
+    gap: 2px;
+}
 
 /* Estilos adicionales según sea necesario */
 

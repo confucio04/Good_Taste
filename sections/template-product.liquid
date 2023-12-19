@@ -22,10 +22,13 @@
           <p>{{ product.price | money }}</p>
           <form action="/cart/add" method="post">
             <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" id="quantity" value="1" min="1">
+            <div class="price">
+              <label for="quantity">Quantity:</label>
+              <input type="number" name="quantity" id="quantity" value="1" min="1">
+              <button type="submit">Add to Cart</button>
+            </div>
             </form>
-            <button type="submit">Add to Cart</button>
+            
         {% else %}
           <p>Out of Stock</p>
         {% endif %}

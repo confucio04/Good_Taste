@@ -1,6 +1,42 @@
 {
-  "current": "Default",
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "mobile_menu_title": "Menu",
+          "menu": "main-menu"
+        }
+      },
+      "template-collection": {
+        "type": "template-collection",
+        "settings": {
+          "number_of_products_per_page": 6,
+          "selected_collection": "frontpage"
+        }
+      },
+      "template-about": {
+        "type": "template-about",
+        "settings": {
+        }
+      },
+      "template-footer": {
+        "type": "template-footer",
+        "settings": {
+        }
+      },
+      "template-cart": {
+        "type": "template-cart",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
   "presets": {
-    "Default": { }
+    "Default": {
+    }
   }
 }

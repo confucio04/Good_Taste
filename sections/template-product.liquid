@@ -1,35 +1,37 @@
 <!-- sections/template-product.liquid -->
 
 <div class="products-container">
-  <div class="products">
-    <div class="product-img">
-        <img src="
-            {{ product.featured_image.src | image_url: width: 450 }}"
-            alt="{{ product.title }}" l
-            loading="lazy"
-            width="450"
-            height="auto"
-        >
+  <div class="card">
+    <div class="products">
+      <div class="product-img">
+          <img src="
+              {{ product.featured_image.src | image_url: width: 450 }}"
+              alt="{{ product.title }}" l
+              loading="lazy"
+              width="450"
+              height="auto"
+          >
+      </div>
     </div>
-  </div>
-  <div class="products">
-    <div class="product-content">
-      <span class="text-xs text-gray-500">{{ product.vendor }}</span>
-      <h2>{{ product.title }}</h2>
-      <p>{{ product.description }}</p>
-      
-      {% if product.available %}
-        <p>{{ product.price | money }}</p>
-        <form action="/cart/add" method="post">
-          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-          <label for="quantity">Quantity:</label>
-          <input type="number" name="quantity" id="quantity" value="1" min="1">
-          <button type="submit">Add to Cart</button>
-        </form>
-      {% else %}
-        <p>Out of Stock</p>
-      {% endif %}
-   </div> 
+    <div class="products">
+      <div class="product-content">
+        <span class="text-xs text-gray-500">{{ product.vendor }}</span>
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.description }}</p>
+        
+        {% if product.available %}
+          <p>{{ product.price | money }}</p>
+          <form action="/cart/add" method="post">
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity" value="1" min="1">
+            <button type="submit">Add to Cart</button>
+          </form>
+        {% else %}
+          <p>Out of Stock</p>
+        {% endif %}
+    </div> 
+    </div>
   </div>
 </div>
  

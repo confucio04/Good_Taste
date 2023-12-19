@@ -11,8 +11,7 @@
       "template-collection": {
         "type": "template-collection",
         "settings": {
-          "number_of_products_per_page": 6,
-          "selected_collection": "frontpage"
+          "category_top_left": "frontpage"
         }
       },
       "template-about": {

@@ -454,11 +454,19 @@
 {
     width: 90%;
 }
-
+.align 
+{
+    display: block;
+    text-align: justify;
+}
+.text-align
+{
+    text-align: justify;
+}
 .price
 {
     display: grid;
-    place-content: center;
+    place-content: normal;
     gap: 2px;
 }
 

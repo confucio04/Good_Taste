@@ -1,56 +1,56 @@
-<div class="product-container">
-    <h1>kass</h1>
-    {% for product in collection.products %}
-        <div class="product">
-            <img src="{{ product.featured_image.src | image_url: width: 300, height: 150 }}" 
-                alt="{{ product.title }}"
-                loading="eager"
-                width="300"
-                height="auto"
-            >
-            <div class="star-container">
-                <span class="star"></span>
-                <span class="star"></span>
-                <span class="star"></span>
-                <span class="star"></span>
-                <span class="star"></span>
-                {% comment %} {{ product.rating | default: 0 }} {% endcomment %}
+<section class="template-collection">
+    <div class="product-container">
+        {% for product in collections[section.settings.category_top_left].products %}
+            <div class="product">
+                <img src="{{ product.featured_image.src | image_url: width: 300, height: 150 }}" 
+                    alt="{{ product.title }}"
+                    loading="eager"
+                    width="300"
+                    height="auto"
+                >
+                <div class="star-container">
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    {% comment %} {{ product.rating | default: 0 }} {% endcomment %}
+                </div>
+                <h2>{{ product.title }}</h2> 
+
+                {% if forloop.index <= 3 %}
+                    <span class="style">In Good Taste</span>
+                {% else %}
+                    <span class="style">Collection</span>
+                {% endif %}
+                
+                <p class="expandable" style="-webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical;">{{ product.description }}</p>
+                
+                {% if product.available %}
+                    <p>{{ product.price | money }}</p>
+                    <button class="cart-btn" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}">
+                        Add to Cart
+                    </button>
+                {% else %}
+                    <span class="color space">OUT OF STOCK</span>
+                {% endif %}
             </div>
-            <h2>{{ product.title }}</h2> 
-
-            {% if forloop.index <= 3 %}
-                <span class="style">In Good Taste</span>
-            {% else %}
-                <span class="style">Collection</span>
-            {% endif %}
-            
-            <p class="expandable" style="-webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical;">{{ product.description }}</p>
-            
-            {% if product.available %}
-                <p>{{ product.price | money }}</p>
-                <button class="cart-btn" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}">
-                    Add to Cart
-                </button>
-            {% else %}
-                <span class="color space">OUT OF STOCK</span>
-            {% endif %}
-        </div>
-    {% endfor %}
-</div>
-
+        {% endfor %}
+    </div>
+</section>
 
 
 {% schema %}
-{
-    "name": "Template Collection",
-    "settings": [],
-    "presets": [
-        {
-            "name": "Default",
-            "category": "Custom"
-        }
-    ]
-}
+    {
+        "name": "Template Collection",
+        "settings": [
+            {
+                "type": "collection",
+                "id": "category_top_left",
+                "label": "Category Top Left"
+            }
+        ]
+    }
 {% endschema %}
 
 

@@ -2,9 +2,12 @@
     <h2>{{ section.settings.title }}</h2>
 
     <div class="product-container">
-        {% assign featuredCollectionHandle = section.settings.featured_collection %}
-        {% assign featuredCollection = collections[featuredCollectionHandle] %}
-        {% assign numberOfProductsToShow = section.settings.number_of_products_to_show | default: 4 %}
+       
+        {% liquid 
+            assign featuredCollectionHandle = section.settings.featured_collection 
+            assign featuredCollection = collections[featuredCollectionHandle] 
+            assign numberOfProductsToShow = section.settings.number_of_products_to_show | default: 4 
+        %}
 
         {% if featuredCollection %}
             {% for product in featuredCollection.products limit: numberOfProductsToShow %}

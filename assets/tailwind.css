@@ -423,7 +423,16 @@
     padding-top: 15px;
 }
 /* product */
-.products-container {  
+.products-container {
+    border: 1px solid #ddd;
+    padding: 95px 15px 15px 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #0000001a;
+    overflow: hidden;
+    transition: transform .3s ease-in-out;
+    width: 90%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));

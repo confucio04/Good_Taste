@@ -243,47 +243,43 @@
 /* img */
 
 /* principal */
-.template-home
-{
+.template-home {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.homepage {   
+.homepage {
     background: #fef1e4;
-    padding: 20px; /* Añadido para mejorar la legibilidad en dispositivos más pequeños */
+    padding: 5vw; /* Ajusta según sea necesario */
     text-align: center;
     background-image: url('https://cdn.shopify.com/s/files/1/0683/0007/9353/files/header.webp?v=1702596428');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 700px;
-    padding-right: 20px;
-    padding-left: 20px;
-    margin-top: 100px;
+    height: 40vw; /* Ajusta según sea necesario para mostrar más grande en pantallas grandes */
+    margin-top: 10vw;
 }
-
-/* .homepage img {
-    width: 100%;
-    max-height: 600px; 
-    object-fit: cover;
-} */
 
 .content {
     background: #fef1e4;
+    padding: 5vw; /* Ajusta según sea necesario */
+    text-align: center;
 }
+
 .content h3 {
-    padding-top: 20px; /* Ajustado para mantener un espacio uniforme */
+    padding-top: 2vw; /* Ajusta según sea necesario */
     text-align: center;
     font-weight: 400;
-    font-size: 45px; /* Cambiado a 2rem para dispositivos más pequeños */
+    font-size: 4vw;
 }
 
 .content p {
     text-align: center;
-    padding-bottom: 15px;
-    font-size: 1rem; /* Cambiado a 1rem para dispositivos más pequeños */
+    padding-bottom: 2vw; /* Ajusta según sea necesario */
+    font-size: 2vw;
 }
+
 
 
 
@@ -548,121 +544,125 @@
 
 
 /* about-us */
-.template-about
-{
+.template-about {
     padding-top: 10%;
 }
-.about
-{
 
-   background:  #fef1e4;
-   padding-top: 80px;
-   padding-bottom: 70px;
+.about {
+    background: #fef1e4;
+    padding-top: 5vw; /* Ajusta según sea necesario */
+    padding-bottom: 5vw; /* Ajusta según sea necesario */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.about img 
-{
+
+.about img {
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     min-height: 255px;
 }
 
-.about-info
-{
-    margin-left: 50%;
-}
-.about-info h2 
-{
-    text-align: initial;
-    margin: initial;
-    font-size: 40px;
+.about-info {
+    margin-top: 2vw; /* Ajusta según sea necesario */
+    text-align: center;
 }
 
-.about-info u 
-{
+.about-info h2 {
+    text-align: center;
+    font-size: 4vw; /* Ajusta según sea necesario */
+    margin: 0;
+}
+
+.about-info u {
     text-decoration: none;
     position: relative;
+    font-size: 2vw; /* Ajusta según sea necesario */
 }
-.about-info u::after
-{
+
+.about-info u::after {
     content: "";
     display: block;
     position: absolute;
     left: -1px;
     bottom: -4px;
-    height: 4px;
+    height: 0.5vw; /* Ajusta según sea necesario */
     width: calc(100% + 2px);
     background-image: url('https://cdn.shopify.com/s/files/1/0683/0007/9353/files/after.svg?v=1702670905');
-    background-size: auto 4px;
+    background-size: auto 0.5vw; /* Ajusta según sea necesario */
     background-position: center;
 }
 
-.about-info strong 
-{
+.about-info strong {
     font-weight: bold;
-    padding-left: 29%;
-    font-size: 40px;
+    font-size: 4vw; /* Ajusta según sea necesario */
+    padding-top: 2vw; /* Ajusta según sea necesario */
     font-weight: 600;
     color: #193C46;
 }
 
+
 /* footer */
-.template-footer {
+.template-footer
+{
     padding: 6% 0 0 8%;
 }
-
-.end {
+.end
+{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Columnas autoajustables */
-    gap: 2rem; /* Espaciado entre columnas */
+    grid-template-columns: 1.5fr repeat(4, 1fr);
     align-items: baseline;
 }
-
-.good {
-    padding-bottom: 2rem; /* Ajusta según sea necesario */
+.good 
+{
+    padding-bottom: 44px;
 }
-
-.newsletter-copy {
+.newsletter-copy
+{
     color: #193c46;
-    margin: 0 0 1rem; /* Ajusta según sea necesario */
-    padding: 0 0 3rem; /* Ajusta según sea necesario */
+    margin: 0 0 15px;
+    padding: 0 0 60px;
     position: relative;
 }
-
-.newsletter-copy::after {
+.newsletter-copy::after
+{
     content: "";
     display: block;
     position: absolute;
     left: 0;
-    bottom: 1.5rem; /* Ajusta según sea necesario */
-    width: calc(4 * 2vw); /* Ancho relativo usando vw */
+    bottom: 38px;
+    --svg-width: 10.88px;
+    width: calc(4 * var(--svg-width));
     height: 4px;
     background-image: url('https://cdn.shopify.com/s/files/1/0683/0007/9353/files/after.svg?v=1702670905');
     background-size: auto 4px;
     background-position: 0% 0%;
 }
 
-.field {
+.field
+{
     position: relative;
     display: flex;
     border-bottom: thin solid;
 }
 
-.field__input {
+.field__input
+{
     background: transparent;
     border: transparent;
     color: #193c46;
     font-weight: 500;
-    font-size: 1rem; /* Ajusta según sea necesario */
+    font-size: 16px;
     line-height: 1em;
     letter-spacing: -.01em;
     outline: unset;
     box-shadow: unset;
-    padding: 0.75rem 0; /* Ajusta según sea necesario */
+    padding: 12px 0;
     height: unset;
     min-height: unset;
 }
-
-.newsletter-form__button {
+.newsletter-form__button 
+{
     position: absolute;
     height: 2.5rem;
     right: 0;
@@ -672,30 +672,30 @@
     background: transparent;
     cursor: pointer;
 }
-
-.position {
-    padding-left: 2rem; /* Ajusta según sea necesario */
+.position
+{
+    padding-left: 66px ;
 }
-
-.footer-menu {
+.footer-menu 
+{
     padding-left: 0;
 }
-
-.footer-menu li {
-    padding-bottom: 1rem; /* Ajusta según sea necesario */
+.footer-menu  li
+{
+    padding-bottom: 12px;
     color: #193c46;
-}
-
-.footer-menu a {
+}x
+.footer-menu  a
+{
     color: #193c46;
     text-decoration: none;
 }
-
-.redes-social {
+.redes-social
+{
     display: flex;
-    gap: 1rem; /* Ajusta según sea necesario */
+    gap: 14px;
     padding-left: 0;
-    padding-top: 2rem; /* Ajusta según sea necesario */
+    padding-top: 44px;
 }
 
 

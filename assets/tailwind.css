@@ -234,7 +234,7 @@
 
 /* principal */
 .template-home {
-    padding-top: 14%;
+    padding-top: 6%;
     display: grid;
     grid-template-rows: auto auto;
 }
@@ -849,7 +849,44 @@ a {
   
 
 /* responsive-mobile */
-/* .homepage */
+/* Estilos para pantallas de escritorio */
+@media (min-width: 768px) {
+    .mobile-menu {
+        display: none;
+    }
+
+    .navigation {
+        display: flex;
+        gap: 40px;
+    }
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+    .mobile-menu {
+        display: block;
+    }
+
+    .navigation {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: white;
+        z-index: 1000;
+    }
+
+    .navigation.show {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+    }
+}
+
 
 /* Estilos para pantallas pequeñas (hasta 768px) */
 /* menu */

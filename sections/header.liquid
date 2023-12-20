@@ -4,7 +4,6 @@
         <div class="mobile-menu">
             <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="link-menu btn">
                 {% render 'icon-menu' %}
-                {% render 'icon-search' %}
             </button>
         </div>  
         <h1>{{ shop.name }}</h1>  
@@ -51,7 +50,7 @@
         {% endfor %}
     </nav>
    
-    <div class="platform">
+    <div class="platform" x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false">
         <a href="{{ routes.search_url }}">
             {% render 'icon-search' %}
         </a>
@@ -72,7 +71,8 @@
             {% endif %}
         {% endif %}
     </div>
-</div>     
+</div>
+ 
     
 {% schema %}
 {

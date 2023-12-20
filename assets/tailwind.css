@@ -859,6 +859,11 @@ a {
         display: flex;
         gap: 40px;
     }
+
+    .platform {
+        display: none;
+    }
+    
 }
 
 /* Estilos para dispositivos móviles */
@@ -885,6 +890,17 @@ a {
         gap: 20px;
         padding: 20px;
     }
+    .platform {
+        display: flex;
+        gap: 14px;
+    }
+    
+    .platform a {
+        text-decoration: none;
+        color: #000000;
+        font-size: 13px;
+    }
+
 }
 
 

@@ -244,42 +244,37 @@
 
 /* principal */
 .template-home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 5vw; /* Espacio entre filas */
 }
 
 .homepage {
     background: #fef1e4;
-    padding: 5vw; /* Ajusta según sea necesario */
+    padding: 5vw;
     text-align: center;
-    background-image: url('https://cdn.shopify.com/s/files/1/0683/0007/9353/files/header.webp?v=1702596428');
-    background-size: cover; /* Cubre completamente el contenedor sin estirar la imagen */
-    background-repeat: no-repeat;
-    background-position: center; /* Centra la imagen vertical y horizontalmente */
-    height: 40vw; /* Ajusta según sea necesario para mostrar más grande en pantallas grandes */
-    margin-top: 10vw;
+}
+
+.homepage img {
+    width: 100%;
+    max-height: 60vh;
+    object-fit: cover;
 }
 
 .content {
     background: #fef1e4;
-    padding: 5vw; /* Ajusta según sea necesario */
+    padding: 5vw;
     text-align: center;
 }
 
 .content h3 {
-    padding-top: 2vw; /* Ajusta según sea necesario */
-    text-align: center;
     font-weight: 400;
     font-size: 4vw;
 }
 
 .content p {
-    text-align: center;
-    padding-bottom: 2vw; /* Ajusta según sea necesario */
     font-size: 2vw;
 }
-
 
 
 
@@ -601,7 +596,6 @@
     font-weight: 600;
     color: #193C46;
 }
-
 
 /* footer */
 .template-footer

@@ -254,9 +254,9 @@
     padding: 5vw; /* Ajusta según sea necesario */
     text-align: center;
     background-image: url('https://cdn.shopify.com/s/files/1/0683/0007/9353/files/header.webp?v=1702596428');
-    background-size: cover;
+    background-size: cover; /* Cubre completamente el contenedor sin estirar la imagen */
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; /* Centra la imagen vertical y horizontalmente */
     height: 40vw; /* Ajusta según sea necesario para mostrar más grande en pantallas grandes */
     margin-top: 10vw;
 }
@@ -279,6 +279,7 @@
     padding-bottom: 2vw; /* Ajusta según sea necesario */
     font-size: 2vw;
 }
+
 
 
 
@@ -615,6 +616,8 @@
 }
 .good 
 {
+    display: block;
+    text-align: justify;
     padding-bottom: 44px;
 }
 .newsletter-copy

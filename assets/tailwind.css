@@ -244,20 +244,18 @@
 
 /* principal */
 .template-home {
+    padding-top: 14%;
     display: grid;
     grid-template-rows: auto auto;
-    gap: 5vw; /* Espacio entre filas */
 }
 
 .homepage {
     background: #fef1e4;
-    padding: 5vw;
     text-align: center;
 }
 
 .homepage img {
     width: 100%;
-    max-height: 60vh;
     object-fit: cover;
 }
 

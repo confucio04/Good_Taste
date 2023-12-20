@@ -463,13 +463,21 @@
 {
     text-align: justify;
 }
+.size
+{
+    font-size: 17px;
+}
 .price
 {
     display: grid;
     place-content: normal;
-    gap: 2px;
+    gap: 4px;
 }
-
+.border
+{
+    padding-bottom: 10px;
+    border: thin solid gray;
+}
 /* Estilos adicionales según sea necesario */
 
 /* cart */

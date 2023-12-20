@@ -16,16 +16,16 @@
       <div class="product-content">
         <span class="text-xs align text-gray-500">{{ product.vendor }}</span>
         <h2 class="text-align">{{ product.title }}</h2>
-        <p class="text-align">{{ product.price | money }}</p>
+        <p class="text-align size">{{ product.price | money }}</p>
         <p class="text-align">{{ product.description }}</p>
         
         {% if product.available %}
           
           <form action="/cart/add" method="post">
             <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-            <div class="price">
-              <label for="quantity">Quantity:</label>
-              <input type="number" name="quantity" id="quantity" value="1" min="1">
+            <label for="quantity" class="text-align">Quantity:</label>
+            <div class="price">  
+              <input type="number" class="border" name="quantity" id="quantity" value="1" min="1">
               <button type="submit" class="cart-btn">Add to Cart</button>
             </div>
             </form>

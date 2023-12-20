@@ -477,6 +477,10 @@
 {
     padding-bottom: 10px;
     border: thin solid gray;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
 }
 /* Estilos adicionales según sea necesario */
 

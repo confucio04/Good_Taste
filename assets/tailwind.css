@@ -302,9 +302,9 @@
 }
  .product-container {
     display: grid;
-    padding-top: 10%;
-    grid-template-columns: repeat(3,1fr);
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill,minmax(min(400px,100%),1fr));
+    gap: 2rem;
+    place-content: center;
     align-items: stretch;
 } 
 
@@ -606,66 +606,63 @@
 }
 
 /* footer */
-.template-footer
-{
+.template-footer {
     padding: 6% 0 0 8%;
 }
-.end
-{
+
+.end {
     display: grid;
-    grid-template-columns: 1.5fr repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Columnas autoajustables */
+    gap: 2rem; /* Espaciado entre columnas */
     align-items: baseline;
 }
-.good 
-{
-    padding-bottom: 44px;
+
+.good {
+    padding-bottom: 2rem; /* Ajusta según sea necesario */
 }
-.newsletter-copy
-{
+
+.newsletter-copy {
     color: #193c46;
-    margin: 0 0 15px;
-    padding: 0 0 60px;
+    margin: 0 0 1rem; /* Ajusta según sea necesario */
+    padding: 0 0 3rem; /* Ajusta según sea necesario */
     position: relative;
 }
-.newsletter-copy::after
-{
+
+.newsletter-copy::after {
     content: "";
     display: block;
     position: absolute;
     left: 0;
-    bottom: 38px;
-    --svg-width: 10.88px;
-    width: calc(4 * var(--svg-width));
+    bottom: 1.5rem; /* Ajusta según sea necesario */
+    width: calc(4 * 2vw); /* Ancho relativo usando vw */
     height: 4px;
     background-image: url('https://cdn.shopify.com/s/files/1/0683/0007/9353/files/after.svg?v=1702670905');
     background-size: auto 4px;
     background-position: 0% 0%;
 }
 
-.field
-{
+.field {
     position: relative;
     display: flex;
     border-bottom: thin solid;
 }
 
-.field__input
-{
+.field__input {
     background: transparent;
     border: transparent;
     color: #193c46;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1rem; /* Ajusta según sea necesario */
     line-height: 1em;
     letter-spacing: -.01em;
     outline: unset;
     box-shadow: unset;
-    padding: 12px 0;
+    padding: 0.75rem 0; /* Ajusta según sea necesario */
     height: unset;
     min-height: unset;
 }
-.newsletter-form__button 
-{
+
+.newsletter-form__button {
     position: absolute;
     height: 2.5rem;
     right: 0;
@@ -675,30 +672,30 @@
     background: transparent;
     cursor: pointer;
 }
-.position
-{
-    padding-left: 66px ;
+
+.position {
+    padding-left: 2rem; /* Ajusta según sea necesario */
 }
-.footer-menu 
-{
+
+.footer-menu {
     padding-left: 0;
 }
-.footer-menu  li
-{
-    padding-bottom: 12px;
+
+.footer-menu li {
+    padding-bottom: 1rem; /* Ajusta según sea necesario */
     color: #193c46;
 }
-.footer-menu  a
-{
+
+.footer-menu a {
     color: #193c46;
     text-decoration: none;
 }
-.redes-social
-{
+
+.redes-social {
     display: flex;
-    gap: 14px;
+    gap: 1rem; /* Ajusta según sea necesario */
     padding-left: 0;
-    padding-top: 44px;
+    padding-top: 2rem; /* Ajusta según sea necesario */
 }
 
 

@@ -853,6 +853,7 @@ a {
 
 /* Estilos para pantallas pequeñas (hasta 768px) */
 /* menu */
+/*
 @media (max-width: 768px) {
     .navigation {
         display: none;
@@ -887,7 +888,7 @@ a {
     .center-menu {
        gap: 311px;
        justify-content: start;
-       padding-left: 126px; /* Ajustado el espacio para dispositivos más pequeños */
+       padding-left: 126px; 
     }
 
     .title
@@ -897,13 +898,13 @@ a {
     }
     
     .mobile-menu {
-        display: block; /* Mostrar el botón de menú en pantallas pequeñas */
+        display: block; 
         padding-right: 14px;
         padding-top: 5px;
     }
 
     .navigation {
-        display: none; /* Ocultar el menú en pantallas pequeñas */
+        display: none; 
     }
 
     .navigation.show {
@@ -925,4 +926,4 @@ a {
     .mobile-navigation {
         display: none;
     }
-}
+}*/

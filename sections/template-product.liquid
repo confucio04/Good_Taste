@@ -23,7 +23,7 @@
           
           <form action="/cart/add" method="post">
             <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-            <label for="quantity" class="text-align">Quantity:</label>
+            <label for="quantity" class="align">Quantity:</label>
             <div class="price">  
               <input type="number" class="border" name="quantity" id="quantity" value="1" min="1">
               <button type="submit" class="cart-btn">Add to Cart</button>

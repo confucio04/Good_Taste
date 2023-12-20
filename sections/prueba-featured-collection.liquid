@@ -1,56 +1,80 @@
  {% comment %} <section class= "template-collections">
     <div class="center-card">
         <div class="collections">
-            {% for product in collections[section.settings.category_top_left].products %}
-                <img src="{{ product.featured_image.src | image_url: width: 300, height: 150 }}" 
-                    alt="{{ product.title }}"
-                    loading="eager"
-                    width="300"
-                    height="auto"
-                >
+           
+            <div class="card">
+                <div class="card-img">
+                    <img
+                        src="https://cdn.shopify.com/s/files/1/0683/0007/9353/files/product-12.jpg?v=1702667272"
+                        alt="hero"
+                        loading="eager"
+                        width="300"
+                        height="auto"
+                    >
+                </div>
+                <div class="card-info">
                     <div class="star-container">
                         <span class="star"></span>
                         <span class="star"></span>
                         <span class="star"></span>
                         <span class="star"></span>
                         <span class="star"></span>
-                        {% comment %} {{ product.rating | default: 0 }} {% endcomment %}
                     </div>
-                    <h2>{{ product.title }}</h2> 
-    
-                    {% if forloop.index <= 3 %}
-                        <span class="style">In Good Taste</span>
-                    {% else %}
-                        <span class="style">Collection</span>
-                    {% endif %}
-                    
-                    <p class="expandable" style="-webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical;">{{ product.description }}</p>
-                    
-                    {% if product.available %}
-                        <p>{{ product.price | money }}</p>
-                        <button class="cart-btn" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}">
-                            Add to Cart
-                        </button>
-                    {% else %}
-                        <span class="color space">OUT OF STOCK</span>
-                    {% endif %}
+                    <h4>French Tasting Kit</h4>
+                    <span class="style">Collection</span>
+                    <p>
+                        Say Bonjour to our&nbsp;French Wine Tasting Kit! Get ready to embark on a delightful 
+                        journey through the vineyards of France without leaving the comfort of your own home. 
+                        Indulge in the essence of French wine culture with our thoughtfully curated selection of six mini bottles, 
+                        each representing a unique French varietal or region in France. Whether you're a wine enthusiast, an aspiring connoisseur
+                        , or simply someone who appreciates the finer things in life, our French Tasting Kit is the perfect companion. 
+                        It's an invitation to create unforgettable moments with friends and loved ones, as you gather
+                        around the table to share the magic of French wines.
+                    </p>
+                    <p>
+                        Available in 6-pack and 12-pack sizes. 12-pack contains two each of the 6 unique French Wines.
+                    </p>
+                    <span class="color space">OUT OF STOCK</span>
                 </div>
-            {% endfor %}  
+            </div> 
+            {% comment %} row num 5 {% endcomment %}
+            <div class="card">
+                <div class="card-img">
+                <img
+                    src="https://cdn.shopify.com/s/files/1/0683/0007/9353/files/product-13.jpg?v=1702667341"
+                    alt="hero"
+                    loading="eager"
+                    width="300"
+                    height="auto"
+                >
+                </div>
+                <div class="card-info">
+                    <div class="star-container">
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                    </div>
+                    <h4>Deux + Mini Wine Gift Set</h4>
+                    <span class="style">Collection</span>
+                    <p>
+                        Introducing a new collaborative gift set designed to delight and indulge on any special occasion – 
+                        the Deux + Mini Wine Gift Set. This exquisite package brings together the best of both worlds: 
+                        the guilt-free pleasure of our better-for-you "Deux" cookie dough and perfectly paired mini wines from In Good Taste.
+                        An ideal companion for break-ups, birthdays, or a good long binge of your favorite show. Perfect any occasion 
+                        that warrants celebration, laughter, and the delightful sweetness of life. 
+                        Note: Deux cookie dough and Mini Wines ship separately.
+                    </p>
+                    <span class="color space">OUT OF STOCK</span>
+                </div>
+            </div> 
         </div>
+        </div>
+        
     </div>
-</section> 
-{% schema %}
-    {
-        "name": "Template Collection",
-        "settings": [
-            {
-                "type": "collection",
-                "id": "category_top_left",
-                "label": "Category Top Left"
-            }
-        ]
-    }
-{% endschema %} {% endcomment %}
+</section>  {% endcomment %}
+
 
 
 

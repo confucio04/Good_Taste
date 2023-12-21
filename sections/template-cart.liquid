@@ -1,35 +1,44 @@
-
 <!-- sections/template-cart.liquid -->
+
 <div id="cartProductContainer">
     <!-- Contenido del producto se insertará mediante JavaScript -->
 </div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        var addedProduct = localStorage.getItem("addedProduct");
+        var selectedProduct = localStorage.getItem("selectedProduct");
 
-        if (addedProduct) {
-            addedProduct = JSON.parse(addedProduct);
+        if (selectedProduct) {
+            selectedProduct = JSON.parse(selectedProduct);
 
             var cartProductContainer = document.getElementById("cartProductContainer");
 
             if (cartProductContainer) {
                 cartProductContainer.innerHTML = `
-                    <figure>
-                        <img src="${addedProduct.image}" alt="${addedProduct.title}" />
-                        <figcaption>
-                            <h2>${addedProduct.title}</h2>
-                            <p>${addedProduct.description}</p>
-                            <p>Price: $${addedProduct.price}</p>
-                            <form action="/cart/update" method="post" id="updateForm">
-                                <input type="hidden" name="id" value="${addedProduct.id}">
-                                <label for="quantity">Quantity:</label>
-                                <input type="number" name="quantity" id="quantity" value="${addedProduct.quantity}" min="1">
-                                <button type="submit">Update</button>
-                            </form>
-                            <a href="/cart/clear" id="clearCart">Clear Cart</a>
-                        </figcaption>
-                    </figure>
+                    <div class="cart-product">
+                        <div class="cart-product-img">
+                            <img src="${selectedProduct.image}" alt="${selectedProduct.title}" />
+                        </div>
+                    </div>
+                    <div class="cart-product">
+                        <div class="cart-product-content">
+                            <span class="text-xs align text-gray-500">${selectedProduct.vendor}</span>
+                            <h2 class="text-align">${selectedProduct.title}</h2>
+                            <p class="text-align size">${selectedProduct.price | money}</p>
+                            <p class="text-align text-space">${selectedProduct.description}</p>
+
+                            ${selectedProduct.available
+                                ? `<form action="/cart/update" method="post" id="updateForm">
+                                    <input type="hidden" name="id" value="${selectedProduct.id}">
+                                    <label for="quantity" class="align">Quantity</label>
+                                    <div class="price">
+                                        <input type="number" class="border" name="quantity" id="quantity" value="${selectedProduct.quantity}" min="1">
+                                        <button type="submit" class="cart-btn">Update</button>
+                                    </div>
+                                </form>`
+                                : `<p>Out of Stock</p>`}
+                        </div>
+                    </div>
                 `;
 
                 // Manejo de eventos del formulario
@@ -39,20 +48,14 @@
                     event.preventDefault();
                     // Puedes agregar lógica adicional aquí, como enviar la actualización mediante AJAX.
                 });
-
-                // Manejo de eventos para limpiar el carrito
-                var clearCartLink = document.getElementById("clearCart");
-                clearCartLink.addEventListener("click", function () {
-                    // Lógica para manejar la limpieza del carrito
-                    // Puedes agregar lógica adicional aquí, como confirmación antes de limpiar el carrito.
-                });
             }
 
             // Limpia la información del producto almacenada en localStorage después de mostrarla
-            localStorage.removeItem("addedProduct");
+            localStorage.removeItem("selectedProduct");
         }
     });
 </script>
+
 
 
 

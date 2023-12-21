@@ -7,17 +7,23 @@
 
 .center-menu {
     display: flex;
-    align-items: center;
     justify-content: space-between; /* Ajustado para distribuir el espacio entre los elementos */
-    padding: 10px;
     background: white;
     width: 100%;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: white;
+    padding: 10px;
+    z-index: 1000;
 }
 
 .title
 {
     display: flex;
-    grid-area: 10px;
+    gap: 10px;
+    padding-left: 55px;
 }
 
 .title h1 {
@@ -263,7 +269,7 @@
 
 .content h3 {
     font-weight: 400;
-    font-size: 3.9vw;
+    font-size: 40px;
 }
 
 .content p {
@@ -911,6 +917,11 @@ a {
 
 /* Estilos para dispositivos móviles */
 @media (max-width: 767px) {
+    .title
+{
+    display: flex;
+    padding-left: 12px;
+}
     .mobile-menu {
         display: block;
     }
@@ -959,9 +970,11 @@ a {
       .position {
         padding-left: 0;
     }
-    
+    .content h3 {
+        font-size: 30px;
+    }
     .content p {
-        font-size: 16px;
+        font-size: 14px;
     }
     .product h2
     {

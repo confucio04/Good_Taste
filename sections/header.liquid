@@ -1,15 +1,28 @@
 <div class="center-menu" x-data="{ mobileMenuOpen: false }">
-
     <div class="title">
         <div class="mobile-menu">
             <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="link-menu btn">
                 {% render 'icon-menu' %}
+                
             </button>
         </div>  
         <h1>{{ shop.name }}</h1>  
-    </div> 
+</div>
    
-    
+    <div class="mobile-icons">
+                    <a href="{{ routes.search_url }}">
+                        {% render 'icon-search' %}
+                        <span class="icon-text">Search</span>
+                    </a>
+                    <a href="{{ routes.login_url }}" > 
+                        {% render 'icon-user' %}
+                        <span class="icon-text">User</span>
+                    </a>
+                    <a href="{{ routes.cart_url }}" >
+                        {% render 'icon-shopping-bag' %}
+                        <span class="icon-text">Cart</span>
+                    </a>
+    </div>
 
     <nav class="navigation" :class="{ 'show': mobileMenuOpen }">
         {% liquid 
@@ -50,16 +63,21 @@
         {% endfor %}
     </nav>
    
-    <div class="platform" x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false">
+    <div class="platform desktop-icons">
+        <!-- Iconos para pantallas grandes -->
         <a href="{{ routes.search_url }}">
             {% render 'icon-search' %}
+            <span class="icon-text">Search</span>
         </a>
         <a href="{{ routes.login_url }}" > 
             {% render 'icon-user' %}
+            <span class="icon-text">User</span>
         </a>
         <a href="{{ routes.cart_url }}" >
             {% render 'icon-shopping-bag' %}
+            <span class="icon-text">Cart</span>
         </a>
+    </div>
 
         {% if shop.customer_accounts_enabled %}
             {% if customer %}

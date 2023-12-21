@@ -14,6 +14,12 @@
     width: 100%;
 }
 
+.title
+{
+    display: flex;
+    grid-area: 10px;
+}
+
 .title h1 {
     font-size: 1.5rem;
     margin: 0; /* Eliminado el margen para mayor consistencia */
@@ -234,7 +240,7 @@
 
 /* principal */
 .template-home {
-    padding-top: 6%;
+    padding-top: 1%;
     display: grid;
     grid-template-rows: auto auto;
 }
@@ -257,11 +263,11 @@
 
 .content h3 {
     font-weight: 400;
-    font-size: 4vw;
+    font-size: 3.9vw;
 }
 
 .content p {
-    font-size: 2vw;
+    font-size: 21px;
 }
 
 
@@ -302,7 +308,10 @@
     transition: transform .3s ease-in-out;
 }
 
-
+/* .product h2
+{
+    font-size: ;
+} */
 .style {
     padding: 6.5px 15px;
     font-size: 8px;
@@ -550,18 +559,20 @@
 .about-info {
     margin-top: 2vw; /* Ajusta según sea necesario */
     text-align: center;
+    margin-left: 20vw;
+
 }
 
 .about-info h2 {
     text-align: center;
-    font-size: 4vw; /* Ajusta según sea necesario */
+    font-size: 3vw;
     margin: 0;
 }
 
 .about-info u {
     text-decoration: none;
     position: relative;
-    font-size: 2vw; /* Ajusta según sea necesario */
+    font-size: 3vw; /* Ajusta según sea necesario */
 }
 
 .about-info u::after {
@@ -578,11 +589,11 @@
 }
 
 .about-info strong {
-    font-weight: bold;
-    font-size: 4vw; /* Ajusta según sea necesario */
-    padding-top: 2vw; /* Ajusta según sea necesario */
+   font-size: 3vw;
+    padding-top: 2vw;
     font-weight: 600;
     color: #193C46;
+    padding-left: 31vw;
 }
 
 /* footer */
@@ -861,9 +872,42 @@ a {
     }
 
     .platform {
-        display: none;
+        display: flex;
+        gap: 14px;
     }
+
+    .mobile-icons {
+        display: none; /* Ocultar iconos dentro del menú en pantallas grandes */
+      }
     
+      .desktop-icons {
+        display: flex; /* Mostrar iconos en pantallas grandes */
+        gap: 10px;
+      }
+    
+      .icon-text {
+        display: none; /* Ocultar textos junto a los iconos en pantallas grandes */
+      }
+    
+      .end{
+        grid-template-columns: 1fr;
+        text-align: justify;
+      }
+      .position {
+        padding-left: 0;
+    }
+
+    .content p {
+        font-size: 20px;
+    }
+    .product h2
+{
+    font-size: 24px;
+}
+.product p
+{
+    font-size: 16px;
+}
 }
 
 /* Estilos para dispositivos móviles */
@@ -890,94 +934,39 @@ a {
         gap: 20px;
         padding: 20px;
     }
-    .platform {
-        display: flex;
-        gap: 14px;
+    .desktop-icons {
+        display: none; /* Ocultar iconos en pantallas pequeñas */
+      }
+    
+      .mobile-icons {
+        display: flex; /* Mostrar iconos dentro del menú en pantallas pequeñas */
+        gap: 10px;
+      }
+    
+      .icon-text {
+        display: inline-block; /* Mostrar textos junto a los iconos en pantallas pequeñas */
+      }
+
+      .end{
+        grid-template-columns: 1fr;
+        text-align: justify;
+      }
+      .position {
+        padding-left: 0;
     }
     
-    .platform a {
-        text-decoration: none;
-        color: #000000;
-        font-size: 13px;
+    .content p {
+        font-size: 16px;
     }
-
-}
-
-
-
-/* Estilos para pantallas pequeñas (hasta 768px) */
-/* menu */
-/*
-@media (max-width: 768px) {
-    .navigation {
-        display: none;
-    }
-
-    .navigation.show {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        padding: 10px;
-    }
-
-    .navigation.show a {
-        color: black;
-    }
-
-    .navigation.show .relative {
-        margin-bottom: 10px;
-    }
-
-    body {
-        overflow-x: hidden;
-    }
-
-    .center-menu {
-        overflow: hidden;
-    }
-
-    .center-menu {
-       gap: 311px;
-       justify-content: start;
-       padding-left: 126px; 
-    }
-
-    .title
+    .product h2
     {
-     display: flex;
-     align-items: center;
+        font-size: 21px;
     }
-    
-    .mobile-menu {
-        display: block; 
-        padding-right: 14px;
-        padding-top: 5px;
-    }
-
-    .navigation {
-        display: none; 
-    }
-
-    .navigation.show {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        padding: 10px;
+    .product p
+    {
+        font-size: 14px;
     }
 }
 
-@media (max-width: 767px) {
-    .mobile-menu {
-        display: block;
-    }
 
-    .mobile-navigation {
-        display: none;
-    }
-}*/
+

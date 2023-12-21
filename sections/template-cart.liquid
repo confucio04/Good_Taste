@@ -6,30 +6,46 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        // Recupera la información del producto almacenada en localStorage
         var addedProduct = localStorage.getItem("addedProduct");
 
         if (addedProduct) {
-            // Convierte la cadena JSON almacenada en un objeto JavaScript
             addedProduct = JSON.parse(addedProduct);
 
-            // Muestra la información del producto en algún lugar de tu página del carrito
             var cartProductContainer = document.getElementById("cartProductContainer");
 
             if (cartProductContainer) {
                 cartProductContainer.innerHTML = `
-                    <img src="${addedProduct.image}" alt="${addedProduct.title}" />
-                    <h2>${addedProduct.title}</h2>
-                    <p>${addedProduct.description}</p>
-                    <p>Price: $${addedProduct.price}</p>
-                    <form action="/cart/update" method="post">
-                        <input type="hidden" name="id" value="${addedProduct.id}">
-                        <label for="quantity">Quantity:</label>
-                        <input type="number" name="quantity" id="quantity" value="${addedProduct.quantity}" min="1">
-                        <button type="submit">Update</button>
-                    </form>
-                    <a href="/cart/clear">Clear Cart</a>
+                    <figure>
+                        <img src="${addedProduct.image}" alt="${addedProduct.title}" />
+                        <figcaption>
+                            <h2>${addedProduct.title}</h2>
+                            <p>${addedProduct.description}</p>
+                            <p>Price: $${addedProduct.price}</p>
+                            <form action="/cart/update" method="post" id="updateForm">
+                                <input type="hidden" name="id" value="${addedProduct.id}">
+                                <label for="quantity">Quantity:</label>
+                                <input type="number" name="quantity" id="quantity" value="${addedProduct.quantity}" min="1">
+                                <button type="submit">Update</button>
+                            </form>
+                            <a href="/cart/clear" id="clearCart">Clear Cart</a>
+                        </figcaption>
+                    </figure>
                 `;
+
+                // Manejo de eventos del formulario
+                var updateForm = document.getElementById("updateForm");
+                updateForm.addEventListener("submit", function (event) {
+                    // Lógica para manejar la actualización del carrito
+                    event.preventDefault();
+                    // Puedes agregar lógica adicional aquí, como enviar la actualización mediante AJAX.
+                });
+
+                // Manejo de eventos para limpiar el carrito
+                var clearCartLink = document.getElementById("clearCart");
+                clearCartLink.addEventListener("click", function () {
+                    // Lógica para manejar la limpieza del carrito
+                    // Puedes agregar lógica adicional aquí, como confirmación antes de limpiar el carrito.
+                });
             }
 
             // Limpia la información del producto almacenada en localStorage después de mostrarla

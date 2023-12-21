@@ -2,25 +2,26 @@
     <div class="title">
         <div class="mobile-menu">
             <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="link-menu btn">
-                {% render 'icon-menu' %}
-                
+                <span x-show="!mobileMenuOpen">{% render 'icon-menu' %}</span>
+                <span x-show="mobileMenuOpen">{% render 'icon-close' %}</span>
             </button>
-        </div>  
+        </div>
+        
         <h1>{{ shop.name }}</h1>  
 </div>
    
     <div class="mobile-icons">
                     <a href="{{ routes.search_url }}">
                         {% render 'icon-search' %}
-                        <span class="icon-text">Search</span>
+                        <span class="icon-text"></span>
                     </a>
-                    <a href="{{ routes.login_url }}" > 
+                    {% comment %} <a href="{{ routes.login_url }}" > 
                         {% render 'icon-user' %}
                         <span class="icon-text">User</span>
-                    </a>
+                    </a> {% endcomment %}
                     <a href="{{ routes.cart_url }}" >
                         {% render 'icon-shopping-bag' %}
-                        <span class="icon-text">Cart</span>
+                        <span class="icon-text"></span>
                     </a>
     </div>
 

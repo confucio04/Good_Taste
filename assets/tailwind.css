@@ -889,10 +889,7 @@ a {
         display: none; /* Ocultar textos junto a los iconos en pantallas grandes */
       }
     
-      .end{
-        grid-template-columns: 1fr;
-        text-align: justify;
-      }
+      
       .position {
         padding-left: 0;
     }
@@ -937,7 +934,12 @@ a {
     .desktop-icons {
         display: none; /* Ocultar iconos en pantallas pequeñas */
       }
-    
+
+    .end{
+        grid-template-columns: 1fr;
+        text-align: justify;
+      }
+      
       .mobile-icons {
         display: flex; /* Mostrar iconos dentro del menú en pantallas pequeñas */
         gap: 10px;

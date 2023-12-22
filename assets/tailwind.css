@@ -484,7 +484,7 @@
 /* Estilos adicionales según sea necesario */
 
 /* cart */
-#cartProductContainer {
+/* #cartProductContainer {
     padding-top: 13%;
     max-width: 400px;
     margin: 20px auto;
@@ -536,9 +536,92 @@
     display: block;
     color: #007bff;
     margin-top: 10px;
+} */
+#cartProductContainer {
+    border: 1px solid #ddd;
+    padding: 8% 15px 15px 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #0000001a;
+    overflow: hidden;
+    transition: transform .3s ease-in-out;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
+    gap: 2rem;
+    place-content: center;
 }
-  
-  
+
+#cartProductContainer img {
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+#cartProductContainer h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#cartProductContainer p {
+    margin-bottom: 10px;
+}
+
+#cartProductContainer form {
+    margin-bottom: 10px;
+}
+
+#cartProductContainer label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#cartProductContainer input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: thin solid gray;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+#cartProductContainer button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#cartProductContainer a {
+    display: block;
+    color: #007bff;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+#cartProductContainer a:hover {
+    text-decoration: underline;
+}  
+
+.checkout-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.checkout-btn:hover {
+    background-color: #45a049;
+}
 
 
 
@@ -686,7 +769,7 @@
 {
     padding-bottom: 12px;
     color: #193c46;
-}x
+}
 .footer-menu  a
 {
     color: #193c46;
@@ -868,6 +951,9 @@ a {
 /* responsive-mobile */
 /* Estilos para pantallas de escritorio */
 @media (min-width: 768px) {
+    
+    
+    
     .mobile-menu {
         display: none;
     }
@@ -895,7 +981,6 @@ a {
         display: none; /* Ocultar textos junto a los iconos en pantallas grandes */
       }
     
-      
       .position {
         padding-left: 0;
     }
@@ -1005,6 +1090,9 @@ a {
      .newsletter-form__button 
     {
         width: 28px;
+    }
+    .newsletter-copy {
+        padding: 0px 20px 60px 1px;
     }
 }
 

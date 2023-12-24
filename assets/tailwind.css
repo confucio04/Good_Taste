@@ -51,6 +51,14 @@
     display: block;
 }
 
+.links-menu
+{
+    position: absolute;
+    background: white;
+    width: 11%;
+    border-radius: 10px;
+}
+
 .navigation {
     display: flex;
     gap: 40px;
@@ -192,7 +200,8 @@
     justify-content: center;
     text-align: center;
     margin: 0 auto; /* Centra el contenido horizontalmente */
-    max-width: 100%; /* Ajusta el ancho máximo según tus necesidades */
+    max-width: 100%;
+    margin-top: 3%; /* Ajusta el ancho máximo según tus necesidades */
 }
 
 .shopify-section .max-w-md {
@@ -551,7 +560,7 @@
 } */
 #cartProductContainer {
     border: 1px solid #ddd;
-    padding: 8% 15px 15px 15px;
+    padding: 26px;
     box-sizing: border-box;
     background-color: #fff;
     border-radius: 8px;

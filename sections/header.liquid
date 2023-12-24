@@ -41,7 +41,7 @@
                         {{ link.title }}
                         {% render 'icon-dropdown' %}
                     </button>
-                    <div x-show="{{ link.handle | replace: '-', '_' }}">
+                    <div x-show="{{ link.handle | replace: '-', '_' }}" class="links-menu">
                         <!-- Contenido del menú desplegable (puedes personalizar según tus necesidades) -->
                         {% for childlink in link.links %}
                             <a href="{{ childlink.url }}" class="link-child">

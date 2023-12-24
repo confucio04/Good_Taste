@@ -3,8 +3,6 @@
     <!-- Contenido del producto se insertará mediante JavaScript -->
 </div>
 
-
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var addedProduct = localStorage.getItem("addedProduct");
@@ -41,9 +39,25 @@
             }
 
             localStorage.removeItem("addedProduct");
+
+            // Verificar si el carrito está vacío antes de redirigir al checkout
+            var goToCheckoutLink = document.getElementById("goToCheckout");
+            if (goToCheckoutLink) {
+                goToCheckoutLink.addEventListener("click", function (event) {
+                    // Ejemplo de lógica para verificar si el carrito está vacío
+                    var cartIsEmpty = addedProduct.quantity === 0; // Puedes ajustar esta lógica según tus necesidades
+                    
+                    if (cartIsEmpty) {
+                        // El carrito está vacío, puedes mostrar un mensaje al usuario o tomar la acción apropiada
+                        alert("El carrito está vacío. Agrega productos antes de proceder al checkout.");
+                        event.preventDefault(); // Evita que se realice la redirección
+                    }
+                });
+            }
         }
     });
 </script>
+
 
 
 

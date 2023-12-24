@@ -1,20 +1,21 @@
-<div class="center-menu" x-data="{ mobileMenuOpen: false }">
+<div class=" relative bg-white center-menu" x-data="{ mobileMenuOpen: false }">
     <div class="title">
         <div class="mobile-menu">
-            <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="link-menu btn">
-                <span x-show="!mobileMenuOpen">{% render 'icon-menu' %}</span>
-                <span x-show="mobileMenuOpen">{% render 'icon-close' %}</span>
+            <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="link-menu btn bg-white p-2 inline-flex items-center justify-center focus:outline-none">
+                <span x-show="!mobileMenuOpen" class="md:hidden">{% render 'icon-menu' %}</span>
             </button>
-        </div>  
-        <h1>{{ shop.name }}</h1>  
-    </div> 
-        
+        </div>
+        <div class="flex justify-start lg:flex-1 truncate">
+            <h1 class="text-xl font-bold truncate">{{ shop.name }}</h1>
+        </div>
+    </div>
+
     <div class="mobile-icons">
         <a href="{{ routes.search_url }}">
             {% render 'icon-search' %}
             <span class="icon-text"></span>
         </a>
-        <a href="{{ routes.cart_url }}" >
+        <a href="{{ routes.cart_url }}">
             {% render 'icon-shopping-bag' %}
             <span class="icon-text"></span>
         </a>
@@ -22,6 +23,9 @@
 
     <!-- Menú desplegable del código 1 integrado en el código 2 -->
     <nav class="navigation" :class="{ 'show': mobileMenuOpen }" @click.away="mobileMenuOpen = false">
+        {% liquid
+            assign main_menu_linklist = section.settings.menu.links | default: linklists[section.settings.menu].links
+        %}
         <div class="relative" x-data="{ accountDropdown: false }">
             <div x-show="accountDropdown">
                 <!-- Contenido del menú desplegable de la cuenta (puedes personalizar según tus necesidades) -->
@@ -30,13 +34,6 @@
             </div>
         </div>
 
-        {% liquid 
-            if section.settings.menu.links == blank 
-                assign main_menu_linklist = linklists[section.settings.menu].links 
-            else 
-                assign main_menu_linklist = section.settings.menu.links 
-            endif 
-        %}
         {% for link in main_menu_linklist %}
             {% if link.links != blank %}
                 <div class="relative" x-data="{ {{ link.handle | replace: '-', '_' }}: false }">
@@ -69,7 +66,7 @@
             {% render 'icon-search' %}
             <span class="icon-text"></span>
         </a>
-        <a href="{{ routes.login_url }}" > 
+        <a href="{{ routes.login_url }}" >
             {% render 'icon-user' %}
             <span class="icon-text"></span>
         </a>
@@ -88,10 +85,65 @@
             {% endif %}
         {% endif %}
     </div>
+
+    <!-- MOBILE MENU CONTAINER -->
+    <div x-show="mobileMenuOpen" class="custom-mobile-menu">
+        <div class="mobile-menu-container">
+            <div class="mobile-menu-content">
+                <!-- MOBILE MENU HEADER TITLE PLUS CLOSE BUTTON -->
+                <div class="mobile-menu-header">
+                    <div>
+                        <h1 class="mobile-menu-title">{{ section.settings.mobile_menu_title }}</h1>
+                    </div>
+                    <div class="-mr-2">
+                        <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="mobile-menu-close-button">
+                            {% render 'icon-close' %}
+                          </button>
+                    </div>
+                </div>
+
+                <!-- NAVIGATION LINKS FOR MOBILE MENU -->
+                <div class="mobile-menu-navigation">
+                    <nav class="grid-container">
+                        {% liquid
+                            assign main_menu_linklist = section.settings.menu.links | default: linklists[section.settings.menu].links
+                        %}
+                        {% for link in main_menu_linklist %}
+                            {% if link.links != blank %}
+                            {% assign mobile_link_handle = link.handle | replace: '-', '_' %}
+                                <div class="relative" x-data="{ {{ mobile_link_handle }}: false }">
+                                    <button x-on:click="{{ mobile_link_handle }} = ! {{ mobile_link_handle }}" type="button" class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width">
+                                        <div>{{ link.title }}</div>
+                                        {% render 'icon-dropdown' %}
+                                    </button>
+
+                                    <div x-show="{{ mobile_link_handle }}" class="grid-container vertical-padding ">
+                                        {% for childlink in link.links %}
+                                            <a href="{{ childlink.url }}" class="margin-padding extra-margin-top flex-center rounded-md gray-text hover-styles">
+                                                <span class="ml-3 text-base font-medium text-gray-500">{{ childlink.title }}</span>
+                                            </a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <a href="{{ link.url }}" class="flex-container">
+                                    {{ link.title }}
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
- 
     
+
+
+
+
 {% schema %}
 {
   "name": "Header",

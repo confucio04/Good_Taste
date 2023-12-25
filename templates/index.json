@@ -1,9 +1,0 @@
-{
-    "name": "theme",
-    "sections": {
-        "template": {
-            "type": "theme"
-        }
-    },
-    "order": ["template"]
-}

@@ -50,9 +50,19 @@
                     }
                 });
             }
+
+            // Agrega el evento de submit al formulario de actualización
+            var updateForm = document.getElementById("updateForm");
+            if (updateForm) {
+                updateForm.addEventListener("submit", function (event) {
+                    // Puedes agregar lógica adicional antes de enviar el formulario si es necesario
+                    // Por ejemplo, verificar si la cantidad es válida
+                });
+            }
         }
     });
 </script>
+
 
 
 

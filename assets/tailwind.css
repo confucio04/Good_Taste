@@ -55,8 +55,7 @@
 {
     position: absolute;
     background: white;
-    width: 11%;
-    border-radius: 10px;
+    border-radius: 14px;
 }
 
 .navigation {
@@ -441,7 +440,7 @@
 /* product */
 .products-container {
     border: 1px solid #ddd;
-    padding: 145px 15px 15px 15px;
+    padding: 21px;
     box-sizing: border-box;
     background-color: #fff;
     border-radius: 8px;
@@ -462,6 +461,11 @@
     gap: 1rem;
 }
 
+.product-content
+{
+    display: grid;
+    place-content: center;
+}
 .product-img {
     aspect-ratio: 3/2;
     object-fit: cover;
@@ -984,6 +988,7 @@ a {
     .navigation {
         display: flex;
         gap: 40px;
+        align-items: center;
     }
 
     .platform {

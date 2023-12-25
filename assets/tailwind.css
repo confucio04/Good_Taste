@@ -465,6 +465,7 @@
 {
     display: grid;
     place-content: center;
+    text-align: justify;
 }
 .product-img {
     aspect-ratio: 3/2;
@@ -635,6 +636,7 @@
 }  
 
 .checkout-btn {
+    text-align: center;
     display: inline-block;
     padding: 10px 20px;
     background-color: #4caf50;

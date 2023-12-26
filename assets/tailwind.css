@@ -10,11 +10,7 @@
         border-color: #e5e7eb;
 }
 
-.truncate {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
+
 
 .bg-white {
     --tw-bg-opacity: 1;
@@ -40,6 +36,9 @@
     display: flex;
     gap: 10px;
     padding-left: 55px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .title h1 {

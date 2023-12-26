@@ -68,7 +68,6 @@
 
 .arrow, .link-menu, .link-child {
     background: white;
-    padding: 8px; /* Aumentado el espacio alrededor de los elementos para una mejor interactividad */
 }
 
 .arrow {
@@ -1039,6 +1038,7 @@ a {
 {
     display: flex;
     padding-left: 0;
+    align-items: end;
 }
     .mobile-menu {
         display: block;

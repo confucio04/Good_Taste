@@ -508,80 +508,18 @@
 /* Estilos adicionales según sea necesario */
 
 /* cart */
-/* #cartProductContainer {
-    padding-top: 13%;
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
-#cartProductContainer img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
-
-#cartProductContainer h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-#cartProductContainer p {
-    margin-bottom: 10px;
-}
-
-#cartProductContainer form {
-    margin-bottom: 10px;
-}
-
-#cartProductContainer label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-#cartProductContainer input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-}
-
-#cartProductContainer button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-#cartProductContainer a {
-    display: block;
-    color: #007bff;
-    margin-top: 10px;
-} */
 #cartProductContainer {
-    border: 1px solid #ddd;
-    padding: 26px;
-    box-sizing: border-box;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px #0000001a;
-    overflow: hidden;
-    transition: transform .3s ease-in-out;
-    width: 90%;
-    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
-    gap: 2rem;
-    place-content: center;
+    grid-gap: 20px; /* Ajusta esto según tus necesidades */
+
+    /* Configuración para dispositivos móviles */
+    grid-template-columns: 1fr;
 }
 
 #cartProductContainer img {
     aspect-ratio: 3/2;
     object-fit: cover;
-    width: 100%;
     height: auto;
     margin-bottom: 10px;
 }
@@ -592,7 +530,7 @@
 }
 
 #cartProductContainer p {
-    margin-bottom: 10px;
+    margin-bottom: 100px;
 }
 
 #cartProductContainer form {
@@ -602,11 +540,12 @@
 #cartProductContainer label {
     display: block;
     margin-bottom: 5px;
+    text-align: justify;
 }
 
 #cartProductContainer input {
     padding: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 86px;
     border: thin solid gray;
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
@@ -648,7 +587,40 @@
     background-color: #45a049;
 }
 
+.cart-center
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.custom-cell
+{
+    /* text-align: left; */
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500;
+}
+.cart-btns
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.cart-padding
+{
+    width: 50%;
+    padding-left: 10%;
+}
+
+.textarea
+{
+    border: thin solid;
+    padding-bottom: 40px;
+}
+.my-4 {
+    margin-top: 1rem/* 16px */;
+    margin-bottom: 1rem/* 16px */;
+}
 
 /* about-us */
 .template-about {
@@ -1221,6 +1193,7 @@ a {
     border-radius: 0.375rem; 
     color: #718096; 
     justify-content: space-between;
+    text-align: left;
   }
   
   .flex-container:hover {
@@ -1293,6 +1266,22 @@ a {
     .newsletter-copy {
         padding: 0px 20px 60px 1px;
     }
+    #cartProductContainer {
+    border: 1px solid #ddd;
+    padding: 26px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #0000001a;
+    overflow: hidden;
+    transition: transform .3s ease-in-out;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
+    gap: 2rem;
+    place-content: center;
+}
 }
 
 

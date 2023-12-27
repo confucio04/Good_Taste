@@ -122,10 +122,9 @@
                         assign main_menu_linklist = section.settings.menu.links | default: linklists[section.settings.menu].links
                     %}
                     {% for link in main_menu_linklist %}
-                        {% assign mobile_link_handle = link.handle | replace: '-', '_' %}
-                        <div class="relative" x-data="{ {{ mobile_link_handle }}: false }">
+                        <div class="relative" x-data="{ isOpen: false, subLinksOpen: {} }">
                             {% if forloop.first %}
-                                <button x-on:click="{{ mobile_link_handle }} = ! {{ mobile_link_handle }}" type="button" class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width">
+                                <button x-on:click="isOpen = !isOpen" type="button" class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width">
                                     <div>{{ link.title }}</div>
                                     {% render 'icon-dropdown' %}
                                 </button>
@@ -134,36 +133,38 @@
                                     {{ link.title }}
                                 </a>
                             {% endif %}
-                
-                            <div x-show="{{ mobile_link_handle }}" class="grid-container vertical-padding">
-                                {% if forloop.first %}
-                                    <div x-show="{{ mobile_link_handle }}" class="grid-container vertical-padding">
+                            
+                            <template x-if="isOpen">
+                                {% if link.links != blank %}
+                                    <div class="grid-container vertical-padding">
                                         {% for childlink in link.links %}
-                                            <div x-data="{ {{ childlink.handle | replace: '-', '_' }}: false }">
-                                                <button type="button" class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width">
+                                            <div x-data="{ subLinkOpen: false }">
+                                                <button type="button" class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width" x-on:click="subLinkOpen = !subLinkOpen">
                                                     <a href="{{ childlink.url }}" class="flex-center rounded-md gray-text hover-styles">
-                                                        <span class="ml-3 text-base font-medium text-gray-500">{{ childlink.title }}</span>
-                                                        {% render 'icon-dropdown' %}
+                                                        <span class="ml-3 text-base font-medium text-gray-500">{{ childlink.title }}</span>   
                                                     </a>
+                                                    {% render 'icon-dropdown' %}
                                                 </button>
-                
-                                                <div x-show="{{ childlink.handle | replace: '-', '_' }}" class="grid-container vertical-padding">
-                                                    {% for sublink in childlink.links %}
-                                                        <a href="{{ sublink.url }}" class="margin-padding extra-margin-top flex-center rounded-md gray-text hover-styles">
-                                                            <span class="ml-3 text-base font-medium text-gray-500">{{ sublink.title }}</span>
-                                                            {% render 'icon-dropdown' %}
-                                                        </a>
-                                                    {% endfor %}
-                                                </div>
+                            
+                                                <template x-if="subLinkOpen">
+                                                    <div class="grid-container vertical-padding">
+                                                        {% for sublink in childlink.links %}
+                                                            <a href="{{ sublink.url }}" class="margin-padding extra-margin-top flex-center rounded-md gray-text hover-styles">
+                                                                <span class="ml-3 text-base font-medium text-gray-500">{{ sublink.title }}</span>
+                                                            </a>
+                                                        {% endfor %}
+                                                    </div>
+                                                </template>
                                             </div>
                                         {% endfor %}
                                     </div>
                                 {% endif %}
-                            </div>
+                            </template>
+                            
                         </div>
                     {% endfor %}
                 </nav>
-                
+                                
             </div>
         </div>
     </div>

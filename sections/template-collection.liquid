@@ -28,9 +28,11 @@
                 
                 {% if product.available %}
                     <p>{{ product.price | money }}</p>
-                    <button class="cart-btn" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}">
-                        Add to Cart
-                    </button>
+                    <form action="/cart/add" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                        <input type="hidden" name="quantity" value="1">
+                        <input type="submit" value="Add to Cart">
+                    </form>
                 {% else %}
                     <span class="color space">OUT OF STOCK</span>
                 {% endif %}

@@ -28,7 +28,7 @@
                 
                 {% if product.available %}
                     <p>{{ product.price | money }}</p>
-                    <form action="/cart/add" method="post" enctype="multipart/form-data">
+                    <form  class="form-btns" action="/cart/add" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="{{ product.variants.first.id }}">
                         <input type="hidden" name="quantity" value="1">
                         <input  type="submit" value="Add to Cart">

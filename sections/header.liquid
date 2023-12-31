@@ -50,12 +50,12 @@
                 <div x-show="{{ link.handle | replace: '-', '_' }}" class="links-menu">
                     <!-- Contenido del menú desplegable (puedes personalizar según tus necesidades) -->
                     {% for childlink in link.links %}
-                        <div class="relative" x-data="{ {{ childlink.handle | replace: '-', '_' }}: false }">
-                            <button x-on:click="{{ childlink.handle | replace: '-', '_' }} = !{{ childlink.handle | replace: '-', '_' }}" class="arrow">
-                                {{ childlink.title }}
-                                {% render 'icon-dropdown' %}
+                        <div class="relative" x-data="{ {{ childlink.handle | replace: '-', '_' }}: true }">
+                            <button x-on:click="{{ childlink.handle | replace: '-', '_' }} = !{{ childlink.handle | replace: '-', '_' }}" class="arrow menu-padding">
+                               <strong>{{ childlink.title }}</strong>
+                                {% comment %} {% render 'icon-dropdown' %} {% endcomment %}
                             </button>
-                            <div x-show="{{ childlink.handle | replace: '-', '_' }}" class="links-menu">
+                            <div x-show="{{ childlink.handle | replace: '-', '_' }}" class="links-menu contents">
                                 <!-- Subenlaces (puedes personalizar según tus necesidades) -->
                                 {% for sublink in childlink.links %}
                                     <a href="{{ sublink.url }}" class="link-child">

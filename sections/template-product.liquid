@@ -21,7 +21,7 @@
         
         {% if product.available %}
           
-          <form action="/cart/add" method="post">
+          <form  class="form-btns" action="/cart/add" method="post">
             <input type="hidden" name="id" value="{{ product.variants.first.id }}">
             <label for="quantity" class="align">Quantity</label>
             <div class="price">  

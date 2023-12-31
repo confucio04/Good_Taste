@@ -81,9 +81,12 @@
 .menu-padding
 {
     padding: 10px 20px;
-    font-size: 16px;
+    
 }
 
+.size{
+    font-size: 16px;
+}
 .arrow, .link-menu, .link-child {
     background: white;
 }

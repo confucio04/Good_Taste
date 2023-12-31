@@ -52,7 +52,7 @@
                     {% for childlink in link.links %}
                         <div class="relative" x-data="{ {{ childlink.handle | replace: '-', '_' }}: true }">
                             <button x-on:click="{{ childlink.handle | replace: '-', '_' }} = !{{ childlink.handle | replace: '-', '_' }}" class="arrow menu-padding">
-                               <strong>{{ childlink.title }}</strong>
+                               <strong class=size>{{ childlink.title }}</strong>
                                 {% comment %} {% render 'icon-dropdown' %} {% endcomment %}
                             </button>
                             <div x-show="{{ childlink.handle | replace: '-', '_' }}" class="links-menu contents">

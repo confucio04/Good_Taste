@@ -1356,6 +1356,14 @@ a {
 .cart-center{
     flex-direction: column;
 }
+    .cart-item__info
+    {
+        flex-direction: column;
+    }
+    .cart-item__details
+    {
+        padding: 0;
+    }
 }
 
 

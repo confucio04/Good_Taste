@@ -653,6 +653,7 @@
 {
     display: flex;
     justify-content: center;
+    padding-left: 68px;
 }
 .cart-item__details
 {
@@ -1350,7 +1351,7 @@ a {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
-    gap: 2rem;
+    gap: 1rem;
     place-content: center;
 }
 .cart-center{
@@ -1359,6 +1360,7 @@ a {
     .cart-item__info
     {
         flex-direction: column;
+        padding: 0;
     }
     .cart-item__details
     {

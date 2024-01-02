@@ -40,8 +40,8 @@
   },
   "platform_customizations": {
     "custom_css": [
-      "#searchresults {margin-top: 13%; margin-left: 35%;}",
-      "#searchresults input{border: solid;}"
+      "#searchresults {display: flex; justify-content: center; margin-top: 13%;}",
+      "#searchresults input {border: solid;}"
     ]
   }
 }

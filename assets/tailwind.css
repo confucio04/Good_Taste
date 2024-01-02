@@ -1080,6 +1080,15 @@ a {
     padding-left: 0;
     align-items: end;
 }
+    .align-icon
+    {
+        align-items: center;
+        gap: 7px;
+    }
+    .align-text
+    {
+        padding-top: 1px;
+    }
     .mobile-menu {
         display: block;
     }

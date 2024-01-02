@@ -103,73 +103,91 @@
     </div>
 
     <!-- MOBILE MENU CONTAINER -->
-    <div x-show="mobileMenuOpen" class="custom-mobile-menu">
-        <div class="mobile-menu-container">
-            <div class="mobile-menu-content">
-                <!-- MOBILE MENU HEADER TITLE PLUS CLOSE BUTTON -->
-                <div class="mobile-menu-header">
-                    <div>
-                        <h1 class="mobile-menu-title">{{ section.settings.mobile_menu_title }}</h1>
-                    </div>
-                    <div class="-mr-2">
-                        <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="mobile-menu-close-button">
-                            {% render 'icon-close' %}
-                        </button>
-                    </div>
+<div x-show="mobileMenuOpen" class="custom-mobile-menu">
+    <div class="mobile-menu-container">
+        <div class="mobile-menu-content">
+            <!-- MOBILE MENU HEADER TITLE PLUS CLOSE BUTTON -->
+            <div class="mobile-menu-header">
+                <div>
+                    <h1 class="mobile-menu-title">{{ section.settings.mobile_menu_title }}</h1>
                 </div>
-    
-                <!-- NAVIGATION LINKS FOR MOBILE MENU -->
-                <nav class="grid-container">
-                    {% liquid
-                        assign main_menu_linklist = section.settings.menu.links | default: linklists[section.settings.menu].links
-                    %}
-                    {% for link in main_menu_linklist %}
-                        <div class="relative" x-data="{ isOpen: false, subLinksOpen: {} }">
-                            {% if forloop.first %}
-                                <button x-on:click="isOpen = !isOpen" type="button" class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width">
-                                    <div>{{ link.title }}</div>
-                                    {% render 'icon-dropdown' %}
-                                </button>
-                            {% else %}
-                                <a href="{{ link.url }}" class="flex-container">
-                                    {{ link.title }}
-                                </a>
-                            {% endif %}
-                            
-                            <template x-if="isOpen">
-                                {% if link.links != blank %}
-                                    <div class="grid-container vertical-padding">
-                                        {% for childlink in link.links %}
-                                            <div x-data="{ subLinkOpen: false }">
-                                                <button type="button" class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width" x-on:click="subLinkOpen = !subLinkOpen">
-                                                    <a href="{{ childlink.url }}" class="flex-center rounded-md gray-text hover-styles">
-                                                        <span class="ml-3 text-base font-medium text-gray-500">{{ childlink.title }}</span>   
-                                                    </a>
-                                                    {% render 'icon-dropdown' %}
-                                                </button>
-                            
-                                                <template x-if="subLinkOpen">
-                                                    <div class="grid-container vertical-padding">
-                                                        {% for sublink in childlink.links %}
-                                                            <a href="{{ sublink.url }}" class="margin-padding extra-margin-top flex-center rounded-md gray-text hover-styles">
-                                                                <span class="ml-3 text-base font-medium text-gray-500">{{ sublink.title }}</span>
-                                                            </a>
-                                                        {% endfor %}
-                                                    </div>
-                                                </template>
-                                            </div>
-                                        {% endfor %}
-                                    </div>
-                                {% endif %}
-                            </template>
-                            
-                        </div>
-                    {% endfor %}
-                </nav>
-                                
+                <div class="-mr-2">
+                    <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="mobile-menu-close-button">
+                        {% render 'icon-close' %}
+                    </button>
+                </div>
             </div>
+
+            <!-- NAVIGATION LINKS FOR MOBILE MENU -->
+            <nav class="grid-container">
+                {% liquid
+                    assign main_menu_linklist = section.settings.menu.links | default: linklists[section.settings.menu].links
+                %}
+                {% for link in main_menu_linklist %}
+                    <div class="relative" x-data="{ isOpen: false, subLinksOpen: {} }">
+                        {% if forloop.first %}
+                            <button x-on:click="isOpen = !isOpen" type="button" class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width">
+                                <div>{{ link.title }}</div>
+                                {% render 'icon-dropdown' %}
+                            </button>
+                        {% else %}
+                            <a href="{{ link.url }}" class="flex-container">
+                                {{ link.title }}
+                            </a>
+                        {% endif %}
+
+                        <template x-if="isOpen">
+                            {% if link.links != blank %}
+                                <div class="grid-container vertical-padding">
+                                    {% for childlink in link.links %}
+                                        <div x-data="{ subLinkOpen: false }">
+                                            <button type="button" class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width" x-on:click="subLinkOpen = !subLinkOpen">
+                                                <a href="{{ childlink.url }}" class="flex-center rounded-md gray-text hover-styles">
+                                                    <span class="ml-3 text-base font-medium text-gray-500">{{ childlink.title }}</span>
+                                                </a>
+                                                {% render 'icon-dropdown' %}
+                                            </button>
+
+                                            <template x-if="subLinkOpen">
+                                                <div class="grid-container vertical-padding">
+                                                    {% for sublink in childlink.links %}
+                                                        <a href="{{ sublink.url }}" class="margin-padding extra-margin-top flex-center rounded-md gray-text hover-styles">
+                                                            <span class="ml-3 text-base font-medium text-gray-500">{{ sublink.title }}</span>
+                                                        </a>
+                                                    {% endfor %}
+                                                </div>
+                                            </template>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </template>
+
+                    </div>
+                {% endfor %}
+
+                <!-- Agregar enlace de inicio de sesión al menú móvil -->
+                <div class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width">
+                    {% if customer %}
+                        <!-- Si el cliente ya ha iniciado sesión, muestra un enlace para cerrar sesión -->
+                        <a href="{{ routes.customer_logout_url }}" class="flex-center rounded-md gray-text hover-styles">
+                            <span class="ml-3 text-base font-medium text-gray-500">Logout</span>
+                        </a>
+                    {% else %}
+                        <!-- Si no ha iniciado sesión, muestra un enlace para iniciar sesión -->
+                        <a href="{{ routes.login_url }}" class="align-icon flex-center rounded-md gray-text hover-styles">
+                            {% render 'icon-user' %}
+                            <span class="align-text ml-3 text-base font-medium text-gray-500">Login</span>
+                        </a>
+                    {% endif %}
+                </div>
+
+            </nav>
+
         </div>
     </div>
+</div>
+
     
 
 </div>

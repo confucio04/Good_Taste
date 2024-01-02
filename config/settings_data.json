@@ -41,8 +41,8 @@
   "platform_customizations": {
     "custom_css": [
       "#searchresults {display: flex; align-items: center; margin-top: 13%; flex-direction: column;}",
-      "#searchresults input:last-child {border: solid; cursor: pointer; display: inline; font-size: 1rem; font-weight: 500; background-color: #34d399; color: #ffffff;}",
-      "#searchresults input {border: thin solid;}"
+      "#searchresults input:last-child {border: solid; cursor: pointer; display: inline; padding: 3px; border-radius: 5px; padding-left: 1rem; padding-right: 1rem; font-size: 1rem; font-weight: 500; background-color: #34d399; color: #ffffff;}",
+      "#searchresults input {border: thin solid; padding: 2px 10px;}"
     ]
   }
 }

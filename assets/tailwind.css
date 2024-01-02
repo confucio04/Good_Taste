@@ -233,7 +233,7 @@
 }
 
 .shopify-section .text-base {
-    font-size: 1.5rem; /* ajusta el tamaño de fuente según tus necesidades */
+    font-size: 16px; /* ajusta el tamaño de fuente según tus necesidades */
 }
 
 .shopify-section .md-text-xl {
@@ -399,7 +399,8 @@
     color: red;
 }
 
-.form-btns input
+
+.form-btns button
 {
     padding: 15px 35px;
     color: black;
@@ -407,12 +408,13 @@
     border: solid black;
     background: white;
 }
-.form-btns input:hover
+.form-btns button:hover
 {
     background: #e44a3e;
     color: whitesmoke;
     border: #e44a3e;
 }
+
 
 .card {
     width: 100%;
@@ -916,7 +918,7 @@
 /* Enlace */
 a {
     color: inherit;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* Contenido flexible */
@@ -1177,7 +1179,7 @@ a {
 
     .grid-container {
         display: grid;
-        grid-gap: 1.75rem; 
+        grid-gap: 21px; 
       }
 
       .base-text {
@@ -1215,7 +1217,7 @@ a {
       }
 
       .vertical-padding {
-        padding-top: 0.75rem;
+        padding-top: 1.7rem;
         padding-bottom: 0.75rem; 
       }
 

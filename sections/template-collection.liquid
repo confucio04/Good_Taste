@@ -31,7 +31,7 @@
                     <form  class="form-btns" action="/cart/add" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="{{ product.variants.first.id }}">
                         <input type="hidden" name="quantity" value="1">
-                        <input  type="submit" value="Add to Cart">
+                        <button  type="submit" value="Add to Cart">Add to Cart</button>
                     </form>
                 {% else %}
                     <span class="color space">OUT OF STOCK</span>

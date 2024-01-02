@@ -925,7 +925,11 @@ a {
 .flex {
     display: flex;
 }
-
+.error
+{
+    display: flex;
+    justify-content: center;
+}
 .flex-col {
     flex-direction: column;
 }

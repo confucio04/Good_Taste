@@ -3,7 +3,7 @@
     "template": {
       "type": "template-collection",
       "settings": {
-        "category_top_left": "frontpage"
+        "category_top_left": "open-list"
       }
     }
   },

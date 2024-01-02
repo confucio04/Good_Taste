@@ -37,5 +37,11 @@
   "presets": {
     "Default": {
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      "#searchresults {margin-top: 13%; margin-left: 35%;}",
+      "#searchresults input{border: solid;}"
+    ]
   }
 }

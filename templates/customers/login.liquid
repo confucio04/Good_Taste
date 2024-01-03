@@ -1,28 +1,73 @@
 <!-- /templates/customers/login.liquid -->
+<div class="user">
+    <div class="user-login">
+        <h2>Login</h2>
+        {% form 'customer_login' %}
 
-<h2>Login</h2>
-{% form 'customer_login' %}
+        {{ form.errors | default_errors }}
 
-{{ form.errors | default_errors }}
+        <label for="customer_email">Email Address</label>
+        <input type="email" name="customer[email]" />
 
-<label for="customer_email">Email Address</label>
-<input type="email" name="customer[email]" />
+        <label for="customer_password">Password</label>
+        <input type="password" name="customer[password]" />
 
-<label for="customer_password">Password</label>
-<input type="password" name="customer[password]" />
+        <input type="submit" value="Sign In" />
 
-<input type="submit" value="Sign In" />
+        {% endform %}
+    
+        <a href="#">Forgot Password</a>
 
-{% endform %}
+        <form action="" method="post">
+            <button type="submit">Sign in</button>
+            <input type="text">
+            <b>
+                <a href="#">Manage your subscriptions</a>
+            </b>
+        </form>
 
-<h2>Forgot Password</h2>
-{% form 'recover_customer_password' %}
+        <div class="or"></div>
+        <div class="user-social">
+            <ul class="sl-horizontal">        
+                <li title="Sign in with Facebook">
+                    <a class="btn-lg facebook social_login square btn" style="max-width:100%;" url="/auth/facebook?shop=taste-it-wine.myshopify.com&amp;parenturl=https://ingoodtaste.com/account/login" href="/auth/facebook?shop=taste-it-wine.myshopify.com&amp;parenturl=https://ingoodtaste.com/account/login">
+                        <span class="icon3">
+                            <i class="fa fa-facebook" style="font-size:20px;" title="Sign in with Facebook"></i>
+                        </span>
+                    </a>
+                </li>
+                 <li title="Sign in with Google">
+                    <a class="btn-lg google social_login square btn" style="max-width:100%;" url="/auth/google?shop=taste-it-wine.myshopify.com&amp;parenturl=https://ingoodtaste.com/account/login" href="/auth/google?shop=taste-it-wine.myshopify.com&amp;parenturl=https://ingoodtaste.com/account/login">
+                        <span class="icon3">
+                            <i class="fa fa-google" style="font-size:20px;" title="Sign in with Google"></i>
+                        </span>
+                    </a>
+                </li>
+                <li title="Sign in with Linkedin">
+                    <a class="btn-lg linkedin social_login square btn" style="max-width:100%;" url="/auth/linkedin?shop=taste-it-wine.myshopify.com&amp;parenturl=https://ingoodtaste.com/account/login" href="/auth/linkedin?shop=taste-it-wine.myshopify.com&amp;parenturl=https://ingoodtaste.com/account/login">
+                        <span class="icon3">
+                            <i class="fa fa-linkedin" style="font-size:20px;" title="Sign in with Linkedin"></i>
+                        </span>
+                    </a>
+                </li>
+                <li title="Sign in with Amazon">
+                    <a class="btn-lg amazon social_login square btn" style="max-width:100%;" url="/auth?type=amazon&amp;shop=taste-it-wine.myshopify.com&amp;parenturl=https://ingoodtaste.com/account/login" href="/auth?type=amazon&amp;shop=taste-it-wine.myshopify.com&amp;parenturl=https://ingoodtaste.com/account/login">
+                        <span class="icon3">
+                            <i class="fa fa-amazon" style="font-size:20px;" title="Sign in with Amazon"></i>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+   </div>
+</div> 
+{% comment %} {% form 'recover_customer_password' %}
 
-{{ form.errors | default_errors }}
+    {{ form.errors | default_errors }}
 
-<label for="customer_email">Email Address</label>
-<input type="email" name="email" />
+    <label for="customer_email">Email Address</label>
+    <input type="email" name="email" />
 
-<input type="submit" value="Submit" />
+    <input type="submit" value="Submit" />
 
-{% endform %}
+{% endform %} {% endcomment %}

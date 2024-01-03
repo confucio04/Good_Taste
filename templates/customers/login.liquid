@@ -3,20 +3,23 @@
     <div class="user-login">
         <h2>Login</h2>
         {% form 'customer_login' %}
+            {{ form.errors | default_errors }}
+          
+            <div class="email">
+              <label for="email">Email</label>
+              <input type="email" name="customer[email]">
+            </div>
+          
+            <div class="password">
+              <label for="password">Password</label>
+              <input type="password" name="customer[password]">
+            </div>
 
-        {{ form.errors | default_errors }}
-
-        <label for="customer_email">Email Address</label>
-        <input type="email" name="customer[email]" />
-
-        <label for="customer_password">Password</label>
-        <input type="password" name="customer[password]" />
-
-        <input type="submit" value="Sign In" />
-
+            <a href="#">Forgot Password</a>
+            
         {% endform %}
-    
-        <a href="#">Forgot Password</a>
+          
+        
 
         <form action="" method="post">
             <button type="submit">Sign in</button>

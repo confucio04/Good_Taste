@@ -34,7 +34,7 @@
                         </div>
                         <div class="cart-item__quantity">
                             <h3>Quanty</h3>
-                            <div class="quantity-container">
+                            <div class="quantity quantity-container">
                                 <button class="quantity-button decrement" onclick="updateQuantity({{ forloop.index }}, -1)">-</button>
                                 <input type="number" name="updates[]" id="updates_{{ forloop.index }}" value="{{ item.quantity }}" min="0" class="quantity-input">
                                 <button class="quantity-button increment" onclick="updateQuantity({{ forloop.index }}, 1)">+</button>

@@ -577,17 +577,19 @@
 }
 
 #cartProductContainer input {
-    border: thin solid gray;
+    border: 0;
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
 }
 
 #cartProductContainer button {
-    background-color: #007bff;
-    color: #fff;
+    background-color: transparent;
+    color: black;
     border: none;
     cursor: pointer;
+    font-size: 16px;
 }
+
 
 #cartProductContainer a {
     display: block;
@@ -650,26 +652,71 @@
     margin-top: 0.5rem/* 8px */;
     margin-bottom: 0.5rem/* 8px */;
 }
-
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
 .cart-item__info
 {
     display: flex;
     justify-content: center;
     padding-left: 68px;
 }
+.cart-item__quantity
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .cart-item__details
 {
     padding-top: 57px;
     padding-left: 14px;
 }
-.quantity-container
+.quantity{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    border: solid;
+    width: 26%;
+}
+.quantity::before
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: var(--inputs-radius-outset);
+    box-shadow: var(--inputs-shadow-horizontal-offset) var(--inputs-shadow-vertical-offset) var(--inputs-shadow-blur-radius) rgba(var(--color-shadow),var(--inputs-shadow-opacity));
+    z-index: -1;
+}
+.quantity::after
+{
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: var(--inputs-border-width);
+    right: var(--inputs-border-width);
+    bottom: var(--inputs-border-width);
+    left: var(--inputs-border-width);
+    border: 0.1rem solid transparent;
+    border-radius: var(--inputs-radius);
+    box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground),var(--inputs-border-opacity));
+    transition: box-shadow var(--duration-short) ease;
+    z-index: 1;
+}
+/* .quantity-container
 {
     padding-top: 15px;
     padding-bottom: 5px;
-}
+} */
 .checkout-button
 {
     padding: 10px 62px;
+    background: #007bff !important;
+    color: white !important;
 }
 .quantity-button
 {

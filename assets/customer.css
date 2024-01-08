@@ -1,14 +1,29 @@
+
 .customer:not(.account):not(.order) {
     margin: 0 auto;
     max-width: 33.4rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     text-align: center;
+     width: 100%;
+      border: 1px solid #ddd;
+      padding: 15px;
+      box-sizing: border-box;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px #0000001a;
+      overflow: hidden;
   }
-  
+  .shopify-challenge__container
+  {
+    margin-top: 14%;
+  }
   @media screen and (min-width: 750px) {
     .customer:not(.account):not(.order) {
       max-width: 47.8rem;
+      max-width: 47.8rem;
+     
+      margin-top: 4%;
     }
   }
   
@@ -23,6 +38,14 @@
   
   .customer button {
     margin: 4rem 0 1.5rem;
+    cursor: pointer;
+    padding: 10px 60px;
+    background: #193c46;
+    color: white;
+  }
+  .customer button:hover
+  {
+    background: #E44A3E;
   }
   
   .customer ul {
@@ -53,6 +76,7 @@
   
   .customer .field {
     margin: 2rem 0 0 0;
+    padding: 10px;
   }
   
   .customer .field:first-of-type {
@@ -334,7 +358,20 @@
     margin: 0 auto;
     width: fit-content;
   }
-  
+  .account 
+  {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    border: thin solid;
+    padding: 10px 34px !important;
+    background: #E44A3E;
+    color: white;
+  }
+  .account:hover{
+    background: #193c46;
+  }
+
   .login a[href='#recover'] {
     margin-left: 0;
     margin-right: 0;
@@ -379,6 +416,7 @@
   #recover,
   #login {
     scroll-margin-top: 20rem;
+    padding: 17px 0 0 0;
   }
   
   #recover {

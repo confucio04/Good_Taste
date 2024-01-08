@@ -98,6 +98,7 @@
 
       <div class="field">
         <input
+          class="no-style"
           type="email"
           name="customer[email]"
           id="CustomerEmail"
@@ -116,6 +117,7 @@
       {%- if form.password_needed -%}
         <div class="field">
           <input
+            class="no-style"
             type="password"
             value=""
             name="customer[password]"
@@ -140,7 +142,7 @@
         {{ 'customer.login_page.sign_in' | t }}
       </button>
 
-      <a href="{{ routes.account_register_url }}">
+      <a class="account" href="{{ routes.account_register_url }}">
         {{ 'customer.login_page.create_account' | t }}
       </a>
     {%- endform -%}

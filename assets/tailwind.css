@@ -1175,7 +1175,9 @@ a {
         z-index: 1000;
       }
       
-      
+      .icons-fixed{
+        display: flex;
+      }
       .mobile-menu-header {
         display: flex;
         justify-content: space-between;
@@ -1342,6 +1344,7 @@ a {
       .mobile-icons {
         display: flex; /* Mostrar iconos dentro del menú en pantallas pequeñas */
         gap: 10px;
+        align-items: center;
       }
     
       .icon-text {
@@ -1406,7 +1409,6 @@ a {
     }
 
     #cartProductContainer {
-    padding: 26px;
     border-radius: 8px;
     overflow: hidden;
     transition: transform .3s ease-in-out;

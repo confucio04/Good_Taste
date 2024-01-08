@@ -18,12 +18,12 @@
             <input type="text" placeholder="Search" name="q" value="{{ search.terms | escape }}" class="mobile-search-input">
         </form>
 
-        <a href="#" id="search-icon">
+        <a class="icons-fixed" href="#" id="search-icon">
             {% render 'icon-search' %}
             <span class="icon-text"></span>
         </a>
 
-        <a href="{{ routes.cart_url }}">
+        <a class="icons-fixed" href="{{ routes.cart_url }}">
             {% render 'icon-shopping-bag' %}
             <span class="icon-text"></span>
         </a>

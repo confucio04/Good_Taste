@@ -1,5 +1,5 @@
 <!-- /templates/customers/login.liquid -->
-<div class="user">
+{% comment %} <div class="user">
     <div class="user-login">
         <h2>Login</h2>
         {% form 'customer_login' %}
@@ -63,7 +63,7 @@
             </ul>
         </div>
    </div>
-</div> 
+</div>  {% endcomment %}
 {% comment %} {% form 'recover_customer_password' %}
 
     {{ form.errors | default_errors }}

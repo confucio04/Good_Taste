@@ -195,7 +195,7 @@
                             </a>
                         {% else %}
                             <!-- Si no ha iniciado sesión, muestra un enlace para iniciar sesión -->
-                            <a href="{{ routes.login_url }}" class="align-icon flex-center rounded-md gray-text hover-styles">
+                            <a href="{{ routes.account_url }}" class="align-icon flex-center rounded-md gray-text hover-styles">
                                 {% render 'icon-user' %}
                                 <span class="align-text ml-3 text-base font-medium text-gray-500">Login</span>
                             </a>
@@ -230,14 +230,14 @@
     .mobile-search-input
     {
         margin-top: 6px;
-        width: 78px;
+        width: 86px;
         border-bottom: 1px solid;
         outline: none;
     }
     
-  </style>   
+</style>   
 
-  <script>
+<script>
     document.querySelector('.toggle-search-form').addEventListener('click', function() {
       document.getElementById('searchForm').classList.toggle('open');
     });
@@ -264,7 +264,7 @@
             }
         });
     });
-  </script>
+</script>
 
 
 

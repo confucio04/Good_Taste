@@ -13,10 +13,16 @@
     </div>
 
     <div class="mobile-icons">
-        <a href="{{ routes.search_url }}">
+       
+        <form action="{{ routes.search_url }}" method="GET" class="mobile-search-form">
+            <input type="text" placeholder="Search" name="q" value="{{ search.terms | escape }}" class="mobile-search-input">
+        </form>
+
+        <a href="#" id="search-icon">
             {% render 'icon-search' %}
             <span class="icon-text"></span>
         </a>
+
         <a href="{{ routes.cart_url }}">
             {% render 'icon-shopping-bag' %}
             <span class="icon-text"></span>
@@ -80,10 +86,19 @@
 
     <div class="platform desktop-icons">
         <!-- Iconos para pantallas grandes -->
-        <a href="{{ routes.search_url }}">
+      
+        <form action="{{ routes.search_url }}" method="GET" class="search-form" id="searchForm">
+            <input type="text"
+              placeholder="Search"
+              name="q"
+              value="{{ search.terms | escape }}"
+            >
+        </form>
+
+        <a href="#" onclick="return false;" class="toggle-search-form">
             {% render 'icon-search' %}
-            <span class="icon-text"></span>
-        </a>
+            <span class="icon-text">Search</span>
+        </a> 
         <a href="{{ routes.account_url }}" >
             {% render 'icon-user' %}
             <span class="icon-text"></span>
@@ -197,8 +212,52 @@
 
 </div>
 
+<style>
+    .search-form {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out;
+    }
+  
+    .search-form.open {
+      max-height: 1000px; /* Ajusta este valor según sea necesario */
+      padding-top: 4px;
+    }
+    .mobile-search-input
+    {
+        margin-top: 6px;
+    }
     
+  </style>   
 
+  <script>
+    document.querySelector('.toggle-search-form').addEventListener('click', function() {
+      document.getElementById('searchForm').classList.toggle('open');
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtén referencias a elementos HTML
+        var searchIcon = document.getElementById('search-icon');
+        var searchInput = document.querySelector('.mobile-search-input');
+
+        // Oculta el campo de entrada al cargar la página
+        searchInput.style.display = 'none';
+
+        // Agrega un evento de clic al icono de búsqueda
+        searchIcon.addEventListener('click', function (event) {
+            // Evita el comportamiento predeterminado del enlace
+            event.preventDefault();
+
+            // Alternar la visibilidad del campo de entrada
+            if (searchInput.style.display === 'none' || searchInput.style.display === '') {
+                searchInput.style.display = 'block';
+            } else {
+                searchInput.style.display = 'none';
+            }
+        });
+    });
+  </script>
 
 
 

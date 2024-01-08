@@ -88,7 +88,7 @@
         <!-- Iconos para pantallas grandes -->
       
         <form action="{{ routes.search_url }}" method="GET" class="search-form" id="searchForm">
-            <input type="text"
+            <input class="no-style" type="text"
               placeholder="Search"
               name="q"
               value="{{ search.terms | escape }}"
@@ -218,14 +218,21 @@
       overflow: hidden;
       transition: max-height 0.3s ease-in-out;
     }
-  
+    .no-style
+    {
+        outline: none;
+    }
     .search-form.open {
       max-height: 1000px; /* Ajusta este valor según sea necesario */
       padding-top: 4px;
+      border-bottom: 1px solid;
     }
     .mobile-search-input
     {
         margin-top: 6px;
+        width: 78px;
+        border-bottom: 1px solid;
+        outline: none;
     }
     
   </style>   

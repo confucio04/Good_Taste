@@ -1,57 +1,58 @@
-<div class="featured-collection">
-    <h2>{{ section.settings.title }}</h2>
+<div class="container">
+    <div class="featured-collection">
+        <h2>{{ section.settings.title }}</h2>
 
-    <div class="product-container">
-       
-        {% liquid 
-            assign featuredCollectionHandle = section.settings.featured_collection 
-            assign featuredCollection = collections[featuredCollectionHandle] 
-            assign numberOfProductsToShow = section.settings.number_of_products_to_show | default: 4 
-        %}
+        <div class="product-container">
+        
+            {% liquid 
+                assign featuredCollectionHandle = section.settings.featured_collection 
+                assign featuredCollection = collections[featuredCollectionHandle] 
+                assign numberOfProductsToShow = section.settings.number_of_products_to_show | default: 4 
+            %}
 
-        {% if featuredCollection %}
-            {% for product in featuredCollection.products limit: numberOfProductsToShow %}
-                <div class="product">
-                    <img src="{{ product.featured_image.src | image_url: width: 300, height: 150 }}" 
-                        alt="{{ product.title }}"
-                        loading="eager"
-                        width="300"
-                        height="auto"
-                    >
-                    <div class="star-container">
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        {% comment %} {{ product.rating | default: 0 }} {% endcomment %}
+            {% if featuredCollection %}
+                {% for product in featuredCollection.products limit: numberOfProductsToShow %}
+                    <div class="product">
+                        <img src="{{ product.featured_image.src | image_url: width: 300, height: 150 }}" 
+                            alt="{{ product.title }}"
+                            loading="eager"
+                            width="300"
+                            height="auto"
+                        >
+                        <div class="star-container">
+                            <span class="star"></span>
+                            <span class="star"></span>
+                            <span class="star"></span>
+                            <span class="star"></span>
+                            <span class="star"></span>
+                            {% comment %} {{ product.rating | default: 0 }} {% endcomment %}
+                        </div>
+                        <h2>{{ product.title }}</h2> 
+
+                        {% if forloop.index <= 3 %}
+                            <span class="style">In Good Taste</span>
+                        {% else %}
+                            <span class="style">Collection</span>
+                        {% endif %}
+                        
+                        <p class="expandable" style="-webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical;">{{ product.description }}</p>
+                        
+                        {% if product.available %}
+                            <p>{{ product.price | money }}</p>
+                            <button class="cart-btn" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}">
+                                Add to Cart
+                            </button>
+                        {% else %}
+                            <span class="color space">OUT OF STOCK</span>
+                        {% endif %}
                     </div>
-                    <h2>{{ product.title }}</h2> 
-
-                    {% if forloop.index <= 3 %}
-                        <span class="style">In Good Taste</span>
-                    {% else %}
-                        <span class="style">Collection</span>
-                    {% endif %}
-                    
-                    <p class="expandable" style="-webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical;">{{ product.description }}</p>
-                    
-                    {% if product.available %}
-                        <p>{{ product.price | money }}</p>
-                        <button class="cart-btn" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}">
-                            Add to Cart
-                        </button>
-                    {% else %}
-                        <span class="color space">OUT OF STOCK</span>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>No products found in the featured collection.</p>
-        {% endif %}
+                {% endfor %}
+            {% else %}
+                <p>No products found in the featured collection.</p>
+            {% endif %}
+        </div>
     </div>
-</div>
-
+</div>    
 {% schema %}
 {
     "name": "Featured Collection",

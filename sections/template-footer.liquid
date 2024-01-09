@@ -1,179 +1,181 @@
-<footer class="template-footer">
-    <div class="end">
-        <div class="box">
-            {% render 'icon-Taste' %}
-            <p class="newsletter-copy">
-                Let’s be friends. Subscribe to receive wine tips, exclusive discounts, and insider updates.
-            </p>
-            <form method="post" action="/contact#ContactFooter" id="ContactFooter" accept-charset="UTF-8" class="footer__newsletter newsletter-form">
-                <div class="newsletter-form__field-wrapper">
-                    <div class="field">
-                        <input id="NewsletterForm--footer" type="email" name="contact[email]" class="field__input" value="" aria-required="true" autocorrect="off" autocapitalize="off" autocomplete="email" placeholder="Email" required="">
-                        <label class="field__label" for="NewsletterForm--footer"></label>
-                        <button type="submit" class="newsletter-form__button" name="commit" id="Subscribe" aria-label="Subscribe">
-                        {% render 'icon-arrow' %}
-                        </button>
-                    </div>    
-                </div>    
-            </form>
-            <ul class="redes-social">
-                <a href="https://www.facebook.com/InGoodTasteWines/">
-                    {% render 'icon-facebook' %}
-                </a>
-                <a href="https://www.tiktok.com/@ingoodtastewines">
-                    {% render 'icon-tiktok' %}
-                </a>
-                <a href="https://www.instagram.com/ingoodtastewines/">
-                    {% render 'icon-instagram' %}
-                </a>
-                <a href="https://www.linkedin.com/company/ingoodtastewines/">
-                    {% render 'icon-linkedin' %}
-                </a>
-                <a href="https://www.youtube.com/channel/UC6gb5Y3-AumHogv7Yggs7kw">
-                    {% render 'icon-youtube' %}
-                </a>
-            </ul>
-        </div>
-        {% comment %} row-2 {% endcomment %}
-        <div class="box position">
-            <h4 class="footer-menu-heading">About</h4>
-            <ul class="footer-menu">  
-                <li>
-                    <a href="/pages/about" class="">
-                        Our Story
-                    </a>
-                </li>
+<div class="container">
+  <footer class="template-footer">
+      <div class="end">
+          <div class="box">
+              {% render 'icon-Taste' %}
+              <p class="newsletter-copy">
+                  Let’s be friends. Subscribe to receive wine tips, exclusive discounts, and insider updates.
+              </p>
+              <form method="post" action="/contact#ContactFooter" id="ContactFooter" accept-charset="UTF-8" class="footer__newsletter newsletter-form">
+                  <div class="newsletter-form__field-wrapper">
+                      <div class="field">
+                          <input id="NewsletterForm--footer" type="email" name="contact[email]" class="field__input" value="" aria-required="true" autocorrect="off" autocapitalize="off" autocomplete="email" placeholder="Email" required="">
+                          <label class="field__label" for="NewsletterForm--footer"></label>
+                          <button type="submit" class="newsletter-form__button" name="commit" id="Subscribe" aria-label="Subscribe">
+                          {% render 'icon-arrow' %}
+                          </button>
+                      </div>    
+                  </div>    
+              </form>
+              <ul class="redes-social">
+                  <a href="https://www.facebook.com/InGoodTasteWines/">
+                      {% render 'icon-facebook' %}
+                  </a>
+                  <a href="https://www.tiktok.com/@ingoodtastewines">
+                      {% render 'icon-tiktok' %}
+                  </a>
+                  <a href="https://www.instagram.com/ingoodtastewines/">
+                      {% render 'icon-instagram' %}
+                  </a>
+                  <a href="https://www.linkedin.com/company/ingoodtastewines/">
+                      {% render 'icon-linkedin' %}
+                  </a>
+                  <a href="https://www.youtube.com/channel/UC6gb5Y3-AumHogv7Yggs7kw">
+                      {% render 'icon-youtube' %}
+                  </a>
+              </ul>
+          </div>
+          {% comment %} row-2 {% endcomment %}
+          <div class="box position">
+              <h4 class="footer-menu-heading">About</h4>
+              <ul class="footer-menu">  
+                  <li>
+                      <a href="/pages/about" class="">
+                          Our Story
+                      </a>
+                  </li>
+                      
+                  <li>
+                      <a href="/pages/careers" class="">
+                          Careers
+                      </a>
+                  </li>
+                      
+                  <li>
+                      <a href="/pages/advent-experience" class="">
+                          Wine Advent
+                      </a>
+                  </li>
+                      
+                  <li>
+                      <a href="/pages/store-locator" class="">
+                          Store Locator
+                      </a>
+                  </li>
+                      
+              </ul>
+          </div>   
+          {% comment %} row-3    {% endcomment %}
+          <div class="box">
+              <div class="footer-block">
+                  <h4 class="footer-menu-heading">Account</h4>
+                  <ul class="footer-menu">
                     
-                <li>
-                    <a href="/pages/careers" class="">
-                        Careers
-                    </a>
-                </li>
+                    <li>
+                      <a href="/account" class="">
+                        Orders
+                      </a>
+                    </li>
                     
-                <li>
-                    <a href="/pages/advent-experience" class="">
-                        Wine Advent
-                    </a>
-                </li>
+                    <li>
+                      <a href="/account" class="">
+                        Track My Order
+                      </a>
+                    </li>
                     
-                <li>
-                    <a href="/pages/store-locator" class="">
-                        Store Locator
-                    </a>
-                </li>
-                    
-            </ul>
-        </div>   
-        {% comment %} row-3    {% endcomment %}
-        <div class="box">
-            <div class="footer-block">
-                <h4 class="footer-menu-heading">Account</h4>
-                <ul class="footer-menu">
-                  
-                  <li>
-                    <a href="/account" class="">
-                      Orders
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="/account" class="">
-                      Track My Order
-                    </a>
-                  </li>
-                  
-                </ul>
-            </div>
-        </div>
-        {% comment %} row-4 {% endcomment %}
-        <div class="box " >
-            <div class="footer-block">
-          
-                <h4 class="footer-menu-heading">Customer Service</h4>
-                <ul class="footer-menu">
-                  
-                  <li>
-                    <a href="https://ingoodtaste.com/a/gc/gift-card/" class="">
-                      Gift Cards
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="https://ingoodtaste.com/a/gc/gift-card/balance/" class="">
-                      Gift Card Balance
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="/policies/refund-policy" class="">
-                      Returns
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="/policies/shipping-policy" class="">
-                      Shipping &amp; Delivery
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="/pages/contact" class="">
-                      Contact
-                    </a>
-                  </li>
-                  
-                </ul>
+                  </ul>
               </div>
-        </div>
-        {% comment %} row-5 {% endcomment %}
-        <div class="box ">
-            <div class="footer-block">
-          
-                <h4 class="footer-menu-heading">Information</h4>
-                <ul class="footer-menu">
-                  
-                  <li>
-                    <a href="/blogs/wine-101" class="">
-                      Wine 101
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="/pages/faq" class="">
-                      FAQs
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="/blogs/wine-101/tagged/in-the-press" class="">
-                      In the Press
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="/pages/affiliate" class="">
-                      Affiliate Program
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="/pages/digital-tasting-room" class="">
-                      Tasting Notes
-                    </a>
-                  </li>
-                  
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
- <div class="footer-info">
-      <div class="footer-details">
-        <p>Site created by <a href="https://thebrandleader.com/" target="_blank">The Brand Leader</a></p>
+          </div>
+          {% comment %} row-4 {% endcomment %}
+          <div class="box " >
+              <div class="footer-block">
+            
+                  <h4 class="footer-menu-heading">Customer Service</h4>
+                  <ul class="footer-menu">
+                    
+                    <li>
+                      <a href="https://ingoodtaste.com/a/gc/gift-card/" class="">
+                        Gift Cards
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="https://ingoodtaste.com/a/gc/gift-card/balance/" class="">
+                        Gift Card Balance
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="/policies/refund-policy" class="">
+                        Returns
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="/policies/shipping-policy" class="">
+                        Shipping &amp; Delivery
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="/pages/contact" class="">
+                        Contact
+                      </a>
+                    </li>
+                    
+                  </ul>
+                </div>
+          </div>
+          {% comment %} row-5 {% endcomment %}
+          <div class="box ">
+              <div class="footer-block">
+            
+                  <h4 class="footer-menu-heading">Information</h4>
+                  <ul class="footer-menu">
+                    
+                    <li>
+                      <a href="/blogs/wine-101" class="">
+                        Wine 101
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="/pages/faq" class="">
+                        FAQs
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="/blogs/wine-101/tagged/in-the-press" class="">
+                        In the Press
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="/pages/affiliate" class="">
+                        Affiliate Program
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="/pages/digital-tasting-room" class="">
+                        Tasting Notes
+                      </a>
+                    </li>
+                    
+                  </ul>
+              </div>
+          </div>
       </div>
-      <div class="copyright">
-        <p>© 2024, <a href="/" title="">In Good Taste</a></p>
-        <p><a href="/policies/privacy-policy">Privacy policy</a></p>
-        <p><a href="/policies/terms-of-service">Terms of service</a></p>
+  </footer>
+</div>  
+  <div class="footer-info">
+        <div class="footer-details">
+          <p>Site created by <a href="https://thebrandleader.com/" target="_blank">The Brand Leader</a></p>
+        </div>
+        <div class="copyright">
+          <p>© 2024, <a href="/" title="">In Good Taste</a></p>
+          <p><a href="/policies/privacy-policy">Privacy policy</a></p>
+          <p><a href="/policies/terms-of-service">Terms of service</a></p>
+        </div>
       </div>
-    </div>

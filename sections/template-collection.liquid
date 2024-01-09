@@ -1,48 +1,50 @@
-<section class="template-collection">
-    <div class="product-container">
-        {% for product in collections[section.settings.category_top_left].products %}
-            <div class="product">
-                <img src="{{ product.featured_image.src | image_url: width: 300, height: 150 }}" 
-                    alt="{{ product.title }}"
-                    loading="eager"
-                    width="300"
-                    height="auto"
-                >
-                <div class="star-container">
-                    <span class="star"></span>
-                    <span class="star"></span>
-                    <span class="star"></span>
-                    <span class="star"></span>
-                    <span class="star"></span>
-                    {% comment %} {{ product.rating | default: 0 }} {% endcomment %}
+<div class="container">
+   <section class="template-collection">
+        <div class="product-container">
+            {% for product in collections[section.settings.category_top_left].products %}
+                <div class="product">
+                    <img src="{{ product.featured_image.src | image_url: width: 300, height: 150 }}" 
+                        alt="{{ product.title }}"
+                        loading="eager"
+                        width="300"
+                        height="auto"
+                    >
+                    <div class="star-container">
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        <span class="star"></span>
+                        {% comment %} {{ product.rating | default: 0 }} {% endcomment %}
+                    </div>
+                    <h2>{{ product.title }}</h2> 
+
+                    {% if forloop.index <= 3 %}
+                        <span class="style">In Good Taste</span>
+                    {% else %}
+                        <span class="style">Collection</span>
+                    {% endif %}
+                    
+                    <p class="expandable" style="-webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical;">{{ product.description }}</p>
+                    
+                    {% if product.available %}
+                        <p>{{ product.price | money }}</p>
+                        <form  class="form-btns" action="/cart/add" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                            <input type="hidden" name="quantity" value="1">
+                            <button  type="submit" value="Add to Cart">Add to Cart</button>
+                        </form>
+                    {% else %}
+                        <span class="color space">OUT OF STOCK</span>
+                    {% endif %}
                 </div>
-                <h2>{{ product.title }}</h2> 
-
-                {% if forloop.index <= 3 %}
-                    <span class="style">In Good Taste</span>
-                {% else %}
-                    <span class="style">Collection</span>
-                {% endif %}
-                
-                <p class="expandable" style="-webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical;">{{ product.description }}</p>
-                
-                {% if product.available %}
-                    <p>{{ product.price | money }}</p>
-                    <form  class="form-btns" action="/cart/add" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-                        <input type="hidden" name="quantity" value="1">
-                        <button  type="submit" value="Add to Cart">Add to Cart</button>
-                    </form>
-                {% else %}
-                    <span class="color space">OUT OF STOCK</span>
-                {% endif %}
-            </div>
-        {% endfor %}
-    </div>
-</section>
+            {% endfor %}
+        </div>
+    </section>
+</div>
 
 
-{% schema %}
+    {% schema %}
     {
         "name": "Template Collection",
         "settings": [

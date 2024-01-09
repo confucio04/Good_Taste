@@ -1,221 +1,223 @@
   
-<header>   
+<header> 
     <div class="container">
-        <div class=" relative bg-white center-menu" x-data="{ mobileMenuOpen: false }">
-        
-            <div class="title">
-                <div class="mobile-menu">
-                    <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="link-menu btn bg-white p-2 inline-flex items-center justify-center focus:outline-none">
-                        <span x-show="!mobileMenuOpen" class="md:hidden">{% render 'icon-menu' %}</span>
-                    </button>
-                </div>
-                <div class="flex justify-start lg:flex-1 truncate">
-                    <h1 class="text-xl font-bold truncate">{{ shop.name }}</h1>
-                </div>
-            </div>
-
-            <div class="mobile-icons">
-            
-                <form action="{{ routes.search_url }}" method="GET" class="mobile-search-form">
-                    <input type="text" placeholder="Search" name="q" value="{{ search.terms | escape }}" class="mobile-search-input">
-                </form>
-
-                <a class="icons-fixed" href="#" id="search-icon">
-                    {% render 'icon-search' %}
-                    <span class="icon-text"></span>
-                </a>
-
-                <a class="icons-fixed" href="{{ routes.cart_url }}">
-                    {% render 'icon-shopping-bag' %}
-                    <span class="icon-text"></span>
-                </a>
-            </div>
+        <div class="relative bg-white center-menu" x-data="{ mobileMenuOpen: false, desktopMenuOpen: false }" @click.away="mobileMenuOpen = false; desktopMenuOpen = false">
 
             
-
-            <!-- Menú desplegable del código 1 integrado en el código 2 -->
-            <nav class="navigation" :class="{ 'show': mobileMenuOpen }" @click.away="mobileMenuOpen = false">
-                {% liquid
-                    assign main_menu_linklist = section.settings.menu.links | default: linklists[section.settings.menu].links
-                %}
-                <div class="relative" x-data="{ accountDropdown: false }">
-                    <div x-show="accountDropdown">
-                        <!-- Contenido del menú desplegable de la cuenta (puedes personalizar según tus necesidades) -->
-                        <a href="{{ routes.account_url }}">Account</a>
-                        {{ 'Log out' | customer_logout_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
+                <div class="title">
+                    <!-- Botón para abrir/cerrar menú en dispositivos móviles -->
+                    <div class="mobile-menu">
+                        <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="link-menu btn bg-white p-2 inline-flex items-center justify-center focus:outline-none">
+                            <span x-show="!mobileMenuOpen" class="md:hidden">{% render 'icon-menu' %}</span>
+                        </button>
+                    </div>
+                    <div class="flex justify-start lg:flex-1 truncate">
+                        <h1 class="text-xl font-bold truncate"><a href="{{ routes.root_url }}">{{ shop.name }}</a></h1>
                     </div>
                 </div>
+
             
-                {% for link in main_menu_linklist %}
-                    <div class="relative" x-data="{ {{ link.handle | replace: '-', '_' }}: false }">
-                        {% if forloop.first %}
-                            <button x-on:click="{{ link.handle | replace: '-', '_' }} = !{{ link.handle | replace: '-', '_' }}" class="arrow">
-                                {{ link.title }}
-                                {% render 'icon-dropdown' %}
-                            </button>
-                        {% else %}
-                            <a href="{{ link.url }}" class="link-child">{{ link.title }}</a>
-                        {% endif %}
-                        
-                        <div x-show="{{ link.handle | replace: '-', '_' }}" class="links-menu">
-                            <!-- Contenido del menú desplegable (puedes personalizar según tus necesidades) -->
-                            {% for childlink in link.links %}
-                                <div class="relative" x-data="{ {{ childlink.handle | replace: '-', '_' }}: true }">
-                                    <button x-on:click="{{ childlink.handle | replace: '-', '_' }} = !{{ childlink.handle | replace: '-', '_' }}" class="arrow menu-padding">
-                                    <strong class=size>{{ childlink.title }}</strong>
-                                        {% comment %} {% render 'icon-dropdown' %} {% endcomment %}
-                                    </button>
-                                    <div x-show="{{ childlink.handle | replace: '-', '_' }}" class="links-menu contents">
-                                        <!-- Subenlaces (puedes personalizar según tus necesidades) -->
-                                        {% for sublink in childlink.links %}
-                                            <a href="{{ sublink.url }}" class="link-child">
-                                                <div class="ml-4">
-                                                    <p class="link-child">
-                                                        {{ sublink.title }}
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            {% endfor %}
+                <!-- Menú desplegable del código 1 integrado en el código 2 -->
+                <nav class="navigation desktop-menu" :class="{ 'show': desktopMenuOpen }" @click.away="mobileMenuOpen = false">
+                    {% liquid
+                        assign main_menu_linklist = section.settings.menu.links | default: linklists[section.settings.menu].links
+                    %}
+                        <!-- ... Contenido del menú para pantallas grandes ... -->
+                    <div class="relative" x-data="{ accountDropdown: false }">
+                        <div x-show="accountDropdown">
+                            <!-- Contenido del menú desplegable de la cuenta (personaliza según tus necesidades) -->
+                            <a href="{{ routes.account_url }}">Account</a>
+                            {{ 'Log out' | customer_logout_link | replace: '<a', '<a class="text-base text-gray-500 hover:text-gray-900"' }}
                         </div>
                     </div>
-                {% endfor %}
-            </nav>
+
             
-
-
-            <div class="platform desktop-icons">
-                <!-- Iconos para pantallas grandes -->
-            
-                <form action="{{ routes.search_url }}" method="GET" class="search-form" id="searchForm">
-                    <input class="no-style" type="text"
-                    placeholder="Search"
-                    name="q"
-                    value="{{ search.terms | escape }}"
-                    >
-                </form>
-
-                <a href="#" onclick="return false;" class="toggle-search-form">
-                    {% render 'icon-search' %}
-                    <span class="icon-text">Search</span>
-                </a> 
-                <a href="{{ routes.account_url }}" >
-                    {% render 'icon-user' %}
-                    <span class="icon-text"></span>
-                </a>
-                <a href="{{ routes.cart_url }}" >
-                    {% render 'icon-shopping-bag' %}
-                    <span class="icon-text"></span>
-                </a>
-
-                {% if shop.customer_accounts_enabled %}
-                    {% if customer %}
-                    <a href="{{ routes.account_url }}">Account</a>
-                    {% else %}
-                    <a href="{{ routes.account_login_url }}">Login</a>
-                
-                    {% if shop.customer_accounts_optional %}
-                        <span>or</span>
-                        <a href="{{ routes.account_register_url }}">Create an account</a>
-                    {% endif %}
-                    {% endif %}
-                {% endif %}
-            </div>
-
-            <!-- MOBILE MENU CONTAINER -->
-            <div x-show="mobileMenuOpen" class="custom-mobile-menu">
-                <div class="mobile-menu-container">
-                    <div class="mobile-menu-content">
-                        <!-- MOBILE MENU HEADER TITLE PLUS CLOSE BUTTON -->
-                        <div class="mobile-menu-header">
-                            <div>
-                                <h1 class="mobile-menu-title">{{ section.settings.mobile_menu_title }}</h1>
-                            </div>
-                            <div class="-mr-2">
-                                <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="mobile-menu-close-button">
-                                    {% render 'icon-close' %}
+                    {% for link in main_menu_linklist %}
+                        <div class="relative" x-data="{ {{ link.handle | replace: '-', '_' }}: false }" @click.away="mobileMenuOpen = false">
+                            {% if forloop.first %}
+                                <button x-on:click="{{ link.handle | replace: '-', '_' }} = !{{ link.handle | replace: '-', '_' }}" class="arrow">
+                                    {{ link.title }}
+                                    {% render 'icon-dropdown' %}
                                 </button>
+                            {% else %}
+                                <a href="{{ link.url }}" class="link-child">{{ link.title }}</a>
+                            {% endif %}
+                            
+                            <div x-show="{{ link.handle | replace: '-', '_' }}" class="links-menu" @click.away="mobileMenuOpen = false">
+                                <!-- Contenido del menú desplegable (puedes personalizar según tus necesidades) -->
+                                {% for childlink in link.links %}
+                                    <div class="relative" x-data="{ {{ childlink.handle | replace: '-', '_' }}: true }">
+                                        <button x-on:click="{{ childlink.handle | replace: '-', '_' }} = !{{ childlink.handle | replace: '-', '_' }}" class="arrow menu-padding">
+                                        <strong class=size>{{ childlink.title }}</strong>
+                                            {% comment %} {% render 'icon-dropdown' %} {% endcomment %}
+                                        </button>
+                                        <div x-show="{{ childlink.handle | replace: '-', '_' }}" class="links-menu contents">
+                                            <!-- Subenlaces (puedes personalizar según tus necesidades) -->
+                                            {% for sublink in childlink.links %}
+                                                <a href="{{ sublink.url }}" class="link-child">
+                                                    <div class="ml-4">
+                                                        <p class="link-child">
+                                                            {{ sublink.title }}
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
+                    {% endfor %}
+                </nav>
+                                
+                <div class="platform desktop-icons">
+                        <!-- Iconos para pantallas grandes -->
+                    
+                        <form action="{{ routes.search_url }}" method="GET" class="search-form" id="searchForm">
+                            <input class="no-style" type="text"
+                            placeholder="Search"
+                            name="q"
+                            value="{{ search.terms | escape }}"
+                            >
+                        </form>
 
-                        <!-- NAVIGATION LINKS FOR MOBILE MENU -->
-                        <nav class="grid-container">
-                            {% liquid
-                                assign main_menu_linklist = section.settings.menu.links | default: linklists[section.settings.menu].links
-                            %}
-                            {% for link in main_menu_linklist %}
-                                <div class="relative" x-data="{ isOpen: false, subLinksOpen: {} }">
-                                    {% if forloop.first %}
-                                        <button x-on:click="isOpen = !isOpen" type="button" class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width">
-                                            <div>{{ link.title }}</div>
-                                            {% render 'icon-dropdown' %}
-                                        </button>
+                        <a href="#" onclick="return false;" class="toggle-search-form">
+                            {% render 'icon-search' %}
+                            <span class="icon-text">Search</span>
+                        </a> 
+                        <a href="{{ routes.account_url }}" >
+                            {% render 'icon-user' %}
+                            <span class="icon-text"></span>
+                        </a>
+                        <a href="{{ routes.cart_url }}" >
+                            {% render 'icon-shopping-bag' %}
+                            <span class="icon-text"></span>
+                        </a>
+
+                        {% if shop.customer_accounts_enabled %}
+                            {% if customer %}
+                            <a href="{{ routes.account_url }}">Account</a>
+                            {% else %}
+                            <a href="{{ routes.account_login_url }}">Login</a>
+                        
+                            {% if shop.customer_accounts_optional %}
+                                <span>or</span>
+                                <a href="{{ routes.account_register_url }}">Create an account</a>
+                            {% endif %}
+                            {% endif %}
+                        {% endif %}
+                </div>
+
+                <!-- MOBILE MENU CONTAINER -->
+                <div class="mobile-icons">
+                
+                    <form action="{{ routes.search_url }}" method="GET" class="mobile-search-form">
+                        <input type="text" placeholder="Search" name="q" value="{{ search.terms | escape }}" class="mobile-search-input">
+                    </form>
+
+                    <a class="icons-fixed" href="#" id="search-icon">
+                        {% render 'icon-search' %}
+                        <span class="icon-text"></span>
+                    </a>
+
+                    <a class="icons-fixed" href="{{ routes.cart_url }}">
+                        {% render 'icon-shopping-bag' %}
+                        <span class="icon-text"></span>
+                    </a>
+                </div>
+
+                <div x-show="mobileMenuOpen" class="custom-mobile-menu mobile-menu" @click.away="mobileMenuOpen = false">
+                    <div class="mobile-menu-container">
+                        <div class="mobile-menu-content">
+                            <!-- MOBILE MENU HEADER TITLE PLUS CLOSE BUTTON -->
+                            <div class="mobile-menu-header">
+                                <div>
+                                    <h1 class="mobile-menu-title">{{ section.settings.mobile_menu_title }}</h1>
+                                </div>
+                                <div class="-mr-2">
+                                    <button x-on:click="mobileMenuOpen = !mobileMenuOpen" type="button" class="mobile-menu-close-button">
+                                        {% render 'icon-close' %}
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- NAVIGATION LINKS FOR MOBILE MENU -->
+                            <nav class="grid-container">
+                                {% liquid
+                                    assign main_menu_linklist = section.settings.menu.links | default: linklists[section.settings.menu].links
+                                %}
+                                {% for link in main_menu_linklist %}
+                                    <div class="relative" x-data="{ isOpen: false, subLinksOpen: {} }">
+                                        {% if forloop.first %}
+                                            <button x-on:click="isOpen = !isOpen" type="button" class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width">
+                                                <div>{{ link.title }}</div>
+                                                {% render 'icon-dropdown' %}
+                                            </button>
+                                        {% else %}
+                                            <a href="{{ link.url }}" class="flex-container">
+                                                {{ link.title }}
+                                            </a>
+                                        {% endif %}
+
+                                        <template x-if="isOpen">
+                                            {% if link.links != blank %}
+                                                <div class="grid-container vertical-padding">
+                                                    {% for childlink in link.links %}
+                                                        <div x-data="{ subLinkOpen: false }">
+                                                            <button type="button" class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width" x-on:click="subLinkOpen = !subLinkOpen">
+                                                                <a href="{{ childlink.url }}" class="flex-center rounded-md gray-text hover-styles">
+                                                                    <span class="ml-3 text-base font-medium text-gray-500">{{ childlink.title }}</span>
+                                                                </a>
+                                                                {% render 'icon-dropdown' %}
+                                                            </button>
+
+                                                            <template x-if="subLinkOpen">
+                                                                <div class="grid-container vertical-padding">
+                                                                    {% for sublink in childlink.links %}
+                                                                        <a href="{{ sublink.url }}" class="margin-padding extra-margin-top flex-center rounded-md gray-text hover-styles">
+                                                                            <span class="ml-3 text-base font-medium text-gray-500">{{ sublink.title }}</span>
+                                                                        </a>
+                                                                    {% endfor %}
+                                                                </div>
+                                                            </template>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                            {% endif %}
+                                        </template>
+
+                                    </div>
+                                {% endfor %}
+
+                                <!-- Agregar enlace de inicio de sesión al menú móvil -->
+                                <div class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width">
+                                    {% if customer %}
+                                        <!-- Si el cliente ya ha iniciado sesión, muestra un enlace para cerrar sesión -->
+                                        <a href="{{ routes.customer_logout_url }}" class="flex-center rounded-md gray-text hover-styles">
+                                            <span class="ml-3 text-base font-medium text-gray-500">Logout</span>
+                                        </a>
                                     {% else %}
-                                        <a href="{{ link.url }}" class="flex-container">
-                                            {{ link.title }}
+                                        <!-- Si no ha iniciado sesión, muestra un enlace para iniciar sesión -->
+                                        <a href="{{ routes.account_url }}" class="align-icon flex-center rounded-md gray-text hover-styles">
+                                            {% render 'icon-user' %}
+                                            <span class="align-text ml-3 text-base font-medium text-gray-500">Login</span>
                                         </a>
                                     {% endif %}
-
-                                    <template x-if="isOpen">
-                                        {% if link.links != blank %}
-                                            <div class="grid-container vertical-padding">
-                                                {% for childlink in link.links %}
-                                                    <div x-data="{ subLinkOpen: false }">
-                                                        <button type="button" class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width" x-on:click="subLinkOpen = !subLinkOpen">
-                                                            <a href="{{ childlink.url }}" class="flex-center rounded-md gray-text hover-styles">
-                                                                <span class="ml-3 text-base font-medium text-gray-500">{{ childlink.title }}</span>
-                                                            </a>
-                                                            {% render 'icon-dropdown' %}
-                                                        </button>
-
-                                                        <template x-if="subLinkOpen">
-                                                            <div class="grid-container vertical-padding">
-                                                                {% for sublink in childlink.links %}
-                                                                    <a href="{{ sublink.url }}" class="margin-padding extra-margin-top flex-center rounded-md gray-text hover-styles">
-                                                                        <span class="ml-3 text-base font-medium text-gray-500">{{ sublink.title }}</span>
-                                                                    </a>
-                                                                {% endfor %}
-                                                            </div>
-                                                        </template>
-                                                    </div>
-                                                {% endfor %}
-                                            </div>
-                                        {% endif %}
-                                    </template>
-
                                 </div>
-                            {% endfor %}
 
-                            <!-- Agregar enlace de inicio de sesión al menú móvil -->
-                            <div class="base-text soft-gray-text dark-hover-text flex-container centered-items spaceBetween full-width">
-                                {% if customer %}
-                                    <!-- Si el cliente ya ha iniciado sesión, muestra un enlace para cerrar sesión -->
-                                    <a href="{{ routes.customer_logout_url }}" class="flex-center rounded-md gray-text hover-styles">
-                                        <span class="ml-3 text-base font-medium text-gray-500">Logout</span>
-                                    </a>
-                                {% else %}
-                                    <!-- Si no ha iniciado sesión, muestra un enlace para iniciar sesión -->
-                                    <a href="{{ routes.account_url }}" class="align-icon flex-center rounded-md gray-text hover-styles">
-                                        {% render 'icon-user' %}
-                                        <span class="align-text ml-3 text-base font-medium text-gray-500">Login</span>
-                                    </a>
-                                {% endif %}
-                            </div>
+                            </nav>
 
-                        </nav>
-
+                        </div>
                     </div>
+
                 </div>
-            </div>
-
             
-
         </div>
     </div>
 </header> 
 <style>
+    
+
     .search-form {
       max-height: 0;
       overflow: hidden;
@@ -267,6 +269,16 @@
             }
         });
     });
+
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('menu', () => ({
+          mobileMenuOpen: false,
+          desktopMenuOpen: false,
+          closeDesktopMenu() {
+            this.desktopMenuOpen = false;
+          },
+        }));
+      });
 </script>
 
 

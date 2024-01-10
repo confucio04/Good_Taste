@@ -908,6 +908,7 @@ input[type="number"]::-webkit-outer-spin-button{
 {
     display: flex;
     gap: 21px;
+    justify-content: center;
 }
 
 /* card */

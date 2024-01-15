@@ -37,7 +37,7 @@
                             <div class="quantity quantity-container">
                                 <button class="quantity-button decrement" onclick="updateQuantity({{ forloop.index }}, -1)">-</button>
                                 <input type="number" name="updates[]" id="updates_{{ forloop.index }}" value="{{ item.quantity }}" min="0" class="quantity-input">
-                                <button class="quantity-button increment" onclick="updateQuantity({{ forloop.index }}, 1)">+</button>
+                                <button class="quantity-button increment" onclick="updateQuantity({{ forloop.index }}, 1)">+</button>                                
                             </div> 
                             <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" class="text-sm font-medium text-red-500 my-1">remove</a>
                         </div>
@@ -68,15 +68,7 @@
             </div>
         </div>
     {% endif %}
-</div>
-
-
-
-
-
-
-
-
+</div> 
 <script>
 
     function updateQuantity(index, change) {
@@ -87,6 +79,8 @@
         newQuantity = Math.max(newQuantity, 0);
 
         quantityInput.value = newQuantity;
+        console.log("Entré a esta parte del código");
+
     }
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -117,7 +111,8 @@
                             </form>
                             <a href="/checkout" id="goToCheckout" class="checkout-btn">Checkout</a>
                         </div>
-                   
+                        console.log("Entré a esta parte del código");
+
                 `;
             }
 
@@ -132,6 +127,8 @@
                     if (cartIsEmpty) {
                         alert("El carrito está vacío. Agrega productos antes de proceder al checkout.");
                         event.preventDefault(); // Evita que se realice la redirección
+                        console.log("Entré a esta parte del código");
+
                     }
                 });
             }
@@ -145,8 +142,14 @@
                 });
             }
         }
+        console.log("Entré a esta parte del código");
+        
+
     });
-</script>
+
+
+
+</script> 
 
 <style>
    
@@ -279,23 +282,23 @@
 
 {% schema %}
 {
-    "name": "Template Cart",
-    "blocks": [
-        {
-            "type": "subtotal",
-            "name": "Subtotal",
-            "limit": 1
-        },
-        {
-            "type": "update_button",
-            "name": "Update Button",
-            "limit": 1
-        },
-        {
-            "type": "checkout_button",
-            "name": "Checkout Button",
-            "limit": 1
-        }
-    ]
+  "name": "Template Cart",
+  "blocks": [
+    {
+      "type": "subtotal",
+      "name": "Subtotal",
+      "limit": 1
+    },
+    {
+      "type": "update_button",
+      "name": "Update Button",
+      "limit": 1
+    },
+    {
+      "type": "checkout_button",
+      "name": "Checkout Button",
+      "limit": 1
+    }
+  ]
 }
 {% endschema %}

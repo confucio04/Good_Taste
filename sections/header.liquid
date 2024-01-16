@@ -74,8 +74,8 @@
                     <div class="platform desktop-icons">
                             <!-- Iconos para pantallas grandes -->
                         
-                            <form action="{{ routes.search_url }}" method="GET" class="search-form" id="searchForm">
-                                <input class="no-style" type="text"
+                            <form action="{{ routes.search_url }}" method="get" class="search-form" id="searchForm">
+                                <input class="no-style" type="search"
                                 placeholder="Search"
                                 name="q"
                                 value="{{ search.terms | escape }}"

@@ -13,7 +13,7 @@
 .container
 {
     padding: 0px 64px 0px 64px;
-    width: 1392px;
+    width: auto;
     margin: 0 auto;
 }
 
@@ -1142,6 +1142,7 @@ a {
 @media (max-width: 767px) {
     .container{
         padding: 0px 11px 0 11px;
+       width: auto;
     }
 
     .homepage 

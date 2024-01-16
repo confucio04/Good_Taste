@@ -1,4 +1,4 @@
-<div id="cartProductContainer">
+ <div id="cartProductContainer">
     <div class="cart-center">
         <h1 class="">Your cart</h1>
         <a href="{{ routes.all_products_collection_url }}" class="">Continue shopping</a>
@@ -68,8 +68,10 @@
             </div>
         </div>
     {% endif %}
-</div> 
-<script>
+</div>  
+
+
+ <script>
 
     function updateQuantity(index, change) {
         var quantityInput = document.getElementById("updates_" + index);
@@ -79,7 +81,7 @@
         newQuantity = Math.max(newQuantity, 0);
 
         quantityInput.value = newQuantity;
-        console.log("Entré a esta parte del código");
+       
 
     }
 
@@ -91,7 +93,7 @@
 
             var cartProductContainer = document.getElementById("cartProductContainer");
 
-            if (cartProductContainer) {
+           if (cartProductContainer) {
                 cartProductContainer.innerHTML = `
                     
                         <div class="product-img">
@@ -111,10 +113,10 @@
                             </form>
                             <a href="/checkout" id="goToCheckout" class="checkout-btn">Checkout</a>
                         </div>
-                        console.log("Entré a esta parte del código");
+                       
 
                 `;
-            }
+            } 
 
             localStorage.removeItem("addedProduct");
 
@@ -127,7 +129,7 @@
                     if (cartIsEmpty) {
                         alert("El carrito está vacío. Agrega productos antes de proceder al checkout.");
                         event.preventDefault(); // Evita que se realice la redirección
-                        console.log("Entré a esta parte del código");
+                       
 
                     }
                 });
@@ -142,14 +144,14 @@
                 });
             }
         }
-        console.log("Entré a esta parte del código");
+       
         
 
     });
 
 
 
-</script> 
+</script>  
 
 <style>
    

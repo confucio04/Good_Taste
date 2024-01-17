@@ -364,7 +364,6 @@
 }
 .product img{
     max-width: 100%;
-    height: auto;
 }
 /* .product h2
 {
@@ -475,7 +474,7 @@
 }
 
 .products-container {
-    width: 90%;
+    width: auto;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(400px, 100%), 1fr));
@@ -534,6 +533,15 @@
     padding-bottom: 0.6rem;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
+}
+
+.product-card__orders{
+    display: grid;
+    place-content: center;
+    gap: 15px;
+}
+.product-card__orders p{
+    margin: 0;
 }
 /* Estilos adicionales según sea necesario */
 

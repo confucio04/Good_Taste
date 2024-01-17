@@ -68,6 +68,12 @@
         
                         <div class="my-3">
                             <h2 class="text-align">{{ product.title }}</h2>
+
+                            {% if forloop.index <= 3 %}
+                                <span class="style">In Good Taste</span>
+                            {% else %}
+                                <span class="style">Collection</span>
+                            {% endif %}
                         </div>
         
                         <div class="my-3" id="price-{{ section.id }}">

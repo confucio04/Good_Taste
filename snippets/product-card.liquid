@@ -20,12 +20,12 @@
            <div class="product-card__orders">
                 <a href="{{ product_product.url }}" class="">{{ product_product.title }}</a>
                 {% if forloop.index <= 3 %}
-                    <span class="style">In Good Taste</span>
+                    <span class="card__tag-style style">In Good Taste</span>
                 {% else %}
-                    <span class="style">Collection</span>
+                    <span class="card__tag-style style">Collection</span>
                 {% endif %}
 
-                <p class="">{{ product_product.price | money }}</p>
+                <p class="product-card__text">{{ product_product.price | money }}</p>
                 
             </div>    
             <p class="expandable" style="-webkit-line-clamp: 3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical;">{{ product_product.description }}</p>

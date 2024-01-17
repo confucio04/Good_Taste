@@ -475,14 +475,6 @@
 }
 
 .products-container {
-    border: 1px solid #ddd;
-    padding: 21px;
-    box-sizing: border-box;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px #0000001a;
-    overflow: hidden;
-    transition: transform .3s ease-in-out;
     width: 90%;
     margin: 0 auto;
     display: grid;
@@ -659,7 +651,7 @@
 }
 
 .my-4 {
-    margin-top: 1rem/* 16px */;
+    margin-top: 4rem/* 16px */;
     margin-bottom: 1rem/* 16px */;
 }
 .my-2 {

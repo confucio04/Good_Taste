@@ -1,9 +1,9 @@
-<div class="w-full py-6 px-3">
-    <div class="border bg-white shadow-lg rounded-lg overflow-hidden">
+<div class="product">
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
         <a href="{{ product_product.url }}">
             {% if product_product.featured_image %}
-                <div class="h-80 overflow-hidden">
-                    <img class="w-full h-full object-cover transition duration-1000 ease-in-out hover:scale-105 transform" 
+                <div class="overflow-hidden">
+                    <img class=" object-cover transition duration-1000 ease-in-out hover:scale-105 transform" 
                         src="{{ product_product.featured_image | image_url: width: 300 }}" 
                         alt="{{ product_product.featured_image.alt }}" 
                         loading="lazy"
@@ -11,7 +11,7 @@
                         height="150">
                 </div>
             {% else %}
-                {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover bg-gray-100' }}
+                {{ 'product-1' | placeholder_svg_tag: ' object-cover bg-gray-100' }}
             {% endif %}
         </a>
         
@@ -21,6 +21,7 @@
             <a href="{{ product_product.url }}" class="text-gray-700 uppercase font-medium">{{ product_product.title }}</a>
 
             <p class="text-gray-500">{{ product_product.price | money }}</p>
+            <p class="text-gray-700">{{ product.description }}</p>
         </div>
     </div>
 </div>

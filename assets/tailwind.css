@@ -683,7 +683,7 @@
 }
 
 .my-4 {
-    margin-top: 4rem/* 16px */;
+    margin-top: 5rem/* 16px */;
     margin-bottom: 1rem/* 16px */;
 }
 .my-2 {
@@ -1108,6 +1108,24 @@ a {
   }
   
 
+/* Template-customer */
+  .template-customer
+  {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 26px 15px 45px 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #0000001a;
+  }
+
+  #customer_login
+  {
+    text-align: left;
+  }
+
+
 /* responsive-mobile */
 /* Estilos para pantallas de escritorio */
 @media (min-width: 768px) {
@@ -1502,6 +1520,10 @@ a {
         padding: 0;
     }
 
+    .my-4
+    {
+        margin-top: 1rem;
+    }
 }
 
 

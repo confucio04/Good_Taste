@@ -1280,6 +1280,15 @@ a {
   }
 
 
+
+.recover_customer{
+    text-align: left;
+}
+
+.customer-login__back
+{
+    padding-bottom: 25px;
+}
 /* Customer-register */
 
 .template-customer-register__input{

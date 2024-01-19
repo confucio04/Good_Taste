@@ -1,0 +1,91 @@
+<div class="template-customer__card">
+    <div class="template-customer__content">
+        <div>
+            <h1 class="text-center text-3xl font-bold mt-6">Create an Account</h1>
+        </div>
+        <div class="mt-8">
+            {% form 'create_customer' %}
+                {% if form.errors %}
+                    <div class="relative border border-red-400 bg-red-100 text-red 700 px-4 py-3" role="alert">
+                        <strong class="font-bold">Error!</strong>
+                        <p class="block sm:inline">{{ form.errors | default_errors }}</p>
+                    </div>
+                {% endif %}
+  
+                <div class="template-customer__input">
+                    <label for="first_name" class="sr-only"></label>
+                    <input type="text"
+                        name="customer[first_name]"
+                        id="first_name"
+                        autocomplete="given-name"
+                        class="relative block px-3  border customer__input"
+                        placeholder="First name"
+                    >
+                </div>
+  
+                <div class="template-customer__input">
+                    <label for="last_name" class="sr-only"></label>
+                    <input type="text"
+                        name="customer[last_name]"
+                        id="last_name"
+                        autocomplete="family-name"
+                        class="relative block px-3  border customer__input"
+                        placeholder="Last name"
+                    >
+                </div>
+
+                <div class="template-customer__input">
+                    <label for="email_address" class="sr-only"></label>
+                    <input type="email"
+                        name="customer[email]"
+                        id="email_address"
+                        autocomplete="email"
+                        class="relative block px-3  border customer__input"
+                        placeholder="Email"
+                    >
+                </div>
+
+                
+                <div class="template-customer__input">
+                    <label for="password" class="sr-only"></label>
+                    <input type="password"
+                        name="customer[password]"
+                        id="password"
+                        autocomplete="current-password"
+                        class="relative block px-3  border customer__input"
+                        placeholder="Password"
+                    >
+                </div>
+                
+  
+                
+                <div class="template-customer__btns">
+                    <button type="submit" class="template-customer__btn">
+                        create
+                    </button>
+                </div>
+  
+                <div class="template-customer__info">
+                </div>
+  
+                <div class="template-customer__social">
+  
+                  <div class="redes-social__facebook" id="facebookLink">
+                    <a href="https://web.facebook.com/privacy/consent/gdp/?params%5Bapp_id%5D=1896981220538415&params%5Bdisplay%5D=%22popup%22&params%5Bkid_directed_site%5D=false&params%5Blogger_id%5D=%22dec27903-4cd5-4553-ad08-8a3cee153ad3%22&params%5Bnext%5D=%22read%22&params%5Bredirect_uri%5D=%22https%3A%5C%2F%5C%2Fsocial-login.oxiapps.com%5C%2Fauth%5C%2Ffacebook%22&params%5Bresponse_type%5D=%22code%22&params%5Breturn_scopes%5D=false&params%5Bscope%5D=%5B%22email%22%5D&params%5Bsdk%5D=%22php-sdk-5.7.0%22&params%5Bstate%5D=%22cbc5bc5f81d829498008d04beb3155f4%22&params%5Bsteps%5D=%7B%22read%22%3A%5B%22email%22%2C%22baseline%22%2C%22public_profile%22%5D%7D&params%5Btp%5D=%22unspecified%22&params%5Bcui_gk%5D=%22%5BPASS%5D%3Alogin_platformization_read%22&params%5Bis_limited_login_shim%5D=false&source=gdp_delegated"></a>
+                  </div>
+                  <div class="redes-social__gmail">
+                    <a href="#"></a>
+                  </div>
+                  <div class="redes-social__linkedin">
+                    <a href="#"></a>
+                  </div>
+                  <div class="redes-social__amazon">
+                    <a href="#"></a>
+                  </div>
+  
+                </div>
+            {% endform %}
+        </div>
+    </div>
+    
+  </div>

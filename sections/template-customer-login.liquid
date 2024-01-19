@@ -1,4 +1,4 @@
-{{ 'customer.css' | asset_url | stylesheet_tag }}
+{% comment %} {{ 'customer.css' | asset_url | stylesheet_tag }} {% endcomment %}
 
 {% comment %} {%- style -%}
   .section-{{ section.id }}-padding {
@@ -195,9 +195,9 @@
 {% endschema %} {% endcomment %}
 
 <div class="template-customer__card" x-data="{ loginForm: true, pwRecoverForm: false }">
-  <div x-show="loginForm" class="max-w-md w-full space-y-8">
+  <div x-show="loginForm" class="template-customer__content">
       <div>
-          <h1 class="text-center text-3xl font-bold mt-6">Sign in to your account</h1>
+          <h1 class="text-center text-3xl font-bold mt-6">Login</h1>
       </div>
       <div class="mt-8">
           {% form 'customer_login' %}
@@ -208,44 +208,67 @@
                   </div>
               {% endif %}
 
-              <div class="my-2">
-                  <label for="email_address" class="sr-only">Email address</label>
+              <div class="template-customer__input">
+                  <label for="email_address" class="sr-only"></label>
                   <input type="email"
                       name="customer[email]"
                       id="email_address"
                       autocomplete="email"
-                      class="relative block w-full px-3 py-2 border"
-                      placeholder="Email address"
+                      class="relative block px-3  border customer__input"
+                      placeholder="Email"
                   >
               </div>
 
               {% if form.password_needed %}
-                  <div class="my-2">
-                      <label for="password" class="sr-only">Password</label>
+                  <div class="template-customer__input">
+                      <label for="password" class="sr-only"></label>
                       <input type="password"
                           name="customer[password]"
                           id="password"
                           autocomplete="current-password"
-                          class="relative block w-full px-3 py-2 border"
+                          class="relative block px-3  border customer__input"
                           placeholder="Password"
                       >
                   </div>
               {% endif %}
 
               <div class="my-2 text-sm">
-                  <a x-on:click="loginForm = false; pwRecoverForm = true" href="#" class="underline text-gray-500 hover:text-gray-900">
+                  <a x-on:click="loginForm = false; pwRecoverForm = true" href="#" class="underline text-gray-500 hover:text-gray-900 template-customer__forgot">
                       Forgot your password?
                   </a>
               </div>
-              <div>
-                  <button type="submit" class="relative w-full py-2 px-4 text-sm font-medium text-white bg-gray-600 hover:bg-gray-900">
+              <div class="template-customer__btns">
+                  <button type="submit" class="template-customer__btn">
                       Sign in
                   </button>
+                  <button type="submit" class="template-customer__btn">
+                    Manage your subscriptions
+                </button>
+              </div>
+
+              <div class="template-customer__info">
+              </div>
+
+              <div class="template-customer__social">
+
+                <div class="redes-social__facebook" id="facebookLink">
+                  <a href="https://web.facebook.com/privacy/consent/gdp/?params%5Bapp_id%5D=1896981220538415&params%5Bdisplay%5D=%22popup%22&params%5Bkid_directed_site%5D=false&params%5Blogger_id%5D=%22dec27903-4cd5-4553-ad08-8a3cee153ad3%22&params%5Bnext%5D=%22read%22&params%5Bredirect_uri%5D=%22https%3A%5C%2F%5C%2Fsocial-login.oxiapps.com%5C%2Fauth%5C%2Ffacebook%22&params%5Bresponse_type%5D=%22code%22&params%5Breturn_scopes%5D=false&params%5Bscope%5D=%5B%22email%22%5D&params%5Bsdk%5D=%22php-sdk-5.7.0%22&params%5Bstate%5D=%22cbc5bc5f81d829498008d04beb3155f4%22&params%5Bsteps%5D=%7B%22read%22%3A%5B%22email%22%2C%22baseline%22%2C%22public_profile%22%5D%7D&params%5Btp%5D=%22unspecified%22&params%5Bcui_gk%5D=%22%5BPASS%5D%3Alogin_platformization_read%22&params%5Bis_limited_login_shim%5D=false&source=gdp_delegated"></a>
+                </div>
+                <div class="redes-social__gmail">
+                  <a href="#"></a>
+                </div>
+                <div class="redes-social__linkedin">
+                  <a href="#"></a>
+                </div>
+                <div class="redes-social__amazon">
+                  <a href="#"></a>
+                </div>
+
               </div>
           {% endform %}
       </div>
   </div>
-  <div x-show="pwRecoverForm" class="max-w-md w-full space-y-8">
+  <div x-show="pwRecoverForm" class="template-customer__content">
       <div>
           <h1 class="text-center text-3xl font-bold mt-6">Recover your password</h1>
       </div>
@@ -264,7 +287,7 @@
                       name="email"
                       id="email"
                       autocomplete="email"
-                      class="relative block w-full px-3 py-2 border"
+                      class="relative block px-3  border customer__input"
                       placeholder="Email address"
                   >
               </div>
@@ -282,3 +305,11 @@
       </div>
   </div>
 </div>
+
+
+
+<script>
+  document.getElementById('facebookLink').addEventListener('click', function() {
+    window.location.href = this.querySelector('a').getAttribute('href');
+  });
+</script>

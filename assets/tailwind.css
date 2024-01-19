@@ -1109,11 +1109,33 @@ a {
   
 
 /* Template-customer */
-  .template-customer
-  {
+
+.template-customer__input{
+    margin-bottom: 15px;
+}
+
+.customer__input{
+    padding: 26px 28px;
     width: 100%;
+}
+.template-customer__forgot
+{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+  .template-customer__card
+  {
+     display: flex;
+    justify-content: center;
+    margin-top: 5%;
+  }
+
+  .template-customer__content
+  {
     border: 1px solid #ddd;
-    padding: 26px 15px 45px 15px;
+    padding: 26px 45px 45px 45px;
     box-sizing: border-box;
     background-color: #fff;
     border-radius: 8px;
@@ -1123,8 +1145,129 @@ a {
   #customer_login
   {
     text-align: left;
+   
   }
 
+
+  .template-customer__btns{
+    display: grid;
+    gap: 10px;
+  }
+  .template-customer__btn
+  {
+    background: #193c46;;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 18px 26px;
+  }
+
+  .template-customer__info {
+    display: block;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    text-align: center; 
+    padding: 26px;
+  }
+
+  .template-customer__info::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: calc(50% - 0.5px);
+    background-color: #707070;
+    z-index: -1;
+  }
+
+  .template-customer__info::after{
+    content: "Or Login with These Platforms";
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1.25em;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    font-weight: 500;
+    color: #223b458c;
+    background-color: #fff;
+    padding: 4px 21px;
+
+  }
+
+  .template-customer__social
+  {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+   
+  }
+  .redes-social__facebook
+  {
+    position: relative;
+    width: 40px;
+    background: #3b5998;
+    height: 40px;
+    background-image: url('https://cdn.shopify.com/s/files/1/0683/0007/9353/files/pequeno-logotipo-de-facebook.png?v=1705611044');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  }
+  .redes-social__facebook::after{
+    content: "";
+    position: absolute;
+  }
+
+  .redes-social__gmail
+  {
+    position: relative;
+    width: 40px;
+    background: #dd4b39;
+    height: 40px;
+    background-image: url('https://cdn.shopify.com/s/files/1/0683/0007/9353/files/letra-g_1.png?v=1705613152');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  }
+  .redes-social__gmail::after{
+    content: "";
+    position: absolute;
+  }
+
+  .redes-social__linkedin{
+    position: relative;
+    width: 40px;
+    background: #007bb6;
+    height: 40px;
+    background-image: url('https://cdn.shopify.com/s/files/1/0683/0007/9353/files/linkedin.png?v=1705614990');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  }
+  .redes-social__linkedin::after{
+    content: "";
+    position: absolute;
+  }
+
+  .redes-social__amazon{
+    position: relative;
+    width: 40px;
+    background: #ff9900;
+    height: 40px;
+    background-image: url('https://cdn.shopify.com/s/files/1/0683/0007/9353/files/social.png?v=1705615690');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  }
+
+  .redes-social__amazon::after{
+    content: "";
+    position: absolute;
+  }
 
 /* responsive-mobile */
 /* Estilos para pantallas de escritorio */

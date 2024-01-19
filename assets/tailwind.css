@@ -1108,7 +1108,7 @@ a {
   }
   
 
-/* Template-customer */
+/* Template-customer-login */
 
 .template-customer__input{
     margin-bottom: 15px;
@@ -1268,6 +1268,57 @@ a {
     content: "";
     position: absolute;
   }
+
+
+/* Customer-register */
+
+.template-customer-register__input{
+    margin-bottom: 15px;
+}
+
+.customer__input{
+    padding: 26px 28px;
+    width: 100%;
+}
+
+  .template-customer-register__card
+  {
+     display: flex;
+    justify-content: center;
+    margin-top: 6%;
+  }
+
+  .template-customer-register__content
+  {
+    border: 1px solid #ddd;
+    padding: 26px 45px 45px 45px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #0000001a;
+  }
+
+  #create_customer
+  {
+    text-align: left;
+   
+  }
+
+  .template-customer__btns{
+    display: grid;
+    gap: 10px;
+  }
+  .template-customer-register__btn
+  {
+    background: #193c46;;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 18px 26px;
+  }
+
 
 /* responsive-mobile */
 /* Estilos para pantallas de escritorio */

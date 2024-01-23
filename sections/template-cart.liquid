@@ -94,7 +94,7 @@
           </div>
           <div class="cart-item__details">
             <a href="{{ item.url }}" class="">{{ item.product.title | truncatewords: 5 }}</a>
-            <span class="">{{ item.variant.title }}</span>
+            {% comment %} <span class="">{{ item.variant.title }}</span> {% endcomment %}
             <p class="product-price" id="productPrice_{{ forloop.index }}">{{ item.line_price | money }}</p>
           </div>
         </div>
@@ -119,8 +119,8 @@
       <p class="text-xl">Discount applied at checkout</p>
     </div>
     <div class="my-2">
-      <button type="submit" name="checkout" class="checkout-button">Checkout</button>
-    </div>
+        <a href="/checkout" class="checkout-button">Checkout</a>
+      </div>
     {% else %}
     <div class="">
       <div class="text-center">
@@ -131,9 +131,12 @@
       </div>
     </div>
     {% endif %}
-  </div>
+</div>
   
-  <script>
+
+
+
+   <script>
     function updateQuantity(index, change) {
       const inputElement = document.getElementById(`updates_${index}`);
       let newQuantity = parseInt(inputElement.value) + change;
@@ -198,8 +201,7 @@
             currency: data.currency,
           });
   
-          const formattedTotal = formatter.format(data.total_price);
-          cartTotalElement.textContent = `Estimated Total: ${formattedTotal}`;
+         
   
           // Actualizar precios individuales de productos
           productPrices.forEach((priceElement, index) => {
@@ -207,6 +209,8 @@
             const productLinePrice = data.items[index].price * quantity;
             const formattedProductPrice = formatter.format(productLinePrice);
             priceElement.textContent = formattedProductPrice;
+            const formattedTotal = formatter.format(productLinePrice);
+            cartTotalElement.textContent = `Estimated Total: ${formattedTotal}`;
           });
         });
     }
@@ -216,7 +220,7 @@
   
     // Llamar a la función inicialmente
     updateCartTotal();
-  </script>
+  </script> 
   
 
  {% comment %} <script>

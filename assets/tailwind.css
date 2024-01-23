@@ -640,7 +640,7 @@
 
 
 #cartProductContainer a {
-    display: block;
+    /* display: block; */
     color: #007bff;
     margin-top: 15px;
     margin-bottom: 10px;
@@ -708,6 +708,7 @@ input[type="number"]::-webkit-outer-spin-button{
 {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding-left: 68px;
 }
 .cart-item__quantity

@@ -1,4 +1,4 @@
- {% comment %} <div id="cartProductContainer">
+{% comment %} <div id="cartProductContainer">
     <div class="cart-center">
         <h1 class="">Your cart</h1>
         <a href="{{ routes.all_products_collection_url }}" class="">Continue shopping</a>
@@ -68,9 +68,10 @@
             </div>
         </div>
     {% endif %}
-</div>   {% endcomment %}
+</div>    {% endcomment %}
 
-<div id="cartProductContainer">
+
+ <div id="cartProductContainer">
     <div class="cart-center">
       <h1 class="">Your cart</h1>
       <a href="{{ routes.all_products_collection_url }}" class="">Continue shopping</a>
@@ -115,28 +116,32 @@
       {% endfor %}
     </div>
     <div class="">
-      <h3 id="cartTotal">Estimated Total: {{ cart.total_price | money }}</h3>
+      <h3 id="cartTotal">{{ cart.total_price | money }}</h3>
       <p class="text-xl">Discount applied at checkout</p>
     </div>
     <div class="my-2">
-        <a href="/checkout" class="checkout-button">Checkout</a>
+        {% comment %} <a href="/checkout" class="checkout-button">Checkout</a> {% endcomment %}
+        <button class="checkout-button" role="link" onclick="window.location='/checkout'"> Checkout
+        </button>
       </div>
     {% else %}
     <div class="">
       <div class="text-center">
-        <h1 class="">Your cart is empty</h1>
+        {% comment %} <h1 class="">Your cart is empty</h1>
         <div class="">
           <a href="{{ routes.all_products_collection_url }}" class="">Continue shopping</a>
-        </div>
+        </div> {% endcomment %}
       </div>
     </div>
     {% endif %}
-</div>
+</div> 
   
 
 
 
-   <script>
+
+
+ <script>
     function updateQuantity(index, change) {
       const inputElement = document.getElementById(`updates_${index}`);
       let newQuantity = parseInt(inputElement.value) + change;
@@ -177,15 +182,15 @@
       fetch('/cart.js')
         .then(response => response.json())
         .then(data => {
-          const formatter = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: data.currency,
-          });
-  
-          const productLinePrice = data.items[index - 1].price * quantity;
-          const formattedPrice = formatter.format(productLinePrice);
-  
-          item.textContent = formattedPrice;
+            const formatter = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+              });
+              
+              const productLinePrice = data.items[index - 1].price * quantity;
+              const formattedPrice = formatter.format(productLinePrice / 100);
+              
+              item.textContent = formattedPrice;
         });
     }
   
@@ -198,20 +203,25 @@
         .then(data => {
           const formatter = new Intl.NumberFormat('en-US', {
             style: 'currency',
-            currency: data.currency,
+            currency: 'USD',
           });
   
-         
+          let cartTotal = 0;
   
           // Actualizar precios individuales de productos
           productPrices.forEach((priceElement, index) => {
             const quantity = parseInt(document.getElementById(`updates_${index + 1}`).value) || 0;
             const productLinePrice = data.items[index].price * quantity;
-            const formattedProductPrice = formatter.format(productLinePrice);
+            const formattedProductPrice = formatter.format(productLinePrice / 100);
             priceElement.textContent = formattedProductPrice;
-            const formattedTotal = formatter.format(productLinePrice);
-            cartTotalElement.textContent = `Estimated Total: ${formattedTotal}`;
+  
+            // Actualizar el total del carrito
+            cartTotal += productLinePrice;
           });
+  
+          // Formatear y mostrar el total del carrito
+          const formattedCartTotal = formatter.format(cartTotal / 100);
+          cartTotalElement.textContent = `Estimated Total: ${formattedCartTotal}`;
         });
     }
   
@@ -220,10 +230,11 @@
   
     // Llamar a la función inicialmente
     updateCartTotal();
-  </script> 
-  
+</script>
 
- {% comment %} <script>
+  
+{% comment %} 
+ <script>
 
     function updateQuantity(index, change) {
         var quantityInput = document.getElementById("updates_" + index);
@@ -303,7 +314,7 @@
 
 
 
-</script>   {% endcomment %}
+</script>    {% endcomment %}
 
 <style>
    

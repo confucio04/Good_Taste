@@ -1,4 +1,4 @@
-{% comment %} <div id="cartProductContainer">
+<div id="cartProductContainer">
     <div class="cart-center">
         <h1 class="">Your cart</h1>
         <a href="{{ routes.all_products_collection_url }}" class="">Continue shopping</a>
@@ -28,16 +28,17 @@
                             </div>
                             <div class="cart-item__details">
                                 <a href="{{ item.url }}" class="">{{ item.product.title | truncatewords: 5 }}</a>
-                                <span class="">{{ item.variant.title }}</span>
-                                <p>{{ item.line_price | money }}</p>
+                                {% comment %} <p class="product-price" >{{ item.line_price | money }}</p> {% endcomment %}
+                                <p class="product-price" id="productPrice_{{ forloop.index }}">{{ item.line_price | money }}</p>
                             </div>
                         </div>
                         <div class="cart-item__quantity">
                             <h3>Quanty</h3>
                             <div class="quantity quantity-container">
-                                <button class="quantity-button decrement" onclick="updateQuantity({{ forloop.index }}, -1)">-</button>
-                                <input type="number" name="updates[]" id="updates_{{ forloop.index }}" value="{{ item.quantity }}" min="0" class="quantity-input">
-                                <button class="quantity-button increment" onclick="updateQuantity({{ forloop.index }}, 1)">+</button>                                
+                                <button class="quantity-button decrement" onclick="updateQuantity(event, {{ forloop.index }}, -1 );">-</button>
+                                <!-- Dentro del bucle for en la sección de cart.items -->
+                                <input type="number" name="updates[]" id="updates_{{ forloop.index }}" value="{{ item.quantity }}" min="0" class="quantity-input" onchange="updateQuantityFromInput({{ forloop.index }})">                                {% comment %} <input type="number" name="updates[]" id="updates_{{ forloop.index }}" value="{{ item.quantity }}" min="0" class="quantity-input"> {% endcomment %}
+                                <button class="quantity-button increment" onclick="updateQuantity(event, {{ forloop.index }}, 1)">+</button>                                
                             </div> 
                             <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" class="text-sm font-medium text-red-500 my-1">remove</a>
                         </div>
@@ -50,7 +51,8 @@
            
         </div> 
                 <div class="">
-                    <h3>Estimed Total: {{ cart.total_price | money }}</h3>
+                    {% comment %} <h3>Estimed Total: {{ cart.total_price | money }}</h3> {% endcomment %}
+                    <h3 id="cartTotal">{{ cart.total_price | money }}</h3>
                     <p class="text-xl"> Discount applied checkout</p>             
                 </div>  
                 <div class="my-2">
@@ -68,185 +70,112 @@
             </div>
         </div>
     {% endif %}
-</div>    {% endcomment %}
-
-
- <div id="cartProductContainer">
-    <div class="cart-center">
-      <h1 class="">Your cart</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="">Continue shopping</a>
-    </div>
-  
-    {% if cart.item_count > 0 %}
-    <div class="cart products__container">
-      {% for item in cart.items %}
-      <div class="cart-item" data-index="{{ forloop.index }}">
-        <div class="cart-item__info">
-          <div class="mini__info">
-            <h3>Product</h3>
-            <a href="{{ item.url }}">
-              {% if item.image %}
-              <img src="{{ item.image | image_url: width: 250 }}" alt="{{ item.title | escape }}"
-                class="w-20 h-20 object-cover border" loading="lazy" width="150" height="150">
-              {% else %}
-              {{ 'product-1' | placeholder_svg_tag: 'w-20 h-20 object-cover border' }}
-              {% endif %}
-            </a>
-          </div>
-          <div class="cart-item__details">
-            <a href="{{ item.url }}" class="">{{ item.product.title | truncatewords: 5 }}</a>
-            {% comment %} <span class="">{{ item.variant.title }}</span> {% endcomment %}
-            <p class="product-price" id="productPrice_{{ forloop.index }}">{{ item.line_price | money }}</p>
-          </div>
-        </div>
-        <div class="cart-item__quantity">
-          <h3>Quantity</h3>
-          <div class="quantity quantity-container">
-            <button class="quantity-button decrement" onclick="updateQuantity({{ forloop.index }}, -1)"
-              type="button">-</button>
-            <input type="number" name="updates[]" id="updates_{{ forloop.index }}" value="{{ item.quantity }}" min="0"
-              class="quantity-input" onchange="updateQuantityFromInput({{ forloop.index }})">
-            <button class="quantity-button increment" onclick="updateQuantity({{ forloop.index }}, 1)"
-              type="button">+</button>
-          </div>
-          <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0"
-            class="text-sm font-medium text-red-500 my-1">remove</a>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-    <div class="">
-      <h3 id="cartTotal">{{ cart.total_price | money }}</h3>
-      <p class="text-xl">Discount applied at checkout</p>
-    </div>
-    <div class="my-2">
-        {% comment %} <a href="/checkout" class="checkout-button">Checkout</a> {% endcomment %}
-        <button class="checkout-button" role="link" onclick="window.location='/checkout'"> Checkout
-        </button>
-      </div>
-    {% else %}
-    <div class="">
-      <div class="text-center">
-        {% comment %} <h1 class="">Your cart is empty</h1>
-        <div class="">
-          <a href="{{ routes.all_products_collection_url }}" class="">Continue shopping</a>
-        </div> {% endcomment %}
-      </div>
-    </div>
-    {% endif %}
-</div> 
-  
-
-
+</div>      
 
 
 
  <script>
-    function updateQuantity(index, change) {
-      const inputElement = document.getElementById(`updates_${index}`);
-      let newQuantity = parseInt(inputElement.value) + change;
-  
-      // No permitir cantidades negativas
-      newQuantity = Math.max(newQuantity, 0);
-  
-      // Actualizar el valor del input
-      inputElement.value = newQuantity;
-  
-      // Actualizar el precio del producto
-      updateProductPrice(index, newQuantity);
-  
-      // Actualizar el total del carrito
-      updateCartTotal();
-    }
-  
-    function updateQuantityFromInput(index) {
-      const inputElement = document.getElementById(`updates_${index}`);
-      const newQuantity = parseInt(inputElement.value) || 0;
-  
-      // No permitir cantidades negativas
-      const updatedQuantity = Math.max(newQuantity, 0);
-  
-      // Actualizar el valor del input
-      inputElement.value = updatedQuantity;
-  
-      // Actualizar el precio del producto
-      updateProductPrice(index, updatedQuantity);
-  
-      // Actualizar el total del carrito
-      updateCartTotal();
-    }
-  
-    function updateProductPrice(index, quantity) {
-      const item = document.getElementById(`productPrice_${index}`);
-  
-      fetch('/cart.js')
-        .then(response => response.json())
-        .then(data => {
-            const formatter = new Intl.NumberFormat('en-US', {
-                style: 'currency',
-                currency: 'USD',
-              });
-              
-              const productLinePrice = data.items[index - 1].price * quantity;
-              const formattedPrice = formatter.format(productLinePrice / 100);
-              
-              item.textContent = formattedPrice;
-        });
-    }
-  
-    function updateCartTotal() {
-      const cartTotalElement = document.getElementById('cartTotal');
-      const productPrices = document.querySelectorAll('.product-price');
-  
-      fetch('/cart.js')
-        .then(response => response.json())
-        .then(data => {
-          const formatter = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD',
-          });
-  
-          let cartTotal = 0;
-  
-          // Actualizar precios individuales de productos
-          productPrices.forEach((priceElement, index) => {
-            const quantity = parseInt(document.getElementById(`updates_${index + 1}`).value) || 0;
-            const productLinePrice = data.items[index].price * quantity;
-            const formattedProductPrice = formatter.format(productLinePrice / 100);
-            priceElement.textContent = formattedProductPrice;
-  
-            // Actualizar el total del carrito
-            cartTotal += productLinePrice;
-          });
-  
-          // Formatear y mostrar el total del carrito
-          const formattedCartTotal = formatter.format(cartTotal / 100);
-          cartTotalElement.textContent = `Estimated Total: ${formattedCartTotal}`;
-        });
-    }
-  
-    // Establecer un event listener para cambios en el carrito
-    window.addEventListener('SCE:mutate', updateCartTotal);
-  
-    // Llamar a la función inicialmente
-    updateCartTotal();
-</script>
 
-  
-{% comment %} 
- <script>
 
-    function updateQuantity(index, change) {
-        var quantityInput = document.getElementById("updates_" + index);
+    function updateQuantity(event, index, change) {
+        event.preventDefault();
+        var quantityInput = document.getElementById(`updates_${index}`);
         var newQuantity = parseInt(quantityInput.value) + change;
-
+    
         // Asegúrate de que la cantidad no sea negativa
         newQuantity = Math.max(newQuantity, 0);
-
+    
         quantityInput.value = newQuantity;
-       
-
+    
+        // Actualizar el precio del producto en la interfaz
+        updateProductPrice(index, newQuantity);
+    
+        // Llamamos directamente a la función para actualizar el total del carrito
+        updateCartTotal();
     }
+    
+    
+    
+   // Definir la función updateProductPrice a nivel superior
+   function updateQuantityFromInput(index) {
+    const inputElement = document.getElementById(`updates_${index}`);
+    const newQuantity = parseInt(inputElement.value) || 0;
+
+    // No permitir cantidades negativas
+    const updatedQuantity = Math.max(newQuantity, 0);
+
+    // Actualizar el valor del input
+    inputElement.value = updatedQuantity;
+
+    // Actualizar el precio del producto
+    updateProductPrice(index, updatedQuantity);
+
+    // Actualizar el total del carrito
+    updateCartTotal();
+  }
+
+  function updateProductPrice(index, quantity) {
+    const item = document.getElementById(`productPrice_${index}`);
+  
+    fetch('/cart.js')
+      .then(response => response.json())
+      .then(data => {
+        const formatter = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+        });
+
+       
+     // Verificar si data.items está definido y si el índice es válido
+  if (data.items && data.items[index]) {
+    const productLinePrice = data.items[index].price * quantity;
+    const formattedPrice = formatter.format(productLinePrice / 100);
+    item.textContent = formattedPrice;
+  } else {
+    console.error(`Error: Data or item at index ${index} is undefined.`);
+  }
+})
+.catch(error => {
+  console.error('Error updating product price:', error);
+});
+}
+
+function updateCartTotal() {
+  const cartTotalElement = document.getElementById('cartTotal');
+  const productPrices = document.querySelectorAll('.product-price');
+  console.log('updateCartTotal function called');
+
+  fetch('/cart.js')
+    .then(response => response.json())
+    .then(data => {
+      const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      });
+
+      let cartTotal = 0;
+
+      // Actualizar precios individuales de productos
+      productPrices.forEach((priceElement, index) => {
+        const quantity = parseInt(document.getElementById(`updates_${index + 1}`).value) || 0;
+        const productLinePrice = data.items[index].price * quantity;
+        const formattedProductPrice = formatter.format(productLinePrice / 100);
+        priceElement.textContent = formattedProductPrice;
+
+        // Actualizar el total del carrito
+        cartTotal += productLinePrice;
+      });
+
+      // Formatear y mostrar el total del carrito
+      const formattedCartTotal = formatter.format(cartTotal / 100);
+      cartTotalElement.textContent = `Estimated Total: ${formattedCartTotal}`;
+    });
+}
+
+
+
+
+    
 
     document.addEventListener("DOMContentLoaded", function () {
         var addedProduct = localStorage.getItem("addedProduct");
@@ -314,7 +243,179 @@
 
 
 
-</script>    {% endcomment %}
+</script>  
+
+
+{% comment %} 
+//codigo 2
+<div id="cartProductContainer">
+    <div class="cart-center">
+      <h1 class="">Your cart</h1>
+      <a href="{{ routes.all_products_collection_url }}" class="">Continue shopping</a>
+    </div>
+  
+    {% if cart.item_count > 0 %}
+    <div class="cart products__container">
+      {% for item in cart.items %}
+      <div class="cart-item" data-index="{{ forloop.index }}">
+        <div class="cart-item__info">
+          <div class="mini__info">
+            <h3>Product</h3>
+            <a href="{{ item.url }}">
+              {% if item.image %}
+              <img src="{{ item.image | image_url: width: 250 }}" alt="{{ item.title | escape }}"
+                class="w-20 h-20 object-cover border" loading="lazy" width="150" height="150">
+              {% else %}
+              {{ 'product-1' | placeholder_svg_tag: 'w-20 h-20 object-cover border' }}
+              {% endif %}
+            </a>
+          </div>
+          <div class="cart-item__details">
+            <a href="{{ item.url }}" class="">{{ item.product.title | truncatewords: 5 }}</a>
+            {% comment %} <span class="">{{ item.variant.title }}</span> {% endcomment %}
+            <p class="product-price" id="productPrice_{{ forloop.index }}">{{ item.line_price | money }}</p>
+          </div>
+        </div>
+        <div class="cart-item__quantity">
+          <h3>Quantity</h3>
+          <div class="quantity quantity-container">
+            <button class="quantity-button decrement" onclick="updateQuantity({{ forloop.index }}, -1)"
+              type="button">-</button>
+            <input type="number" name="updates[]" id="updates_{{ forloop.index }}" value="{{ item.quantity }}" min="0"
+              class="quantity-input" onchange="updateQuantityFromInput({{ forloop.index }})">
+            <button class="quantity-button increment" onclick="updateQuantity({{ forloop.index }}, 1)"
+              type="button">+</button>
+          </div>
+          <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0"
+            class="text-sm font-medium text-red-500 my-1">remove</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="">
+      <h3 id="cartTotal">{{ cart.total_price | money }}</h3>
+      <p class="text-xl">Discount applied at checkout</p>
+    </div>
+    <div class="my-2">
+        {% comment %} <a href="/checkout" class="checkout-button">Checkout</a> {% endcomment %}
+        <button class="checkout-button" role="link" onclick="window.location='/checkout'"> Checkout
+        </button>
+      </div>
+    {% else %}
+    <div class="">
+      <div class="text-center">
+        {% comment %} <h1 class="">Your cart is empty</h1>
+        <div class="">
+          <a href="{{ routes.all_products_collection_url }}" class="">Continue shopping</a>
+        </div> {% endcomment %}
+      </div>
+    </div>
+    {% endif %}
+</div>   
+
+ <script>
+    function updateQuantity(index, change) {
+      const inputElement = document.getElementById(`updates_${index}`);
+      let newQuantity = parseInt(inputElement.value) + change;
+  
+      // No permitir cantidades negativas
+      newQuantity = Math.max(newQuantity, 0);
+  
+      // Actualizar el valor del input
+      inputElement.value = newQuantity;
+  
+      // Actualizar el precio del producto
+      updateProductPrice(index, newQuantity);
+  
+      // Actualizar el total del carrito
+      updateCartTotal();
+    }
+  
+    function updateQuantityFromInput(index) {
+      const inputElement = document.getElementById(`updates_${index}`);
+      const newQuantity = parseInt(inputElement.value) || 0;
+  
+      // No permitir cantidades negativas
+      const updatedQuantity = Math.max(newQuantity, 0);
+  
+      // Actualizar el valor del input
+      inputElement.value = updatedQuantity;
+  
+      // Actualizar el precio del producto
+      updateProductPrice(index, updatedQuantity);
+  
+      // Actualizar el total del carrito
+      updateCartTotal();
+    }
+  
+    function updateProductPrice(index, quantity) {
+        const item = document.getElementById(`productPrice_${index}`);
+      
+        fetch('/cart.js')
+          .then(response => response.json())
+          .then(data => {
+            const formatter = new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD',
+            });
+
+           
+         // Verificar si data.items está definido y si el índice es válido
+      if (data.items && data.items[index]) {
+        const productLinePrice = data.items[index].price * quantity;
+        const formattedPrice = formatter.format(productLinePrice / 100);
+        item.textContent = formattedPrice;
+      } else {
+        console.error(`Error: Data or item at index ${index} is undefined.`);
+      }
+    })
+    .catch(error => {
+      console.error('Error updating product price:', error);
+    });
+    }
+  
+    function updateCartTotal() {
+      const cartTotalElement = document.getElementById('cartTotal');
+      const productPrices = document.querySelectorAll('.product-price');
+      console.log('updateCartTotal function called');
+  
+      fetch('/cart.js')
+        .then(response => response.json())
+        .then(data => {
+          const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+          });
+  
+          let cartTotal = 0;
+  
+          // Actualizar precios individuales de productos
+          productPrices.forEach((priceElement, index) => {
+            const quantity = parseInt(document.getElementById(`updates_${index + 1}`).value) || 0;
+            const productLinePrice = data.items[index].price * quantity;
+            const formattedProductPrice = formatter.format(productLinePrice / 100);
+            priceElement.textContent = formattedProductPrice;
+  
+            // Actualizar el total del carrito
+            cartTotal += productLinePrice;
+          });
+  
+          // Formatear y mostrar el total del carrito
+          const formattedCartTotal = formatter.format(cartTotal / 100);
+          cartTotalElement.textContent = `Estimated Total: ${formattedCartTotal}`;
+        });
+    }
+  
+    // Establecer un event listener para cambios en el carrito
+    window.addEventListener('SCE:mutate', updateCartTotal);
+  
+    // Llamar a la función inicialmente
+    updateCartTotal();
+</script>  {% endcomment %}
+
+  
+
+  
 
 <style>
    

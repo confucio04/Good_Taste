@@ -1044,8 +1044,14 @@ a {
     font-size: 0.875rem;
 }
 
+.off-price
+{
+    text-decoration: line-through;
+}
+
 .text-gray-400 {
     color: #718096;
+    
 }
 
 .uppercase {
@@ -1164,6 +1170,7 @@ a {
   .template-customer__btns{
     display: grid;
     gap: 10px;
+    text-align: center;
   }
   .template-customer__btn
   {

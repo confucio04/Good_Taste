@@ -80,7 +80,7 @@
                             <p class="text-align size">{{ selected_variant.price | money }}</p>
         
                             {% if selected_variant.compare_at_price %}
-                                <p class="text-gray-500 line-through">{{ selected_variant.compare_at_price | money }}</p>
+                                <p class="text-gray-500 off-price line-through">{{ selected_variant.compare_at_price | money }}</p>
                             {% endif %}
         
                             {% if selected_variant.price < selected_variant.compare_at_price %}
